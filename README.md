@@ -2,7 +2,7 @@
 
 ## Build with [Jekyll](https://jekyllrb.com/)
 
-I'm finding alternatives to create my personal page. I decide to start with Jekylls. I'm going to add the parts that i think that are important to my site.
+I'm finding alternatives to create my personal page. I decide to start with Jekylls. I'm going to add the parts that I think that are important to my site.
 
 **About Jekyll:** Jekyll is a static site generator. You give it text written in your favorite markup language and it uses layouts to create a static website. You can tweak how you want the site URLs to look like, what data gets displayed on the site, and more. Visit the [official page](https://jekyllrb.com/) for more.
 
@@ -35,13 +35,14 @@ gem install jekyll bundler
 
 
 ### Project setup
+Into the project directory, builds the site and outputs a static site to a directory called \_site.
 ```bash
-jekyll new your-project-name
+jekyll build
 ```
 
 Finally, in your project directory, build the site and make it available on a local server.
 ```bash
-bundle exec jekyll serve
+jekyll serve
 ```
 
 After that, your project is running on http://127.0.0.1:4000/
