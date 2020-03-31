@@ -1,3 +1,7 @@
+baseurl: officialsite/
+url: "geovannycordero.github.io/"
+permalink: /:title
+
 defaults:
   - scope:
       path: ""
