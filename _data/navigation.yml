@@ -1,10 +1,10 @@
 - name: Home
-  link: officialpage/
+  link: /
 - name: Profile
-  link: officialpage/profile.html
+  link: /profile.html
 - name: Blog
-  link: officialpage/blog.html
+  link: /blog.html
 - name: Projects
-  link: officialpage/project.html
+  link: /project.html
 - name: About
-  link: officialpage/about.html
+  link: /about.html
