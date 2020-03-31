@@ -1,4 +1,12 @@
 - name: Home
-  link: /officialpage/
+  link: /
+- name: Profile
+  link: profile.html
+- name: Blog
+  link: blog.html
+- name: Projects
+  link: project.html
+# - name: Books
+#   link: books.html
 - name: About
-  link: /officialpage/about
+  link: about.html
