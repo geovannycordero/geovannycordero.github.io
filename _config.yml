@@ -1,6 +1,6 @@
-baseurl: /officialpage
-url: "geovannycordero.github.io/"
-permalink: /:title
+# baseurl: /officialpage
+# url: "geovannycordero.github.io/"
+# permalink: /:title
 
 defaults:
   - scope:
