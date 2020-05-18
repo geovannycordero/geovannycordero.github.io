@@ -4,7 +4,10 @@ source "https://rubygems.org"
 
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
-gem "jekyll"
+group :development do
+  gem "jekyll"
+  gem "nokogiri"
+end
 
 group :jekyll_plugins do
   gem "github-pages"

@@ -247,6 +247,7 @@ DEPENDENCIES
   jekyll-feed
   jekyll-seo-tag
   jekyll-sitemap
+  nokogiri
 
 BUNDLED WITH
    2.1.4
