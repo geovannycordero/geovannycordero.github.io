@@ -1,5 +1,7 @@
 .nav-bar {
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-bar-item {
@@ -11,6 +13,22 @@
   width: 225px;
   height: 300px;
 }
- a {
+
+a {
   text-decoration: none;
- }
+}
+
+.strava-badge {
+  display: inline-block;
+  background-color: #fc5200;
+  color: #fff;
+  padding: 5px 10px 5px 30px;
+  font-size: 11px;
+  font-family: Helvetica, Arial, sans-serif;
+  white-space: nowrap;
+  text-decoration: none;
+  background-repeat: no-repeat;
+  background-position: 10px center;
+  border-radius: 3px;
+  background-image: url("http://badges.strava.com/logo-strava-echelon.png");
+}
