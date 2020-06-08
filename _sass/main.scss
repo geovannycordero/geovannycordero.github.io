@@ -1,7 +1,27 @@
 .nav-bar {
   display: flex;
-  align-items: center;
   justify-content: center;
+  font-size: larger;
+  font-family: monospace;
+}
+
+h2 {
+  font-size: x-large;
+  margin: 2rem;
+}
+
+ul {
+  list-style-type: circle;
+}
+
+li {
+  padding: 5px;
+}
+
+.main-content {
+  background-color: azure;
+  font-family: monospace;
+  margin-left: 2rem;
 }
 
 .nav-bar-item {
