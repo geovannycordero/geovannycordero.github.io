@@ -1,16 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
+{% include head.html %}
 
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="/assets/css/styles.css">
-    <link rel="shortcut icon" href="/favicon.ico?" type="image/x-icon">
-    <title>{{ page.title }}</title>
-  </head>
-
-  <body class="main-content">
-    {% include navigation.html %}
-    {{ content }}
-  </body>
+<body>
+  {% include header.html %}
+  <main>
+    <article>{{ content }}</article>
+  </main>
+  {% include footer.html %}
+</body>
 
 </html>
