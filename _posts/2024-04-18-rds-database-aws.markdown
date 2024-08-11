@@ -51,7 +51,8 @@ Note that you will need to have the AWS CLI installed and you have to be logged 
 
 Yo need to make the object public before you can get it in the another account. Go to the S3 bucket where the sump file is stored and under permissions, uncheck **Block _all_ public access** like in the image below and save the changes.
 
-![Screenshot 2024-04-18 at 21.55.42.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/5a3a5f64-112b-4bc5-8929-6fb49a7f0df3/47ad2931-d774-47dc-81e3-49376149ee63/Screenshot_2024-04-18_at_21.55.42.png)
+<img src="/images/s3_permissions.png" width=750>
+
 
 Then, add the following policy to the bucket:
 
