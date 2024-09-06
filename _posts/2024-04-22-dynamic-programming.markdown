@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "⚽ Dynamic Programing"
-date: 2024-04-22 09354:38 -0600
+date: 2024-04-22 22:10:38 -0600
 categories: mac
 ---
 

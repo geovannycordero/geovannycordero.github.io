@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "🪞 Move an RDS Database from one AWS account to another"
-date: 2024-04-18 09354:38 -0600
+date: 2024-04-18 20:00:38 -0600
 categories: aws, database, rds
 ---
 

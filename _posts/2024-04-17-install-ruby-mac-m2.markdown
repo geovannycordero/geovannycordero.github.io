@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "🪃 Install ruby on Mac OS with M2"
-date: 2024-04-17 09354:38 -0600
+date: 2024-04-17 19:00:38 -0600
 categories: mac
 ---
 
