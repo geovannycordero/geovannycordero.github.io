@@ -34,7 +34,7 @@ h2 {
 a,
 a:visited {
   color: $link-color;
-  text-decoration: underline;
+  text-decoration: none;
   font-weight: bold;
 }
 
@@ -132,9 +132,11 @@ footer {
 
 blockquote {
   font-style: italic;
-  border-left: 5px solid $main;
-  padding-left: 15px;
-  margin: 0;
+  //border-left: 1px solid $main;
+  //padding-left: 15px;
+  margin: 5px;
+  padding: 10px;
+  //border: 1px solid lighten(main, 30%);
 }
 
 /* Responsive */
