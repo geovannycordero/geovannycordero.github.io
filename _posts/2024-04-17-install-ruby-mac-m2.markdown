@@ -2,7 +2,7 @@
 layout: post
 title: "🪃 Install ruby on Mac OS with M2"
 date: 2024-04-17 19:00:38 -0600
-categories: mac
+categories: rubyonrails
 ---
 
 How to install ruby on Mac OS Sonoma with the M2 chip?

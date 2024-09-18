@@ -2,7 +2,7 @@
 layout: post
 title: "🪞 Move an RDS Database from one AWS account to another"
 date: 2024-04-18 20:00:38 -0600
-categories: aws, database, rds
+categories: database
 ---
 
 This article describes how to move a relational Postgres database from one AWS account to another using an EC2 instance and a S3 bucket.

@@ -2,7 +2,7 @@
 layout: post
 title: "🛵 Code Katas"
 date: 2024-04-19 20:32:38 -0600
-categories: code, katas
+categories: codekatas
 ---
 
 Some years ago while I was being mentored by a coworker with more experience, he suggested I start doing code katas to improve my coding skills. That was the first time I heard that term, so I asked and researched a little bit about it.

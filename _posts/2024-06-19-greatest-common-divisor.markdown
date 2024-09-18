@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "🥻 Greatest Common Divisor:  From Numbers to Strings in Go"
-date: 2024-06-19 09354:38 -0600
-categories: programming, gcd
+date: 2024-06-19 21:35:38 -0600
+categories: programming
 ---
 
 The GCD (Greatest Common Divisor) or HCF (Highest Common Factor) is a concept in mathematics that describes the largest number that can evenly divide two or more numbers. This means that if you divide both numbers by this particular number, there will be no remainder.

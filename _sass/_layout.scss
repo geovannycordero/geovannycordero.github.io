@@ -6,6 +6,7 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
+
 h1,
 h2,
 h3 {
@@ -14,28 +15,34 @@ h3 {
   font-family: $heading-font;
   line-height: 1.5;
 }
+
 h1 {
   color: $main;
   font-size: 2.5em;
+
   a,
   a:visited {
     text-decoration: none;
     color: $main;
   }
 }
+
 h2 {
   font-size: 2em;
 }
+
 a,
 a:visited {
   color: $link-color;
   text-decoration: underline;
   font-weight: bold;
 }
+
 a:hover {
   color: $link-hover-color;
   text-decoration: underline;
 }
+
 header {
   background: $header;
   padding: 0px 15px;
@@ -46,15 +53,18 @@ header {
   justify-content: center;
   align-items: center;
 }
+
 main {
   padding: 0 15px;
   max-width: $content-width;
   margin: 0 auto;
   min-height: $min-content-height;
 }
+
 time {
   color: #898989;
 }
+
 .container {
   max-width: $content-width;
   margin: 0 auto;
@@ -71,17 +81,21 @@ aside {
   z-index: 2;
   border-bottom: 1px solid lighten($light, 30%);
   box-shadow: 0px 1px 1px RGBA(4, 25, 54, 0.1);
+
   nav {
     float: right;
     max-width: 800px;
     margin: 0 auto;
+
     ul {
       margin: 0;
       padding: 0;
       list-style: none;
+
       li {
         float: left;
         position: relative;
+
         a {
           text-decoration: none;
           display: block;
@@ -90,6 +104,7 @@ aside {
           line-height: 20px;
           margin-bottom: -1px;
           box-shadow: 0;
+
           &:hover,
           &:active {
             // background: $header;
@@ -99,6 +114,7 @@ aside {
         }
       }
     }
+
     &:after {
       content: "";
       display: table;
@@ -106,6 +122,7 @@ aside {
     }
   }
 }
+
 footer {
   text-align: center;
   padding-top: 30px;
@@ -118,4 +135,33 @@ blockquote {
   border-left: 5px solid $main;
   padding-left: 15px;
   margin: 0;
+}
+
+/* Responsive */
+
+@media screen and (max-width: 800px) {
+  aside {
+    position: static;
+    width: 100%;
+    border-bottom: 1px solid lighten($light, 30%);
+    box-shadow: 0px 1px 1px RGBA(4, 25, 54, 0.1);
+  }
+
+  aside nav {
+    float: none;
+    max-width: 100%;
+  }
+
+  aside nav ul {
+    text-align: center;
+  }
+
+  aside nav ul li {
+    float: none;
+    display: inline-block;
+  }
+
+  aside nav ul li a {
+    padding: 15px 10px;
+  }
 }
