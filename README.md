@@ -14,3 +14,5 @@ Jekyll https://jekyllrb.com/
 Tutorial by Tania https://www.taniarascia.com/make-a-static-website-with-jekyll/
 
 Favicon generator https://favicon.io/favicon-generator/
+
+Random emoji generator https://perchance.org/emoji
