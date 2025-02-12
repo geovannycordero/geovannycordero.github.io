@@ -7,13 +7,16 @@ categories: rubyonrails
 
 How to install ruby on Mac OS Sonoma with the M2 chip?
 
-Recently, I was working on a project where I require to use an old version of ruby, it was ruby `2.7.4` . I try to install this version using `rvm` and `rbenv` without success.
+Recently, I was working on a project where I require to use an old version of ruby, it was ruby `2.7.4` . I try to
+install this version using `rvm` and `rbenv` without success.
 
-After some research I finally found a tool that works for my and the ruby version I was trying to install, this tool is called `asdf` .
+After some research I finally found a tool that works for my and the ruby version I was trying to install, this tool is
+called `asdf` .
 
 ### How to install asdf
 
-There are different ways to get `asdf` listed in the [official page](https://asdf-vm.com/guide/getting-started.html), but I did it using git.
+There are different ways to get `asdf` listed in the [official page](https://asdf-vm.com/guide/getting-started.html),
+but I did it using git.
 
 Open your terminal and run the following command:
 
@@ -21,9 +24,11 @@ Open your terminal and run the following command:
 git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.0
 ```
 
-Then, to install it there is again a lot of different ways, but I decided to add it as a plugin to my previous installed program oh-my-zsh (that I highly recommend to use in mac).
+Then, to install it there is again a lot of different ways, but I decided to add it as a plugin to my previous installed
+program oh-my-zsh (that I highly recommend to use in mac).
 
-Just add it to to the `plugins` definition in the `~/.zshrc` . In my case I was already using the `git` plugin so it looks as follows, separated by an space:
+Just add it to to the `plugins` definition in the `~/.zshrc` . In my case I was already using the `git` plugin so it
+looks as follows, separated by an space:
 
 ```bash
 plugins=(git asdf)
@@ -31,7 +36,8 @@ plugins=(git asdf)
 
 You can check the official instructions [here](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/asdf).
 
-Close and open a new terminal or run `source ~/.zshrc` to update your configuration and you should be able to use `asdf` now.
+Close and open a new terminal or run `source ~/.zshrc` to update your configuration and you should be able to use `asdf`
+now.
 
 ### Ruby with `asdf`
 
