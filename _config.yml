@@ -21,7 +21,8 @@
 title: Geovanny Cordero
 email: geovanny@proton.me
 description: >- # this means to ignore newlines until "baseurl:"
-  Welcome to my personal blog. I write about software development, technology, and other things that interest me.
+  Welcome to my personal blog. I write about software development, technology, and other things that interest me. 
+  I offer consulting services about software engineering, so feel free to reach out if you need help with your project.
   Check out my latest posts.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://localhost:4000" # the base hostname & protocol for your site, e.g. http://example.com
@@ -32,6 +33,7 @@ github_username: geovannycordero
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
 
 # Exclude from processing.
 # The following items will not be processed, by default.
@@ -54,6 +56,6 @@ plugins:
 #   - vendor/ruby/
 sass:
   sass_dir: _sass
-include: ["_pages"]
+include: [ "_pages" ]
 kramdown:
   input: GFM

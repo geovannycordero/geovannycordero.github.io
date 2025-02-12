@@ -4,6 +4,7 @@
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="{{ " /blog" | prepend: site.baseurl }}">Blog</a></li>
+        <li><a href="{{ " /projects" | prepend: site.baseurl }}">Projects</a></li>
         {% for page in site.pages %} {% if page.title %}
         <li><a href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a></li>
         {% endif %} {% endfor %}
@@ -15,5 +16,5 @@
 </aside>
 
 <header>
-  <!-- <h1><a href="{{ site.baseurl }}">{{ site.title }}</a></h1> -->
+<!--   <h1><a href="{{ site.baseurl }}">{{ site.title }}</a></h1>-->
 </header>

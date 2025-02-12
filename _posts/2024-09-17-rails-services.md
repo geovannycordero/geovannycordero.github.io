@@ -18,6 +18,7 @@ need to get a specific blog post by its ID.
 This is an example of a simple service class in Rails:
 
 ```ruby
+
 module Blogs
   class GetById < ApplicationService
     def initialize(id:)
