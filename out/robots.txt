@@ -1,0 +1,6 @@
+User-Agent: *
+Allow: /
+Disallow: /private/
+Disallow: /admin/
+
+Sitemap: https://geovannycordero.com/sitemap.xml
