@@ -1,0 +1,83 @@
+---
+title: "Getting Payback from Generative AI: Webinar Summary"
+date: "2025-02-21"
+excerpt: "Key insights from MIT Sloan's webinar on implementing generative AI in business. Learn practical strategies for small companies to leverage LLMs effectively while managing costs and risks."
+readTime: "9 min read"
+tags: ["Artificial Intelligence", "LLMs", "Business Strategy", "Technology Implementation", "Machine Learning"]
+author: "Geovanny Cordero Valverde"
+---
+
+Last wee I was able to attend to a webinar called "Getting Payback from Generative AI" and I wanted to share with you
+the main points that were discussed. It was hosted by the MIT Sloan Management Review and presented
+by [Rama Ramakrishnan](https://www.linkedin.com/in/ramar/).
+
+This post is basically The notes I took during the webinar and somme recommendations as conclusion for small companies
+that want to start with LLMs and Generative AI, so I hope you find them useful.
+
+**How LLMs Work:**
+
+- LLMs work like "auto complete" systems that predict next words based on probabilities.
+- They generate text by sampling from many possible next words, so answers can vary each time.
+- They sometimes make mistakes or produce wrong information.
+
+**Three Main Methods to Adapt LLMs for Business:**
+
+- _Prompting_: Ass simple instructions to the model with a clear text. This approach is good for simple, everyday tasks.
+- _Retrieval-Augmented Generation (RAG)_: Adding relevant data and context to the prompt for more accurate and current
+  answers.
+- _Instruction Fine-Tuning_: Train the model with domain-specific examples for tasks that need high accuracy.
+
+**The Generative AI Cost Equation:**
+
+- Compare the cost of using generative AI (including adaptation and error checking) with the cost of doing the work
+  without AI.
+- Consider the cost of mistakes (legal, reputation, ...) and make sure your business can handle it.
+
+**Building and Evaluating Tests:**
+
+- Divide complex workflows into smaller tasks.
+- Test LLM solutions on a small scale and evaluate their performance.
+- Iterate and improve, keeping a human in the loop for error checking.
+
+**Value and Limitations:**
+
+- LLMs can improve efficiency in tasks. For example writing, coding, customer support, and marketing.
+- They are not perfect; they might produce errors or miss logical steps, evaluation and error correction is
+  needed.
+- As technology improves, costs of adaptation and usage are decreasing, making LLMs more attractive over time.
+
+### Suggestions for Small Companies to Get Payback from Generative AI
+
+- Start Small:
+  Identify simple tasks (drafting emails, generating social media posts, or data summaries) where LLMs can be
+  used with simple prompting.
+
+- Use Ready-Made Solutions:
+  Consider commercially available AI tools that already include advanced prompting and error-checking mechanisms.
+
+- Test Projects:
+  Run small tests for specific tasks before scaling up. This helps understand benefits and uncover issues.
+
+- Break Down Processes:
+  Divide business processes into smaller tasks, so you can apply AI where it is most efficient.
+
+- Evaluate Costs Carefully:
+    - Compare the cost of using AI (including adaptation and error checking) with your current process costs.
+    - Consider the risk or "cost of a miss" for tasks where errors can be expensive.
+
+- Keep Human in the Process:
+  Always include a human in the loop, to review and correct AI outputs.
+
+- Invest in Prompt Engineering:
+  Spend time on designing clear instructions to get the best possible output from the AI.
+
+- Revisit and Iterate:
+    - Regularly review the performance as LLM technology improves and costs decrease.
+    - Update your processes and tests based on new capabilities and insights.
+
+- Explore Open-Source Options:
+  Look into open-source LLMs that might be adapted to your needs with lower investment.
+
+If you are interested in the topic and want to dive a little more on it, I recommend you to check this
+paper [A Practical Guide to Gaining Value From LLMs](https://s3.us-east-1.amazonaws.com/marketing.mitsmr.com/events/MITSMR-Webinar-Ramakrishnan-2025-Prereading.pdf)
+that the author share with the participants.

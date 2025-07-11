@@ -1,0 +1,462 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 142 76% 36%;
+    --primary-foreground: 355 20% 99%;
+    --secondary: 142 30% 96%;
+    --secondary-foreground: 142 76% 20%;
+    --muted: 210 40% 98%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 142 30% 96%;
+    --accent-foreground: 142 76% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 142 76% 36%;
+    --radius: 0.75rem;
+
+    /* Modern Green color palette */
+    --emerald-50: 151 81% 96%;
+    --emerald-100: 149 80% 90%;
+    --emerald-200: 152 76% 80%;
+    --emerald-300: 156 72% 67%;
+    --emerald-400: 158 64% 52%;
+    --emerald-500: 160 84% 39%;
+    --emerald-600: 161 94% 30%;
+    --emerald-700: 163 94% 24%;
+    --emerald-800: 163 88% 20%;
+    --emerald-900: 164 86% 16%;
+    --emerald-950: 166 91% 9%;
+
+    /* Sage Green accents */
+    --sage-50: 138 20% 97%;
+    --sage-100: 138 15% 94%;
+    --sage-200: 138 12% 88%;
+    --sage-300: 138 10% 76%;
+    --sage-400: 138 8% 64%;
+    --sage-500: 138 6% 52%;
+    --sage-600: 138 8% 42%;
+    --sage-700: 138 10% 34%;
+    --sage-800: 138 12% 27%;
+    --sage-900: 138 15% 22%;
+    --sage-950: 138 20% 15%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Modern Green color utilities */
+@layer utilities {
+  .text-emerald-50 {
+    color: hsl(var(--emerald-50));
+  }
+  .text-emerald-100 {
+    color: hsl(var(--emerald-100));
+  }
+  .text-emerald-200 {
+    color: hsl(var(--emerald-200));
+  }
+  .text-emerald-300 {
+    color: hsl(var(--emerald-300));
+  }
+  .text-emerald-400 {
+    color: hsl(var(--emerald-400));
+  }
+  .text-emerald-500 {
+    color: hsl(var(--emerald-500));
+  }
+  .text-emerald-600 {
+    color: hsl(var(--emerald-600));
+  }
+  .text-emerald-700 {
+    color: hsl(var(--emerald-700));
+  }
+  .text-emerald-800 {
+    color: hsl(var(--emerald-800));
+  }
+  .text-emerald-900 {
+    color: hsl(var(--emerald-900));
+  }
+  .text-emerald-950 {
+    color: hsl(var(--emerald-950));
+  }
+
+  .bg-emerald-50 {
+    background-color: hsl(var(--emerald-50));
+  }
+  .bg-emerald-100 {
+    background-color: hsl(var(--emerald-100));
+  }
+  .bg-emerald-200 {
+    background-color: hsl(var(--emerald-200));
+  }
+  .bg-emerald-300 {
+    background-color: hsl(var(--emerald-300));
+  }
+  .bg-emerald-400 {
+    background-color: hsl(var(--emerald-400));
+  }
+  .bg-emerald-500 {
+    background-color: hsl(var(--emerald-500));
+  }
+  .bg-emerald-600 {
+    background-color: hsl(var(--emerald-600));
+  }
+  .bg-emerald-700 {
+    background-color: hsl(var(--emerald-700));
+  }
+  .bg-emerald-800 {
+    background-color: hsl(var(--emerald-800));
+  }
+  .bg-emerald-900 {
+    background-color: hsl(var(--emerald-900));
+  }
+  .bg-emerald-950 {
+    background-color: hsl(var(--emerald-950));
+  }
+
+  .border-emerald-50 {
+    border-color: hsl(var(--emerald-50));
+  }
+  .border-emerald-100 {
+    border-color: hsl(var(--emerald-100));
+  }
+  .border-emerald-200 {
+    border-color: hsl(var(--emerald-200));
+  }
+  .border-emerald-300 {
+    border-color: hsl(var(--emerald-300));
+  }
+  .border-emerald-400 {
+    border-color: hsl(var(--emerald-400));
+  }
+  .border-emerald-500 {
+    border-color: hsl(var(--emerald-500));
+  }
+  .border-emerald-600 {
+    border-color: hsl(var(--emerald-600));
+  }
+  .border-emerald-700 {
+    border-color: hsl(var(--emerald-700));
+  }
+  .border-emerald-800 {
+    border-color: hsl(var(--emerald-800));
+  }
+  .border-emerald-900 {
+    border-color: hsl(var(--emerald-900));
+  }
+  .border-emerald-950 {
+    border-color: hsl(var(--emerald-950));
+  }
+
+  /* Sage Green utilities */
+  .text-sage-50 {
+    color: hsl(var(--sage-50));
+  }
+  .text-sage-100 {
+    color: hsl(var(--sage-100));
+  }
+  .text-sage-200 {
+    color: hsl(var(--sage-200));
+  }
+  .text-sage-300 {
+    color: hsl(var(--sage-300));
+  }
+  .text-sage-400 {
+    color: hsl(var(--sage-400));
+  }
+  .text-sage-500 {
+    color: hsl(var(--sage-500));
+  }
+  .text-sage-600 {
+    color: hsl(var(--sage-600));
+  }
+  .text-sage-700 {
+    color: hsl(var(--sage-700));
+  }
+  .text-sage-800 {
+    color: hsl(var(--sage-800));
+  }
+  .text-sage-900 {
+    color: hsl(var(--sage-900));
+  }
+  .text-sage-950 {
+    color: hsl(var(--sage-950));
+  }
+
+  .bg-sage-50 {
+    background-color: hsl(var(--sage-50));
+  }
+  .bg-sage-100 {
+    background-color: hsl(var(--sage-100));
+  }
+  .bg-sage-200 {
+    background-color: hsl(var(--sage-200));
+  }
+  .bg-sage-300 {
+    background-color: hsl(var(--sage-300));
+  }
+  .bg-sage-400 {
+    background-color: hsl(var(--sage-400));
+  }
+  .bg-sage-500 {
+    background-color: hsl(var(--sage-500));
+  }
+  .bg-sage-600 {
+    background-color: hsl(var(--sage-600));
+  }
+  .bg-sage-700 {
+    background-color: hsl(var(--sage-700));
+  }
+  .bg-sage-800 {
+    background-color: hsl(var(--sage-800));
+  }
+  .bg-sage-900 {
+    background-color: hsl(var(--sage-900));
+  }
+  .bg-sage-950 {
+    background-color: hsl(var(--sage-950));
+  }
+
+  /* Ring utilities for focus states */
+  .ring-emerald-500 {
+    --tw-ring-color: hsl(var(--emerald-500));
+  }
+  .ring-emerald-600 {
+    --tw-ring-color: hsl(var(--emerald-600));
+  }
+
+  /* Line clamp utility for text truncation */
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
+
+/* Custom styles for blog content */
+.prose {
+  @apply text-foreground;
+}
+
+.prose h2 {
+  @apply text-2xl font-bold mt-8 mb-4 text-emerald-800;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold mt-6 mb-3 text-emerald-700;
+}
+
+.prose p {
+  @apply mb-4 leading-relaxed text-sage-700;
+}
+
+.prose ul {
+  @apply mb-4 pl-6 space-y-2;
+}
+
+.prose li {
+  @apply text-sage-700;
+}
+
+.prose strong {
+  @apply text-emerald-800 font-semibold;
+}
+
+.prose code {
+  @apply bg-emerald-50 text-emerald-800 px-1 py-0.5 rounded text-sm;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-emerald-300 pl-4 italic text-sage-600;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll margin for fixed header */
+.scroll-mt-24 {
+  scroll-margin-top: 6rem;
+}
+
+/* Custom animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* Loading animation for blog cards */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Staggered animation for blog cards - optimized for performance */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.4s ease-out forwards;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a {
+  @apply transition-colors duration-200;
+}
+
+/* Custom scrollbar for webkit browsers with green theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-emerald-50;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-emerald-200 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-emerald-300;
+}
+
+/* Ensure smooth scrolling works on all browsers */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Fallback for browsers that don't support scroll-behavior */
+@supports not (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Modern green gradient backgrounds */
+.bg-emerald-gradient {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--emerald-500)) 0%,
+    hsl(var(--emerald-700)) 50%,
+    hsl(var(--emerald-900)) 100%
+  );
+}
+
+.bg-sage-gradient {
+  background: linear-gradient(135deg, hsl(var(--sage-50)) 0%, hsl(var(--sage-100)) 50%, hsl(var(--sage-200)) 100%);
+}
+
+/* Elegant hover effects */
+.hover-lift {
+  @apply transition-all duration-300 ease-out;
+}
+
+.hover-lift:hover {
+  @apply transform -translate-y-1 shadow-lg;
+}
+
+/* Card enhancements */
+.card-elegant {
+  @apply bg-card border border-emerald-100 shadow-sm hover:shadow-md transition-all duration-300;
+}
+
+.card-elegant:hover {
+  @apply border-emerald-200 shadow-emerald-100/20;
+}
+
+/* Text selection */
+::selection {
+  @apply bg-emerald-200 text-emerald-900;
+}
+
+/* Focus visible styles for better accessibility */
+.focus-visible:focus-visible {
+  @apply outline-none ring-2 ring-emerald-500 ring-offset-2 ring-offset-background;
+}
+
+/* Performance optimizations for large lists */
+.blog-post-list {
+  contain: layout style paint;
+}
+
+.blog-post-card {
+  contain: layout style;
+  will-change: transform, opacity;
+}
+
+/* Optimize animations for better performance */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse,
+  .animate-slide-in-up,
+  .animate-fade-in-up {
+    animation: none;
+  }
+
+  .hover-lift:hover {
+    transform: none;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+/* Improve rendering performance for long lists */
+.blog-content-container {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
