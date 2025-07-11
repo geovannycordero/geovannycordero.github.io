@@ -1,10 +1,10 @@
 ---
-title: "Dynamic Programming: Concept"
-date: "2024-04-22"
-excerpt: "Dynamic programming is a method used in computer science and mathematics to solve complex problems by breaking them down into smaller, individualized sub problems. Learn the fundamentals with the classic Fibonacci sequence example."
-readTime: "4 min read"
-tags: ["Programming", "Algorithms", "Dynamic Programming"]
-author: "Geovanny Cordero Valverde"
+title: 'Dynamic Programming: Concept'
+date: '2024-04-22'
+excerpt: 'Dynamic programming is a method used in computer science and mathematics to solve complex problems by breaking them down into smaller, individualized sub problems. Learn the fundamentals with the classic Fibonacci sequence example.'
+readTime: '4 min read'
+tags: ['Programming', 'Algorithms', 'Dynamic Programming']
+author: 'Geovanny Cordero Valverde'
 ---
 
 Dynamic programming is a method used in computer science and mathematics to solve complex problems by breaking them down

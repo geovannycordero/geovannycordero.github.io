@@ -1,10 +1,10 @@
 ---
-title: "Install Ruby on Mac OS with M2 Chip"
-date: "2024-04-17"
-excerpt: "Learn how to install older Ruby versions on Mac OS Sonoma with M2 chip using asdf version manager. A practical guide for developers working with legacy Ruby projects."
-readTime: "5 min read"
-tags: ["Ruby", "macOS", "Development Environment", "asdf", "M2 Chip"]
-author: "Geovanny Cordero Valverde"
+title: 'Install Ruby on Mac OS with M2 Chip'
+date: '2024-04-17'
+excerpt: 'Learn how to install older Ruby versions on Mac OS Sonoma with M2 chip using asdf version manager. A practical guide for developers working with legacy Ruby projects.'
+readTime: '5 min read'
+tags: ['Ruby', 'macOS', 'Development Environment', 'asdf', 'M2 Chip']
+author: 'Geovanny Cordero Valverde'
 ---
 
 How to install ruby on Mac OS Sonoma with the M2 chip?

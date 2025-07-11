@@ -1,17 +1,17 @@
 ---
-title: "Dozen Canons of Conduct in Life"
-date: "2024-10-03"
+title: 'Dozen Canons of Conduct in Life'
+date: '2024-10-03'
 excerpt: "Explore Thomas Jefferson's timeless twelve canons of conduct and discover how these 18th-century principles can be adapted and applied to modern life and professional development."
-readTime: "7 min read"
+readTime: '7 min read'
 tags:
   [
-    "Personal Development",
-    "Life Philosophy",
-    "Leadership",
-    "Self-Improvement",
-    "Historical Wisdom",
+    'Personal Development',
+    'Life Philosophy',
+    'Leadership',
+    'Self-Improvement',
+    'Historical Wisdom',
   ]
-author: "Geovanny Cordero Valverde"
+author: 'Geovanny Cordero Valverde'
 ---
 
 I read a lot of articles, posts, and books on the internet about how to improve my life and be a better person. I found

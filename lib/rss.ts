@@ -1,14 +1,14 @@
-import { getAllPosts } from "./blog"
+import { getAllPosts } from './blog';
 
 export async function generateRSSFeed() {
-  const posts = await getAllPosts()
-  const siteUrl = "https://geovannycordero.com"
-  const feedUrl = `${siteUrl}/rss.xml`
+  const posts = await getAllPosts();
+  const siteUrl = 'https://geovannycordero.com';
+  const feedUrl = `${siteUrl}/rss.xml`;
 
   const rssItems = posts
-    .map((post) => {
-      const postUrl = `${siteUrl}/blog/${post.slug}`
-      const pubDate = new Date(post.date).toUTCString()
+    .map(post => {
+      const postUrl = `${siteUrl}/blog/${post.slug}`;
+      const pubDate = new Date(post.date).toUTCString();
 
       return `
     <item>
@@ -18,12 +18,15 @@ export async function generateRSSFeed() {
       <guid isPermaLink="true">${postUrl}</guid>
       <pubDate>${pubDate}</pubDate>
       <author>geovanny@pm.me (Geovanny Cordero Valverde)</author>
-      ${post.tags.map((tag) => `<category>${tag}</category>`).join("")}
-    </item>`
+      ${post.tags.map(tag => `<category>${tag}</category>`).join('')}
+    </item>`;
     })
-    .join("")
+    .join('');
 
-  const latestPostDate = posts.length > 0 ? new Date(posts[0].date).toUTCString() : new Date().toUTCString()
+  const latestPostDate =
+    posts.length > 0
+      ? new Date(posts[0].date).toUTCString()
+      : new Date().toUTCString();
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -47,5 +50,5 @@ export async function generateRSSFeed() {
     </image>
     ${rssItems}
   </channel>
-</rss>`
+</rss>`;
 }

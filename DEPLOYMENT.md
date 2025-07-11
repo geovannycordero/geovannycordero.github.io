@@ -5,6 +5,7 @@ This project is configured for static export and can be deployed to GitHub Pages
 ## Quick Deploy
 
 1. **Build the static site:**
+
    ```bash
    yarn build:static
    ```
@@ -21,6 +22,7 @@ The project includes a GitHub Actions workflow that automatically builds and dep
 ### Setup Steps:
 
 1. **Push your code to GitHub:**
+
    ```bash
    git add .
    git commit -m "Configure for GitHub Pages deployment"
@@ -43,6 +45,7 @@ The project includes a GitHub Actions workflow that automatically builds and dep
 If you prefer to deploy manually:
 
 1. **Build the site:**
+
    ```bash
    yarn build:static
    ```
@@ -52,6 +55,7 @@ If you prefer to deploy manually:
 ## Configuration
 
 The project is configured with:
+
 - `output: 'export'` - Generates static HTML files
 - `trailingSlash: true` - Adds trailing slashes to URLs
 - No basePath - Configured for root deployment (can be added if needed for subdirectory deployment)
@@ -59,6 +63,7 @@ The project is configured with:
 ## Build Output
 
 After building, you'll find:
+
 - `out/index.html` - Main entry point
 - `out/blog/` - Blog pages
 - `out/_next/` - Static assets
@@ -68,4 +73,4 @@ After building, you'll find:
 
 - **Build fails with cssnano error:** Run `yarn add cssnano`
 - **Dynamic routes error:** Ensure all routes have `export const dynamic = "force-static"`
-- **SearchParams error:** Remove dynamic searchParams usage for static export 
+- **SearchParams error:** Remove dynamic searchParams usage for static export

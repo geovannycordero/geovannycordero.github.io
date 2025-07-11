@@ -1,59 +1,79 @@
-import Link from "next/link"
-import { Mail, Linkedin } from "lucide-react"
-import RSSLink from "./rss-link"
+import Link from 'next/link';
+import { Mail, Linkedin } from 'lucide-react';
+import RSSLink from './rss-link';
 
 export default function Footer() {
   return (
-    <footer className="bg-emerald-50/50 border-t border-emerald-100">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-3 gap-8">
+    <footer className='bg-emerald-50/50 border-t border-emerald-100'>
+      <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12'>
+        <div className='grid md:grid-cols-3 gap-8'>
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-sage-900">Geovanny Cordero Valverde</h3>
-            <p className="text-sage-700 mb-4">
-              Full-Stack Software Engineer passionate about creating innovative solutions and leading high-performing
-              development teams.
+            <h3 className='text-lg font-semibold mb-4 text-sage-900'>
+              Geovanny Cordero Valverde
+            </h3>
+            <p className='text-sage-700 mb-4'>
+              Full-Stack Software Engineer passionate about creating innovative
+              solutions and leading high-performing development teams.
             </p>
-            <div className="flex gap-4">
-              <Link href="mailto:geovanny@pm.me" className="text-sage-600 hover:text-emerald-600 transition-colors">
-                <Mail className="h-5 w-5" />
+            <div className='flex gap-4'>
+              <Link
+                href='mailto:geovanny@pm.me'
+                className='text-sage-600 hover:text-emerald-600 transition-colors'
+              >
+                <Mail className='h-5 w-5' />
               </Link>
               <Link
-                href="https://linkedin.com/in/geovannycordero"
-                target="_blank"
-                className="text-sage-600 hover:text-emerald-600 transition-colors"
+                href='https://linkedin.com/in/geovannycordero'
+                target='_blank'
+                className='text-sage-600 hover:text-emerald-600 transition-colors'
               >
-                <Linkedin className="h-5 w-5" />
+                <Linkedin className='h-5 w-5' />
               </Link>
             </div>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4 text-emerald-800">Quick Links</h4>
-            <nav className="space-y-2">
-              <Link href="/#about" className="block text-sage-600 hover:text-emerald-600 transition-colors">
+            <h4 className='font-semibold mb-4 text-emerald-800'>Quick Links</h4>
+            <nav className='space-y-2'>
+              <Link
+                href='/#about'
+                className='block text-sage-600 hover:text-emerald-600 transition-colors'
+              >
                 About
               </Link>
-              <Link href="/#skills" className="block text-sage-600 hover:text-emerald-600 transition-colors">
+              <Link
+                href='/#skills'
+                className='block text-sage-600 hover:text-emerald-600 transition-colors'
+              >
                 Skills
               </Link>
-              <Link href="/#experience" className="block text-sage-600 hover:text-emerald-600 transition-colors">
+              <Link
+                href='/#experience'
+                className='block text-sage-600 hover:text-emerald-600 transition-colors'
+              >
                 Experience
               </Link>
-              <Link href="/#education" className="block text-sage-600 hover:text-emerald-600 transition-colors">
+              <Link
+                href='/#education'
+                className='block text-sage-600 hover:text-emerald-600 transition-colors'
+              >
                 Education
               </Link>
-              <Link href="/#contact" className="block text-sage-600 hover:text-emerald-600 transition-colors">
+              <Link
+                href='/#contact'
+                className='block text-sage-600 hover:text-emerald-600 transition-colors'
+              >
                 Contact
               </Link>
-              <div className="pt-2">
+              <div className='pt-2'>
                 <RSSLink />
               </div>
             </nav>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4 text-emerald-800">Services</h4>
-            <ul className="space-y-2 text-sage-600">
+            <h4 className='font-semibold mb-4 text-emerald-800'>Services</h4>
+            <ul className='space-y-2 text-sage-600'>
               <li>Full-Stack Development</li>
               <li>Team Leadership</li>
               <li>Project Management</li>
@@ -63,10 +83,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-emerald-100 mt-8 pt-8 text-center text-sage-600">
-          <p>&copy; {new Date().getFullYear()} Geovanny Cordero Valverde. All rights reserved.</p>
+        <div className='border-t border-emerald-100 mt-8 pt-8 text-center text-sage-600'>
+          <p>
+            &copy; {new Date().getFullYear()} Geovanny Cordero Valverde. All
+            rights reserved.
+          </p>
         </div>
       </div>
     </footer>
-  )
+  );
 }

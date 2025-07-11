@@ -1,10 +1,10 @@
 ---
-title: "Move an RDS Database from One AWS Account to Another"
-date: "2024-04-18"
-excerpt: "Learn how to migrate a PostgreSQL RDS database between AWS accounts using EC2, S3, and pg_dump/pg_restore tools. A step-by-step guide for databases under 100GB."
-readTime: "8 min read"
-tags: ["AWS", "Database", "PostgreSQL", "DevOps", "Migration"]
-author: "Geovanny Cordero Valverde"
+title: 'Move an RDS Database from One AWS Account to Another'
+date: '2024-04-18'
+excerpt: 'Learn how to migrate a PostgreSQL RDS database between AWS accounts using EC2, S3, and pg_dump/pg_restore tools. A step-by-step guide for databases under 100GB.'
+readTime: '8 min read'
+tags: ['AWS', 'Database', 'PostgreSQL', 'DevOps', 'Migration']
+author: 'Geovanny Cordero Valverde'
 ---
 
 This article describes how to move a relational Postgres database from one AWS account to another using an EC2 instance

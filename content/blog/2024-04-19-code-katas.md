@@ -1,10 +1,10 @@
 ---
-title: "Code Katas: Improving Programming Skills Through Practice"
-date: "2024-04-19"
-excerpt: "Discover how code katas can improve your programming skills through deliberate practice and repetition. Explore the best platforms and resources to start your coding practice journey."
-readTime: "6 min read"
-tags: ["Programming", "Practice", "Code Katas", "Skill Development", "Learning"]
-author: "Geovanny Cordero Valverde"
+title: 'Code Katas: Improving Programming Skills Through Practice'
+date: '2024-04-19'
+excerpt: 'Discover how code katas can improve your programming skills through deliberate practice and repetition. Explore the best platforms and resources to start your coding practice journey.'
+readTime: '6 min read'
+tags: ['Programming', 'Practice', 'Code Katas', 'Skill Development', 'Learning']
+author: 'Geovanny Cordero Valverde'
 ---
 
 Some years ago while I was being mentored by a coworker with more experience, he suggested I start doing code katas to
@@ -19,14 +19,14 @@ I have been using some platforms to practice code katas since then, and here is 
 practicing:
 
 - CodeKata: [http://codekata.com](http://codekata.com/)
-    - They provide a list of problems and you decide how to solve and test it.
+  - They provide a list of problems and you decide how to solve and test it.
 - Codewars: [https://www.codewars.com](https://www.codewars.com/), check my
   profile[here](https://www.codewars.com/users/geovannycordero).
-    - Brings you a list of languages and levels so you can practice accordingly. It provides tests and you can run your
-      program on the platform. You can search for problems randomly.
+  - Brings you a list of languages and levels so you can practice accordingly. It provides tests and you can run your
+    program on the platform. You can search for problems randomly.
 - LeetCode: [https://leetcode.com](https://leetcode.com)
-    - You can find study plans, this platform is more related to interview questions but it would help you improve your
-      coding skills
+  - You can find study plans, this platform is more related to interview questions but it would help you improve your
+    coding skills
 
 There are a lot of other examples such as LeetCode, for example, [HackerRank](https://www.hackerrank.com/)
 and [AlgoExpert](https://www.algoexpert.io/). Check them and compare which one is more useful for what you are looking

@@ -1,17 +1,17 @@
 ---
-title: "Rails Services: Encapsulating Business Logic"
-date: "2024-09-17"
-excerpt: "Learn how to implement the Service Object pattern in Ruby on Rails to encapsulate business logic, improve code organization, and enhance testability. Includes practical examples and testing strategies."
-readTime: "7 min read"
+title: 'Rails Services: Encapsulating Business Logic'
+date: '2024-09-17'
+excerpt: 'Learn how to implement the Service Object pattern in Ruby on Rails to encapsulate business logic, improve code organization, and enhance testability. Includes practical examples and testing strategies.'
+readTime: '7 min read'
 tags:
   [
-    "Ruby on Rails",
-    "Design Patterns",
-    "Software Architecture",
-    "Testing",
-    "Best Practices",
+    'Ruby on Rails',
+    'Design Patterns',
+    'Software Architecture',
+    'Testing',
+    'Best Practices',
   ]
-author: "Geovanny Cordero Valverde"
+author: 'Geovanny Cordero Valverde'
 ---
 
 In Ruby on Rails, services are a way to encapsulate business logic that doesn't fit into models,

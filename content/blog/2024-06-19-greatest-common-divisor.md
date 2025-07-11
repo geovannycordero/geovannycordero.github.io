@@ -1,10 +1,10 @@
 ---
-title: "Greatest Common Divisor: From Numbers to Strings in Go"
-date: "2024-06-19"
-excerpt: "Explore the mathematical concept of Greatest Common Divisor (GCD) and learn how to implement efficient algorithms in Go for both numbers and strings. Includes practical examples and performance considerations."
-readTime: "8 min read"
-tags: ["Go", "Algorithms", "Mathematics", "Programming", "Data Structures"]
-author: "Geovanny Cordero Valverde"
+title: 'Greatest Common Divisor: From Numbers to Strings in Go'
+date: '2024-06-19'
+excerpt: 'Explore the mathematical concept of Greatest Common Divisor (GCD) and learn how to implement efficient algorithms in Go for both numbers and strings. Includes practical examples and performance considerations.'
+readTime: '8 min read'
+tags: ['Go', 'Algorithms', 'Mathematics', 'Programming', 'Data Structures']
+author: 'Geovanny Cordero Valverde'
 ---
 
 The GCD (Greatest Common Divisor) or HCF (Highest Common Factor) is a concept in mathematics that describes the largest
@@ -12,8 +12,7 @@ number that can evenly divide two or more numbers. This means that if you divide
 there will be no remainder.
 
 Consider the numbers 18 and 24. The numbers that divide 18 are 1, 2, 3, 6, 9, and 18, while the numbers that divide 24
-are 1, 2, 3, 4, 6, 8, 12, and 24. The largest number that is common to both lists is 6. Hence, 6 is the GCD of 18 and
-24.
+are 1, 2, 3, 4, 6, 8, 12, and 24. The largest number that is common to both lists is 6. Hence, 6 is the GCD of 18 and 24.
 
 For another example, consider the numbers 101 and 103. Both numbers are prime, meaning they can only be divided by 1 and
 themselves without leaving a remainder. Therefore, the GCD of 101 and 103 is 1, because that is the only number that can

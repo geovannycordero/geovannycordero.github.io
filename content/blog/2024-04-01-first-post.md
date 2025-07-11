@@ -1,10 +1,10 @@
 ---
-title: "Welcome to My Blog"
-date: "2024-04-01"
-excerpt: "Welcome to my personal blog where I share insights about technology, software development, and interesting topics from my journey as a Full-Stack Software Engineer."
-readTime: "2 min read"
-tags: ["General", "Welcome", "Introduction"]
-author: "Geovanny Cordero Valverde"
+title: 'Welcome to My Blog'
+date: '2024-04-01'
+excerpt: 'Welcome to my personal blog where I share insights about technology, software development, and interesting topics from my journey as a Full-Stack Software Engineer.'
+readTime: '2 min read'
+tags: ['General', 'Welcome', 'Introduction']
+author: 'Geovanny Cordero Valverde'
 ---
 
 Welcome to my page! This is my first post on my personal website. My idea is to create posts about technology topics and interesting things that I encounter in my journey as a Full-Stack Software Engineer.
@@ -14,18 +14,21 @@ Welcome to my page! This is my first post on my personal website. My idea is to 
 I plan to share content about:
 
 ### **Technical Topics**
+
 - Software development best practices
 - Programming languages and frameworks (especially Golang, Ruby on Rails, and JavaScript)
 - System architecture and design patterns
 - DevOps and cloud technologies
 
 ### **Leadership and Management**
+
 - Team leadership experiences
 - Remote work strategies
 - Mentoring and career development
 - Project management insights
 
 ### **Learning and Growth**
+
 - New technologies I'm exploring
 - Lessons learned from projects
 - Industry trends and observations
@@ -70,6 +73,7 @@ In upcoming posts, you can expect to see:
 I'm always interested in connecting with fellow developers, tech enthusiasts, and anyone interested in software engineering and technology leadership.
 
 You can find me on:
+
 - **LinkedIn**: [linkedin.com/in/geovannycordero](https://linkedin.com/in/geovannycordero)
 - **Email**: [geovanny@pm.me](mailto:geovanny@pm.me)
 

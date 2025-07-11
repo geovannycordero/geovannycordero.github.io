@@ -1,10 +1,17 @@
 ---
-title: "Getting Payback from Generative AI: Webinar Summary"
-date: "2025-02-21"
+title: 'Getting Payback from Generative AI: Webinar Summary'
+date: '2025-02-21'
 excerpt: "Key insights from MIT Sloan's webinar on implementing generative AI in business. Learn practical strategies for small companies to leverage LLMs effectively while managing costs and risks."
-readTime: "9 min read"
-tags: ["Artificial Intelligence", "LLMs", "Business Strategy", "Technology Implementation", "Machine Learning"]
-author: "Geovanny Cordero Valverde"
+readTime: '9 min read'
+tags:
+  [
+    'Artificial Intelligence',
+    'LLMs',
+    'Business Strategy',
+    'Technology Implementation',
+    'Machine Learning',
+  ]
+author: 'Geovanny Cordero Valverde'
 ---
 
 Last wee I was able to attend to a webinar called "Getting Payback from Generative AI" and I wanted to share with you
@@ -62,8 +69,8 @@ that want to start with LLMs and Generative AI, so I hope you find them useful.
   Divide business processes into smaller tasks, so you can apply AI where it is most efficient.
 
 - Evaluate Costs Carefully:
-    - Compare the cost of using AI (including adaptation and error checking) with your current process costs.
-    - Consider the risk or "cost of a miss" for tasks where errors can be expensive.
+  - Compare the cost of using AI (including adaptation and error checking) with your current process costs.
+  - Consider the risk or "cost of a miss" for tasks where errors can be expensive.
 
 - Keep Human in the Process:
   Always include a human in the loop, to review and correct AI outputs.
@@ -72,8 +79,8 @@ that want to start with LLMs and Generative AI, so I hope you find them useful.
   Spend time on designing clear instructions to get the best possible output from the AI.
 
 - Revisit and Iterate:
-    - Regularly review the performance as LLM technology improves and costs decrease.
-    - Update your processes and tests based on new capabilities and insights.
+  - Regularly review the performance as LLM technology improves and costs decrease.
+  - Update your processes and tests based on new capabilities and insights.
 
 - Explore Open-Source Options:
   Look into open-source LLMs that might be adapted to your needs with lower investment.

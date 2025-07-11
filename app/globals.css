@@ -394,7 +394,12 @@ a {
 }
 
 .bg-sage-gradient {
-  background: linear-gradient(135deg, hsl(var(--sage-50)) 0%, hsl(var(--sage-100)) 50%, hsl(var(--sage-200)) 100%);
+  background: linear-gradient(
+    135deg,
+    hsl(var(--sage-50)) 0%,
+    hsl(var(--sage-100)) 50%,
+    hsl(var(--sage-200)) 100%
+  );
 }
 
 /* Elegant hover effects */
