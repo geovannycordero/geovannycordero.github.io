@@ -28,3 +28,6 @@ next-env.d.ts
 **/*.DS_Store
 
 ## **/out
+.idea
+_site
+out

@@ -3,8 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "build": "next build",
-    "build:static": "NODE_ENV=production next build",
+    "build": "NODE_ENV=production next build",
     "dev": "next dev",
     "lint": "next lint",
     "lint:fix": "next lint --fix",

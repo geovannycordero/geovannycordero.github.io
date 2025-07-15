@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   output: 'export',
+  distDir: 'docs',
   trailingSlash: true,
   // Remove basePath for GitHub Pages root deployment
   // basePath: process.env.NODE_ENV === 'production' ? '/geovanny-portfolio' : '',
