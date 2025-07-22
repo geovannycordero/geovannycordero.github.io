@@ -2,9 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [v0-portfolio]
   pull_request:
-    branches: [main]
+    branches: [v0-portfolio]
 
 permissions:
   contents: read
@@ -32,7 +32,7 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Build with Next.js
-        run: yarn build:static
+        run: yarn build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -40,7 +40,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./out
+          path: ./docs
 
   deploy:
     environment:
