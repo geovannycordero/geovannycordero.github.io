@@ -31,3 +31,5 @@ next-env.d.ts
 .idea
 _site
 out
+
+docs

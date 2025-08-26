@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { MapPin, Mail, Linkedin } from 'lucide-react';
+import { MapPin, Mail, Linkedin, Github } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
 
@@ -63,6 +63,16 @@ export default function Hero() {
               >
                 <Linkedin className='h-4 w-4' />
                 <span className='hidden sm:inline'>LinkedIn</span>
+              </Link>
+              <Link
+                href='https://github.com/geovannycordero'
+                target='_blank'
+                rel='noopener noreferrer'
+                className='flex items-center gap-2 text-sage-600 hover:text-emerald-600 transition-colors duration-200'
+                aria-label='Visit GitHub profile'
+              >
+                <Github className='h-4 w-4' />
+                <span className='hidden sm:inline'>GitHub</span>
               </Link>
             </div>
           </div>
