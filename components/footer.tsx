@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail, Linkedin } from 'lucide-react';
+import { Mail, Linkedin, Github } from 'lucide-react';
 import RSSLink from './rss-link';
 
 export default function Footer() {
@@ -28,6 +28,13 @@ export default function Footer() {
                 className='text-sage-600 hover:text-emerald-600 transition-colors'
               >
                 <Linkedin className='h-5 w-5' />
+              </Link>
+              <Link
+                href='https://github.com/geovannycordero'
+                target='_blank'
+                className='text-sage-600 hover:text-emerald-600 transition-colors'
+              >
+                <Github className='h-5 w-5' />
               </Link>
             </div>
           </div>
