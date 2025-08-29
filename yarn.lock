@@ -1125,6 +1125,20 @@
     "@radix-ui/react-use-previous" "1.1.0"
     "@radix-ui/react-use-size" "1.1.0"
 
+"@radix-ui/react-collapsible@1.1.12":
+  version "1.1.12"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-collapsible/-/react-collapsible-1.1.12.tgz#e2cc69a4490a2920f97c3c3150b0bf21281e3c49"
+  integrity sha512-Uu+mSh4agx2ib1uIGPP4/CKNULyajb3p92LsVXmH2EHVMTfZWpll88XJ0j4W0z3f8NK1eYl1+Mf/szHPmcHzyA==
+  dependencies:
+    "@radix-ui/primitive" "1.1.3"
+    "@radix-ui/react-compose-refs" "1.1.2"
+    "@radix-ui/react-context" "1.1.2"
+    "@radix-ui/react-id" "1.1.1"
+    "@radix-ui/react-presence" "1.1.5"
+    "@radix-ui/react-primitive" "2.1.3"
+    "@radix-ui/react-use-controllable-state" "1.2.2"
+    "@radix-ui/react-use-layout-effect" "1.1.1"
+
 "@radix-ui/react-collapsible@1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-collapsible/-/react-collapsible-1.1.2.tgz#42477c428bb0d2eec35b9b47601c5ff0a6210165"
@@ -1537,6 +1551,14 @@
   version "1.1.4"
   resolved "https://registry.yarnpkg.com/@radix-ui/react-presence/-/react-presence-1.1.4.tgz#253ac0ad4946c5b4a9c66878335f5cf07c967ced"
   integrity sha512-ueDqRbdc4/bkaQT3GIpLQssRlFgWaL/U2z/S31qRwwLWoxHLgry3SIfCwhxeQNbirEUXFa+lq3RL3oBYXtcmIA==
+  dependencies:
+    "@radix-ui/react-compose-refs" "1.1.2"
+    "@radix-ui/react-use-layout-effect" "1.1.1"
+
+"@radix-ui/react-presence@1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@radix-ui/react-presence/-/react-presence-1.1.5.tgz#5d8f28ac316c32f078afce2996839250c10693db"
+  integrity sha512-/jfEwNDdQVBCNvjkGit4h6pMOzq8bHkopq458dPt2lMjx+eBQUohZNG9A7DtO/O5ukSbxuaNGXMjHicgwy6rQQ==
   dependencies:
     "@radix-ui/react-compose-refs" "1.1.2"
     "@radix-ui/react-use-layout-effect" "1.1.1"
