@@ -1,5 +1,8 @@
 # Geovanny Cordero Portfolio Website
 
+[![Tests](https://github.com/geovannycordero/geovannycordero.github.io/workflows/Tests/badge.svg)](https://github.com/geovannycordero/geovannycordero.github.io/actions)
+[![Deploy Status](https://github.com/geovannycordero/geovannycordero.github.io/workflows/Deploy/badge.svg)](https://github.com/geovannycordero/geovannycordero.github.io/actions)
+
 A modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. This project showcases Geovanny Cordero's professional experience, skills, and blog content in a clean, accessible design.
 
 ## 🚀 Features
