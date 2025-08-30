@@ -7,14 +7,12 @@ interface BlogAutoScrollProps {
   scrollTargetId?: string;
   headerOffset?: number;
   scrollBehavior?: 'smooth' | 'auto';
-  enableDebugLogs?: boolean;
 }
 
 export default function BlogAutoScroll({
   scrollTargetId = 'blog-content',
   headerOffset = 100,
   scrollBehavior = 'smooth',
-  enableDebugLogs = false,
 }: BlogAutoScrollProps) {
   const searchParams = useSearchParams();
   const pathname = usePathname();
@@ -22,12 +20,6 @@ export default function BlogAutoScroll({
   const previousPathnameRef = useRef<string | null>(null);
   const isInitialLoadRef = useRef(true);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const log = (message: string, data?: any) => {
-    if (enableDebugLogs) {
-      console.log(`[BlogAutoScroll] ${message}`, data || '');
-    }
-  };
 
   const scrollToTarget = (
     behavior: 'smooth' | 'auto' = scrollBehavior,
@@ -46,13 +38,6 @@ export default function BlogAutoScroll({
         const offsetPosition =
           elementPosition + window.pageYOffset - headerOffset;
 
-        log('Scrolling to target element', {
-          targetId: scrollTargetId,
-          elementPosition,
-          offsetPosition,
-          behavior,
-        });
-
         // Use scrollTo with options for React 17 compatibility
         window.scrollTo({
           top: Math.max(0, offsetPosition),
@@ -60,9 +45,6 @@ export default function BlogAutoScroll({
         });
       } else {
         // Fallback: scroll to top of page
-        log('Target element not found, scrolling to top', {
-          targetId: scrollTargetId,
-        });
         window.scrollTo({
           top: 0,
           behavior: behavior,
@@ -75,21 +57,11 @@ export default function BlogAutoScroll({
     const currentPage = searchParams?.get('page') || '1';
     const currentPathname = pathname;
 
-    log('Effect triggered', {
-      currentPage,
-      currentPathname,
-      previousPage: previousPageRef.current,
-      previousPathname: previousPathnameRef.current,
-      isInitialLoad: isInitialLoadRef.current,
-    });
-
     // Determine if we should scroll
     const shouldScroll = (() => {
       // Case 1: Initial load to blog page
-      if (isInitialLoadRef.current && currentPathname === '/blog') {
-        log('Scroll reason: Initial load to blog page');
+      if (isInitialLoadRef.current && currentPathname === '/blog')
         return { should: true, delay: 400, behavior: 'smooth' as const };
-      }
 
       // Case 2: Navigation from different page to blog
       if (
@@ -97,7 +69,6 @@ export default function BlogAutoScroll({
         previousPathnameRef.current !== '/blog' &&
         currentPathname === '/blog'
       ) {
-        log('Scroll reason: Navigation from different page to blog');
         return { should: true, delay: 200, behavior: 'smooth' as const };
       }
 
@@ -108,7 +79,6 @@ export default function BlogAutoScroll({
         previousPageRef.current !== null &&
         previousPageRef.current !== currentPage
       ) {
-        log('Scroll reason: Page number change within blog');
         return { should: true, delay: 150, behavior: 'smooth' as const };
       }
 
@@ -117,11 +87,9 @@ export default function BlogAutoScroll({
         currentPathname === '/blog' &&
         window.location.hash === `#${scrollTargetId}`
       ) {
-        log('Scroll reason: Hash navigation to blog content');
         return { should: true, delay: 100, behavior: 'smooth' as const };
       }
 
-      log('No scroll needed');
       return { should: false, delay: 0, behavior: 'smooth' as const };
     })();
 
@@ -145,7 +113,6 @@ export default function BlogAutoScroll({
   // Handle browser back/forward navigation
   useEffect(() => {
     const handlePopState = () => {
-      log('PopState event detected');
       if (pathname === '/blog') {
         // Small delay to ensure page state is updated
         scrollToTarget('smooth', 100);
@@ -159,7 +126,6 @@ export default function BlogAutoScroll({
   // Handle hash changes
   useEffect(() => {
     const handleHashChange = () => {
-      log('Hash change detected', { hash: window.location.hash });
       if (
         pathname === '/blog' &&
         window.location.hash === `#${scrollTargetId}`

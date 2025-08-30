@@ -6,22 +6,14 @@ import { useRouter } from 'next/navigation';
 interface BlogNavigationHandlerProps {
   scrollTargetId?: string;
   headerOffset?: number;
-  enableDebugLogs?: boolean;
 }
 
 export function useBlogNavigation({
   scrollTargetId = 'blog-content',
   headerOffset = 100,
-  enableDebugLogs = false,
 }: BlogNavigationHandlerProps = {}) {
   const router = useRouter();
   const navigationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  const log = (message: string, data?: any) => {
-    if (enableDebugLogs) {
-      console.log(`[BlogNavigation] ${message}`, data || '');
-    }
-  };
 
   const scrollToTarget = (delay = 0) => {
     // Clear any existing timeout
@@ -37,18 +29,11 @@ export function useBlogNavigation({
         const offsetPosition =
           elementPosition + window.pageYOffset - headerOffset;
 
-        log('Scrolling to blog content', {
-          targetId: scrollTargetId,
-          elementPosition,
-          offsetPosition,
-        });
-
         window.scrollTo({
           top: Math.max(0, offsetPosition),
           behavior: 'smooth',
         });
       } else {
-        log('Blog content element not found, scrolling to top');
         window.scrollTo({
           top: 0,
           behavior: 'smooth',
@@ -59,7 +44,6 @@ export function useBlogNavigation({
 
   const navigateToBlog = (hash?: string) => {
     const url = hash ? `/blog${hash}` : '/blog';
-    log('Navigating to blog', { url });
 
     router.push(url);
 
@@ -69,7 +53,6 @@ export function useBlogNavigation({
 
   const navigateToBlogPage = (page: number) => {
     const url = page === 1 ? '/blog' : `/blog?page=${page}`;
-    log('Navigating to blog page', { page, url });
 
     router.push(url);
 

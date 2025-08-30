@@ -55,6 +55,37 @@ describe('Hero Component', () => {
     expect(profileImage).toHaveAttribute('src', '/images/me-forest.jpg');
   });
 
+  it('displays social media links with correct icons', () => {
+    render(<Hero />);
+
+    // Check for email link
+    const emailLink = screen.getByRole('link', { name: /geovanny@pm\.me/i });
+    expect(emailLink).toHaveAttribute('href', 'mailto:geovanny@pm.me');
+
+    // Check for LinkedIn link
+    const linkedinLink = screen.getByRole('link', { name: /linkedin/i });
+    expect(linkedinLink).toHaveAttribute(
+      'href',
+      'https://linkedin.com/in/geovannycordero'
+    );
+    expect(linkedinLink).toHaveAttribute('target', '_blank');
+
+    // Check for GitHub link
+    const githubLink = screen.getByRole('link', { name: /github/i });
+    expect(githubLink).toHaveAttribute(
+      'href',
+      'https://github.com/geovannycordero'
+    );
+    expect(githubLink).toHaveAttribute('target', '_blank');
+    expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer');
+  });
+
+  it('displays location information', () => {
+    render(<Hero />);
+
+    expect(screen.getByText('San José, Costa Rica')).toBeInTheDocument();
+  });
+
   // Skipping semantic structure test for now
   // it('has proper semantic structure', () => {
   //   render(<Hero />)
