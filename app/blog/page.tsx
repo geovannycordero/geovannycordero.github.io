@@ -133,15 +133,10 @@ export default async function BlogPage() {
         scrollTargetId='blog-content'
         headerOffset={100}
         scrollBehavior='smooth'
-        enableDebugLogs={false}
       />
 
       {/* Navigation handler for programmatic navigation */}
-      <BlogNavigationHandler
-        scrollTargetId='blog-content'
-        headerOffset={100}
-        enableDebugLogs={false}
-      />
+      <BlogNavigationHandler scrollTargetId='blog-content' headerOffset={100} />
 
       <main className='pt-20'>
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12'>

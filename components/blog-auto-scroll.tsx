@@ -108,6 +108,7 @@ export default function BlogAutoScroll({
         clearTimeout(scrollTimeoutRef.current);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams, pathname, scrollTargetId, headerOffset, scrollBehavior]);
 
   // Handle browser back/forward navigation
@@ -121,6 +122,7 @@ export default function BlogAutoScroll({
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, scrollTargetId, headerOffset, scrollBehavior]);
 
   // Handle hash changes
@@ -136,6 +138,7 @@ export default function BlogAutoScroll({
 
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pathname, scrollTargetId, headerOffset, scrollBehavior]);
 
   // Cleanup on unmount
