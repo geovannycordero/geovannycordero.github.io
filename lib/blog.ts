@@ -64,28 +64,6 @@ export async function getAllPosts(): Promise<BlogPostMeta[]> {
   }
 }
 
-// Keep the paginated function for backward compatibility but mark as deprecated
-export async function getPaginatedPosts(page = 1, postsPerPage = 5) {
-  console.warn('getPaginatedPosts is deprecated. Use getAllPosts() instead.');
-  const allPosts = await getAllPosts();
-  const totalPosts = allPosts.length;
-  const totalPages = Math.ceil(totalPosts / postsPerPage);
-  const currentPage = Math.max(1, Math.min(page, totalPages));
-
-  const startIndex = (currentPage - 1) * postsPerPage;
-  const endIndex = startIndex + postsPerPage;
-  const posts = allPosts.slice(startIndex, endIndex);
-
-  return {
-    posts,
-    totalPosts,
-    totalPages,
-    currentPage,
-    hasNextPage: currentPage < totalPages,
-    hasPrevPage: currentPage > 1,
-  };
-}
-
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.md`);

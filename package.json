@@ -12,7 +12,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "test:ci": "jest --ci --coverage --watchAll=false",
+    "test:ci": "jest --ci --watchAll=false",
+    "type-check": "tsc --noEmit",
     "start": "next start"
   },
   "dependencies": {
@@ -25,7 +26,7 @@
     "@radix-ui/react-collapsible": "1.1.12",
     "@radix-ui/react-context-menu": "2.2.4",
     "@radix-ui/react-dialog": "1.1.4",
-    "@radix-ui/react-dropdown-menu": "latest",
+    "@radix-ui/react-dropdown-menu": "^2.1.16",
     "@radix-ui/react-hover-card": "1.1.4",
     "@radix-ui/react-label": "2.1.7",
     "@radix-ui/react-menubar": "1.1.4",

@@ -1,11 +1,75 @@
-# To get started with Dependabot version updates, you'll need to specify which
-# package ecosystems to update and where the package manifests are located.
-# Please see the documentation for all configuration options:
-# https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+# Enhanced Dependabot configuration for better dependency management
+# See: https://docs.github.com/en/code-security/dependabot/working-with-dependabot/dependabot-options-reference
 
 version: 2
 updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/" # Location of package manifests
+  # NPM dependencies (main package.json)
+  - package-ecosystem: 'npm'
+    directory: '/'
     schedule:
-      interval: "weekly"
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'America/Costa_Rica'
+    open-pull-requests-limit: 10
+    reviewers:
+      - 'geovannycordero'
+    assignees:
+      - 'geovannycordero'
+    commit-message:
+      prefix: 'deps'
+      include: 'scope'
+    labels:
+      - 'dependencies'
+      - 'npm'
+    # Group minor and patch updates for better PR management
+    groups:
+      minor-and-patch:
+        patterns:
+          - '*'
+        update-types:
+          - 'minor'
+          - 'patch'
+    # Ignore major version updates for critical packages
+    ignore:
+      - dependency-name: 'react'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'react-dom'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'next'
+        update-types: ['version-update:semver-major']
+      - dependency-name: 'typescript'
+        update-types: ['version-update:semver-major']
+    # Version update strategy
+    versioning-strategy: 'increase-if-necessary'
+    # Security updates
+    security-updates-only: false
+    # Allow Dependabot to rebase PRs
+    rebase-strategy: 'auto'
+
+  # GitHub Actions dependencies
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+      day: 'monday'
+      time: '09:00'
+      timezone: 'America/Costa_Rica'
+    open-pull-requests-limit: 5
+    reviewers:
+      - 'geovannycordero'
+    assignees:
+      - 'geovannycordero'
+    commit-message:
+      prefix: 'ci'
+      include: 'scope'
+    labels:
+      - 'dependencies'
+      - 'github-actions'
+    groups:
+      actions:
+        patterns:
+          - '*'
+        update-types:
+          - 'minor'
+          - 'patch'
