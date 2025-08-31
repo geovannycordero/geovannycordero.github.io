@@ -42,8 +42,6 @@ updates:
         update-types: ['version-update:semver-major']
     # Version update strategy
     versioning-strategy: 'increase-if-necessary'
-    # Security updates
-    security-updates-only: false
     # Allow Dependabot to rebase PRs
     rebase-strategy: 'auto'
 
