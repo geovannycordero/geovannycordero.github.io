@@ -42,11 +42,11 @@ export async function generateRSSFeed() {
     <ttl>60</ttl>
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml"/>
     <image>
-      <url>${siteUrl}/favicon.ico</url>
+      <url>${siteUrl}/icons/android-chrome-512x512.png</url>
       <title>Geovanny Cordero Valverde - Blog</title>
       <link>${siteUrl}</link>
-      <width>32</width>
-      <height>32</height>
+      <width>512</width>
+      <height>512</height>
     </image>
     ${rssItems}
   </channel>
