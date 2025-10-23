@@ -5,8 +5,6 @@ import EnhancedNavigation from '@/components/enhanced-navigation';
 import Footer from '@/components/footer';
 import RSSLink from '@/components/rss-link';
 import BlogPostCard from '@/components/blog-post-card';
-import BlogAutoScroll from '@/components/blog-auto-scroll';
-import BlogNavigationHandler from '@/components/blog-navigation-handler';
 import { getAllPosts } from '@/lib/blog';
 import BackToTopButton from './BackToTopButton';
 import type { Metadata } from 'next';
@@ -15,6 +13,41 @@ export const metadata: Metadata = {
   title: 'Blog - Geovanny Cordero Valverde',
   description:
     'Insights, articles, and updates on software development, technology, and leadership from Geovanny Cordero Valverde.',
+  keywords:
+    'Software Development, Technology, Leadership, Programming, Full-Stack Development, Golang, Ruby on Rails, JavaScript, Team Management',
+  authors: [{ name: 'Geovanny Cordero Valverde' }],
+  creator: 'Geovanny Cordero Valverde',
+  publisher: 'Geovanny Cordero Valverde',
+  openGraph: {
+    title: 'Blog - Geovanny Cordero Valverde',
+    description:
+      'Insights, articles, and updates on software development, technology, and leadership from Geovanny Cordero Valverde.',
+    url: 'https://geovannycordero.com/blog',
+    siteName: 'Geovanny Cordero Portfolio',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/icons/android-chrome-512x512.png',
+        width: 512,
+        height: 512,
+        alt: 'Geovanny Cordero Valverde - Blog',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Blog - Geovanny Cordero Valverde',
+    description:
+      'Insights, articles, and updates on software development, technology, and leadership from Geovanny Cordero Valverde.',
+    images: ['/icons/android-chrome-512x512.png'],
+  },
+  alternates: {
+    canonical: 'https://geovannycordero.com/blog',
+    types: {
+      'application/rss+xml': 'https://geovannycordero.com/rss.xml',
+    },
+  },
 };
 
 export const dynamic = 'force-static';
@@ -128,15 +161,6 @@ export default async function BlogPage() {
     <div className='min-h-screen bg-background'>
       <EnhancedNavigation />
 
-      {/* Auto-scroll mechanism */}
-      <BlogAutoScroll
-        scrollTargetId='blog-content'
-        headerOffset={100}
-        scrollBehavior='smooth'
-      />
-
-      {/* Navigation handler for programmatic navigation */}
-      <BlogNavigationHandler scrollTargetId='blog-content' headerOffset={100} />
 
       <main className='pt-20'>
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12'>
