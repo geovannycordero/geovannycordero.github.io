@@ -26,12 +26,21 @@ export const metadata: Metadata = {
     siteName: 'Geovanny Cordero Portfolio',
     locale: 'en_US',
     type: 'website',
+    images: [
+      {
+        url: '/icons/android-chrome-512x512.png',
+        width: 512,
+        height: 512,
+        alt: 'Geovanny Cordero Valverde - Full-Stack Software Engineer',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Geovanny Cordero Valverde - Full-Stack Software Engineer',
     description:
       'Passionate Full-Stack Software Engineer with 5+ years of experience, specializing in Golang, Ruby on Rails, and JavaScript technologies.',
+    images: ['/icons/android-chrome-512x512.png'],
   },
   robots: {
     index: true,
