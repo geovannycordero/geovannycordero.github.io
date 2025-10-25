@@ -1,16 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // comment the following lines to enable static export (local development)
   output: 'export',
   distDir: 'docs',
   trailingSlash: true,
-  // Remove basePath for GitHub Pages root deployment
-  // basePath: process.env.NODE_ENV === 'production' ? '/geovanny-portfolio' : '',
-  // swcMinify: true,
-  // experimental: {
-  //   // Remove app directory experimental flag for Next.js 13.5.6
-  //   appDir: true
-  // },
   images: {
     domains: [],
     formats: ['image/webp', 'image/avif'],

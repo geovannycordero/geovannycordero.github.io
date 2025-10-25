@@ -25,6 +25,9 @@ export default function BlogAutoScroll({
     behavior: 'smooth' | 'auto' = scrollBehavior,
     delay = 0
   ) => {
+    // Add safety check to prevent SSR issues
+    if (typeof window === 'undefined') return;
+
     // Clear any existing timeout
     if (scrollTimeoutRef.current) {
       clearTimeout(scrollTimeoutRef.current);
@@ -54,6 +57,9 @@ export default function BlogAutoScroll({
   };
 
   useEffect(() => {
+    // Add safety check to prevent infinite loops
+    if (typeof window === 'undefined') return;
+
     const currentPage = searchParams?.get('page') || '1';
     const currentPathname = pathname;
 
@@ -113,6 +119,8 @@ export default function BlogAutoScroll({
 
   // Handle browser back/forward navigation
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const handlePopState = () => {
       if (pathname === '/blog') {
         // Small delay to ensure page state is updated
@@ -127,6 +135,8 @@ export default function BlogAutoScroll({
 
   // Handle hash changes
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const handleHashChange = () => {
       if (
         pathname === '/blog' &&

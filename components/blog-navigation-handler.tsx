@@ -3,42 +3,24 @@
 import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
-interface BlogNavigationHandlerProps {
-  scrollTargetId?: string;
-  headerOffset?: number;
-}
-
-export function useBlogNavigation({
-  scrollTargetId = 'blog-content',
-  headerOffset = 100,
-}: BlogNavigationHandlerProps = {}) {
+export function useBlogNavigation() {
   const router = useRouter();
   const navigationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   const scrollToTarget = (delay = 0) => {
+    // Add safety check to prevent SSR issues
+    if (typeof window === 'undefined') return;
+
     // Clear any existing timeout
     if (navigationTimeoutRef.current) {
       clearTimeout(navigationTimeoutRef.current);
     }
 
     navigationTimeoutRef.current = setTimeout(() => {
-      const targetElement = document.getElementById(scrollTargetId);
-
-      if (targetElement) {
-        const elementPosition = targetElement.getBoundingClientRect().top;
-        const offsetPosition =
-          elementPosition + window.pageYOffset - headerOffset;
-
-        window.scrollTo({
-          top: Math.max(0, offsetPosition),
-          behavior: 'smooth',
-        });
-      } else {
-        window.scrollTo({
-          top: 0,
-          behavior: 'smooth',
-        });
-      }
+      window.scrollTo({
+        top: -10,
+        behavior: 'smooth',
+      });
     }, delay);
   };
 
