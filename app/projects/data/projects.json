@@ -1,0 +1,102 @@
+[
+  {
+    "id": "my-portfolio-website",
+    "title": "My Portfolio Website",
+    "description": "My portfolio website, the current one you are on",
+    "longDescription": "My portfolio website built with Next.js and TailwindCSS. It features a modern design, responsive layout, SEO optimization, and dynamic content management.",
+    "image": "/images/projects/geovannycordero.png",
+    "technologies": [
+      "Next.js",
+      "TailwindCSS",
+      "TypeScript",
+      "Jest",
+      "ESLint",
+      "Prettier",
+      "GitHub Actions"
+    ],
+    "projectUrl": "https://geovannycordero.com/",
+    "githubUrl": "https://github.com/geovannycordero/geovannycordero.github.io",
+    "category": "Personal",
+    "featured": true,
+    "completedDate": "2025-01"
+  },
+  {
+    "id": "barbershop-studio-website",
+    "title": "Barbershop Studio Landing Page",
+    "description": "Professional barbershop management system with real-time service coordination and automated reporting",
+    "longDescription": "A comprehensive barbershop management system designed to streamline operations and enhance customer service. The platform enables real-time team coordination, service assignment, automated reporting, and complete business control from a single interface. Built with modern technologies including Next.js, PostgreSQL, and Prisma, it helps barbershops recover administrative hours and focus on what matters most: their clients. Features include custom admin panels, service management, and integrated business analytics.",
+    "image": "/images/projects/barbershop-studio.png",
+    "technologies": [
+      "PostgreSQL",
+      "Next.js",
+      "TailwindCSS",
+      "Prisma",
+      "TypeScript",
+      "Jest",
+      "ESLint",
+      "Prettier"
+    ],
+    "projectUrl": "https://www.barbershop-studio.com/",
+    "githubUrl": "",
+    "category": "Personal",
+    "featured": true,
+    "completedDate": "2025-10"
+  },
+  {
+    "id": "lg-services-website",
+    "title": "LG Landscaping Services Website",
+    "description": "Professional landscaping services website with quote requests, testimonials, and customer reviews",
+    "longDescription": "A comprehensive website for LG Services, a professional landscaping and lawn care company. The platform showcases the company's expertise in lawn and landscape projects, featuring service information, customer testimonials, and quote request functionality. Built with modern web technologies, it facilitates seamless communication between the business and prospective customers while highlighting their professional capabilities and past client reviews.",
+    "image": "/images/projects/lgservices.png",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "CSS",
+      "Jest",
+      "ESLint",
+      "Prettier",
+      "GitHub Actions"
+    ],
+    "projectUrl": "https://www.tnlgservices.com",
+    "githubUrl": "",
+    "category": "Outsourcing",
+    "featured": false,
+    "completedDate": "2025-08"
+  },
+  {
+    "id": "4-mk-firearms-llc-website",
+    "title": "4MK Firearms LLC Website",
+    "description": "Website for a firearms company",
+    "longDescription": "A website for a firearms company built with Ruby on Rails and PostgreSQL. It features a custom admin panel for managing the website content and services for the company.",
+    "image": "/images/projects/4mkfirearmsllc.png",
+    "technologies": [
+      "Ruby on Rails",
+      "PostgreSQL",
+      "Docker",
+      "JavaScript",
+      "HTML",
+      "TailwindCSS",
+      "CSS",
+      "Jest"
+    ],
+    "projectUrl": "https://www.4mkfirearmsllc.com/about",
+    "githubUrl": "",
+    "category": "Outsourcing",
+    "featured": false,
+    "completedDate": "2025-03"
+  },
+  {
+    "id": "charts-example",
+    "title": "Charts Example",
+    "description": "Charts example built with Vue and Chart.js",
+    "longDescription": "A charts example built with Vue and Chart.js. It features a modern design, responsive layout, SEO optimization, and dynamic content management.",
+    "image": "/images/projects/chart-example.png",
+    "technologies": ["Vue", "Chart.js", "HTML", "CSS", "TypeScript", "Jest"],
+    "projectUrl": "",
+    "githubUrl": "https://github.com/geovannycordero/vue-project-nist-charts-example",
+    "category": "Work",
+    "featured": false,
+    "completedDate": "2024-10"
+  }
+]
