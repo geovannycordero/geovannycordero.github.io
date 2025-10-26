@@ -23,9 +23,46 @@ export async function generateMetadata({
     };
   }
 
+  const postUrl = `https://geovannycordero.com/blog/${slug}`;
+  const publishedTime = new Date(post.date).toISOString();
+  const modifiedTime = new Date(post.date).toISOString(); // Posts are published once and not modified
+
   return {
     title: `${post.title} - Geovanny Cordero Valverde`,
     description: post.excerpt,
+    keywords: post.tags.join(', '),
+    authors: [{ name: post.author }],
+    creator: post.author,
+    publisher: 'Geovanny Cordero Valverde',
+    openGraph: {
+      title: post.title,
+      description: post.excerpt,
+      url: postUrl,
+      siteName: 'Geovanny Cordero Portfolio',
+      locale: 'en_US',
+      type: 'article',
+      publishedTime,
+      modifiedTime,
+      authors: [post.author],
+      tags: post.tags,
+      images: [
+        {
+          url: '/icons/android-chrome-512x512.png',
+          width: 512,
+          height: 512,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: ['/icons/android-chrome-512x512.png'],
+    },
+    alternates: {
+      canonical: postUrl,
+    },
   };
 }
 
