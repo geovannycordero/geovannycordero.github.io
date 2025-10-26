@@ -69,7 +69,7 @@ function ProjectsLoading() {
 }
 
 async function ProjectsContent() {
-  const projects = await getAllProjects();
+  const projects = getAllProjects();
 
   return (
     <>
