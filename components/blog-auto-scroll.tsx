@@ -11,7 +11,7 @@ interface BlogAutoScrollProps {
 
 export default function BlogAutoScroll({
   scrollTargetId = 'blog-content',
-  headerOffset = 100,
+  headerOffset = 0,
   scrollBehavior = 'smooth',
 }: BlogAutoScrollProps) {
   const searchParams = useSearchParams();
@@ -124,7 +124,7 @@ export default function BlogAutoScroll({
     const handlePopState = () => {
       if (pathname === '/blog') {
         // Small delay to ensure page state is updated
-        scrollToTarget('smooth', 100);
+        scrollToTarget('smooth', 0);
       }
     };
 
@@ -142,7 +142,7 @@ export default function BlogAutoScroll({
         pathname === '/blog' &&
         window.location.hash === `#${scrollTargetId}`
       ) {
-        scrollToTarget('smooth', 100);
+        scrollToTarget('smooth', 0);
       }
     };
 
