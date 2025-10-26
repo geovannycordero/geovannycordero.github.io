@@ -25,7 +25,7 @@ export async function generateMetadata({
 
   const postUrl = `https://geovannycordero.com/blog/${slug}`;
   const publishedTime = new Date(post.date).toISOString();
-  const modifiedTime = new Date(post.date).toISOString(); // Use post date instead of current time
+  const modifiedTime = new Date(post.date).toISOString(); // Posts are published once and not modified
 
   return {
     title: `${post.title} - Geovanny Cordero Valverde`,
@@ -77,10 +77,6 @@ export default async function BlogPost({
   if (!post) {
     notFound();
   }
-
-  // Create stable timestamps to prevent re-renders
-  const publishedTime = post.date;
-  const modifiedTime = post.date; // Use post date instead of current time
 
   return (
     <div className='min-h-screen bg-background'>
