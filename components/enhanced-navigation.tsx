@@ -38,10 +38,12 @@ export default function EnhancedNavigation() {
     if (item.type === 'blog') {
       // Use our enhanced blog navigation
       navigateToBlog('#blog-content');
+      return;
     }
     if (item.type === 'projects') {
       // Use regular navigation for static projects page
       router.push('/projects');
+      return;
     }
     // For anchor links, let the default behavior handle it
   };
