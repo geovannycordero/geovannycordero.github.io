@@ -11,7 +11,7 @@ interface BlogAutoScrollProps {
 
 export default function BlogAutoScroll({
   scrollTargetId = 'blog-content',
-  headerOffset = 100,
+  headerOffset = 0,
   scrollBehavior = 'smooth',
 }: BlogAutoScrollProps) {
   const searchParams = useSearchParams();
@@ -25,6 +25,9 @@ export default function BlogAutoScroll({
     behavior: 'smooth' | 'auto' = scrollBehavior,
     delay = 0
   ) => {
+    // Add safety check to prevent SSR issues
+    if (typeof window === 'undefined') return;
+
     // Clear any existing timeout
     if (scrollTimeoutRef.current) {
       clearTimeout(scrollTimeoutRef.current);
@@ -54,6 +57,9 @@ export default function BlogAutoScroll({
   };
 
   useEffect(() => {
+    // Add safety check to prevent infinite loops
+    if (typeof window === 'undefined') return;
+
     const currentPage = searchParams?.get('page') || '1';
     const currentPathname = pathname;
 
@@ -113,10 +119,12 @@ export default function BlogAutoScroll({
 
   // Handle browser back/forward navigation
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const handlePopState = () => {
       if (pathname === '/blog') {
         // Small delay to ensure page state is updated
-        scrollToTarget('smooth', 100);
+        scrollToTarget('smooth', 0);
       }
     };
 
@@ -127,12 +135,14 @@ export default function BlogAutoScroll({
 
   // Handle hash changes
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+
     const handleHashChange = () => {
       if (
         pathname === '/blog' &&
         window.location.hash === `#${scrollTargetId}`
       ) {
-        scrollToTarget('smooth', 100);
+        scrollToTarget('smooth', 0);
       }
     };
 

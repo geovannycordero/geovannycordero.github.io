@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useBlogNavigation } from './blog-navigation-handler';
@@ -9,10 +10,9 @@ import { useBlogNavigation } from './blog-navigation-handler';
 export default function EnhancedNavigation() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { navigateToBlog } = useBlogNavigation({
-    scrollTargetId: 'blog-content',
-    headerOffset: 100,
-  });
+  const router = useRouter();
+
+  const { navigateToBlog } = useBlogNavigation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,6 +29,7 @@ export default function EnhancedNavigation() {
     { href: '/#education', label: 'Education', type: 'anchor' },
     { href: '/#contact', label: 'Contact', type: 'anchor' },
     { href: '/blog', label: 'Blog', type: 'blog' },
+    { href: '/projects', label: 'Projects', type: 'projects' },
   ];
 
   const handleNavClick = (item: (typeof navItems)[0]) => {
@@ -37,6 +38,12 @@ export default function EnhancedNavigation() {
     if (item.type === 'blog') {
       // Use our enhanced blog navigation
       navigateToBlog('#blog-content');
+      return;
+    }
+    if (item.type === 'projects') {
+      // Use regular navigation for static projects page
+      router.push('/projects');
+      return;
     }
     // For anchor links, let the default behavior handle it
   };
