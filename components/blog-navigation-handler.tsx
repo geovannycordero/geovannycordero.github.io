@@ -57,10 +57,15 @@ export function useBlogNavigation() {
   };
 }
 
+interface BlogNavigationHandlerProps {
+  scrollTargetId?: string;
+  headerOffset?: number;
+}
+
 export default function BlogNavigationHandler(
-  props: BlogNavigationHandlerProps
+  _props: BlogNavigationHandlerProps
 ) {
-  const { cleanup } = useBlogNavigation(props);
+  const { cleanup } = useBlogNavigation();
 
   useEffect(() => {
     return cleanup;
