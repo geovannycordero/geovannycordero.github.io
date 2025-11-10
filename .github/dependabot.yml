@@ -21,7 +21,6 @@ updates:
       include: 'scope'
     labels:
       - 'dependencies'
-      - 'npm'
     # Group minor and patch updates for better PR management
     groups:
       minor-and-patch:
