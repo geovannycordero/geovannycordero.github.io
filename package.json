@@ -86,7 +86,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9.34.0",
-    "eslint-config-next": "^15.3.5",
+    "eslint-config-next": "^16.0.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
     "jest": "^30.0.4",
