@@ -144,6 +144,7 @@ export default async function BlogPost({
               <Link
                 href='https://linkedin.com/in/geovannycordero'
                 target='_blank'
+                rel='noopener noreferrer'
                 className='text-emerald-600 hover:underline font-medium'
               >
                 Follow me on LinkedIn →
