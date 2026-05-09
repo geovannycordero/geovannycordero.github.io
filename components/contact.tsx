@@ -61,6 +61,11 @@ export default function Contact() {
                         target={
                           item.href.startsWith('http') ? '_blank' : undefined
                         }
+                        rel={
+                          item.href.startsWith('http')
+                            ? 'noopener noreferrer'
+                            : undefined
+                        }
                       >
                         {item.value}
                       </Link>

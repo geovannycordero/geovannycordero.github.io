@@ -25,6 +25,7 @@ export default function Footer() {
               <Link
                 href='https://linkedin.com/in/geovannycordero'
                 target='_blank'
+                rel='noopener noreferrer'
                 className='text-sage-600 hover:text-emerald-600 transition-colors'
               >
                 <Linkedin className='h-5 w-5' />
@@ -32,6 +33,7 @@ export default function Footer() {
               <Link
                 href='https://github.com/geovannycordero'
                 target='_blank'
+                rel='noopener noreferrer'
                 className='text-sage-600 hover:text-emerald-600 transition-colors'
               >
                 <Github className='h-5 w-5' />

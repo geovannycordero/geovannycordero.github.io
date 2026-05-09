@@ -213,6 +213,7 @@ export default async function BlogPage() {
                   <Link
                     href='https://linkedin.com/in/geovannycordero'
                     target='_blank'
+                    rel='noopener noreferrer'
                     className='text-emerald-600 hover:text-emerald-700 underline font-medium'
                   >
                     LinkedIn

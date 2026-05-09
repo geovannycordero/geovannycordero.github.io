@@ -6,6 +6,7 @@ export default function RSSLink() {
     <Link
       href='/rss.xml'
       target='_blank'
+      rel='noopener noreferrer'
       className='inline-flex items-center gap-2 text-sage-600 hover:text-emerald-600 transition-colors text-sm'
       title='Subscribe to RSS Feed'
     >

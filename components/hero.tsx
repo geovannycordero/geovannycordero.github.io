@@ -59,6 +59,7 @@ export default function Hero() {
               <Link
                 href='https://linkedin.com/in/geovannycordero'
                 target='_blank'
+                rel='noopener noreferrer'
                 className='flex items-center gap-2 text-sage-600 hover:text-emerald-600 transition-colors duration-200'
               >
                 <Linkedin className='h-4 w-4' />
