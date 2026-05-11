@@ -50,7 +50,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cmdk": "1.1.1",
-    "cssnano": "^7.0.7",
+    "cssnano": "^8.0.1",
     "date-fns": "4.1.0",
     "embla-carousel-react": "8.6.0",
     "gray-matter": "latest",
