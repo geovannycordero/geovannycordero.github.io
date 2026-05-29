@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import { remark } from 'remark';
+import remarkGfm from 'remark-gfm';
 import remarkHtml from 'remark-html';
 
 const postsDirectory = path.join(process.cwd(), 'content/blog');
@@ -71,6 +72,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     const matterResult = matter(fileContents);
 
     const processedContent = await remark()
+      .use(remarkGfm)
       .use(remarkHtml)
       .process(matterResult.content);
     const contentHtml = processedContent.toString();
