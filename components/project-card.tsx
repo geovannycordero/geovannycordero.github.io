@@ -5,7 +5,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Github, Calendar } from 'lucide-react';
+import { ExternalLink, Calendar } from 'lucide-react';
+import { Github } from '@/components/icons';
 import type { Project } from '@/lib/projects';
 
 interface ProjectCardProps {

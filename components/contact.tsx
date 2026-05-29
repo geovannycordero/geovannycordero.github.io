@@ -1,7 +1,8 @@
 'use client';
 
 import { Card, CardContent } from '@/components/ui/card';
-import { Mail, MapPin, Linkedin } from 'lucide-react';
+import { Mail, MapPin } from 'lucide-react';
+import { Linkedin } from '@/components/icons';
 import Link from 'next/link';
 
 export default function Contact() {
