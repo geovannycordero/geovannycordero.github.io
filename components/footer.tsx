@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Mail, Linkedin, Github } from 'lucide-react';
+import { Mail } from 'lucide-react';
+import { Github, Linkedin } from '@/components/icons';
 import RSSLink from './rss-link';
 
 export default function Footer() {

@@ -102,7 +102,7 @@ export function ThemeProvider({
     try {
       const storedTheme = localStorage.getItem(storageKey) as Theme;
       if (storedTheme && ['dark', 'light', 'system'].includes(storedTheme)) {
-        setThemeState(storedTheme);
+        setThemeState(storedTheme); // eslint-disable-line react-hooks/set-state-in-effect
       }
     } catch (error) {
       console.warn('Failed to load theme from localStorage:', error);

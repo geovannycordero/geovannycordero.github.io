@@ -54,14 +54,16 @@ describe('Footer Component', () => {
     const svgIcons = document.querySelectorAll('svg');
     expect(svgIcons.length).toBeGreaterThanOrEqual(3); // At least email, LinkedIn, and GitHub icons
 
-    // Check for specific icon classes
-    const mailIcon = document.querySelector('.lucide-mail');
-    const linkedinIcon = document.querySelector('.lucide-linkedin');
-    const githubIcon = document.querySelector('.lucide-github');
+    // Check social links are present via their hrefs
+    const linkedinLink = document.querySelector(
+      'a[href="https://linkedin.com/in/geovannycordero"]'
+    );
+    const githubLink = document.querySelector(
+      'a[href="https://github.com/geovannycordero"]'
+    );
 
-    expect(mailIcon).toBeInTheDocument();
-    expect(linkedinIcon).toBeInTheDocument();
-    expect(githubIcon).toBeInTheDocument();
+    expect(linkedinLink).toBeInTheDocument();
+    expect(githubLink).toBeInTheDocument();
   });
 
   it('displays quick navigation links', () => {
@@ -101,9 +103,7 @@ describe('Footer Component', () => {
 
     const currentYear = new Date().getFullYear();
     expect(
-      screen.getByText(
-        new RegExp(`© ${currentYear} Geovanny Cordero Valverde`)
-      )
+      screen.getByText(new RegExp(`© ${currentYear} Geovanny Cordero Valverde`))
     ).toBeInTheDocument();
   });
 

@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
-import { MapPin, Mail, Linkedin, Github } from 'lucide-react';
+import { MapPin, Mail } from 'lucide-react';
+import { Github, Linkedin } from '@/components/icons';
 import Link from 'next/link';
 import Image from 'next/image';
 
