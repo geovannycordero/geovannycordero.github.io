@@ -72,6 +72,7 @@ export default function EnhancedNavigation() {
                 <div key={item.href}>
                   {item.type === 'blog' ? (
                     <button
+                      type='button'
                       onClick={() => handleNavClick(item)}
                       className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium'
                     >
@@ -116,6 +117,7 @@ export default function EnhancedNavigation() {
                 <div key={item.href}>
                   {item.type === 'blog' ? (
                     <button
+                      type='button'
                       onClick={() => handleNavClick(item)}
                       className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium text-left'
                     >
