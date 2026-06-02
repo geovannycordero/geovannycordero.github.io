@@ -43,6 +43,28 @@
     "completedDate": "2025-10"
   },
   {
+    "id": "dc-drip-website",
+    "title": "DC Drip Website",
+    "description": "Luxury IV therapy and wellness spa website for the DMV area, blending advanced medical treatments with a high-end client experience",
+    "longDescription": "A full-featured website for DC Drip, a premium IV therapy and wellness spa serving the DC, Maryland, and Virginia area. The platform showcases the clinic's hydration therapy, vitamin infusions, and medical wellness services with a luxury brand aesthetic. Features include service listings, membership plans, client story testimonials, an integrated blog, and session booking capabilities. Built to reflect the brand's premium positioning and convert health-conscious visitors into loyal clients.",
+    "image": "/images/projects/dc-drip.png",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "PostgreSQL",
+      "Prisma",
+      "Jest",
+      "ESLint",
+      "Prettier"
+    ],
+    "projectUrl": "https://www.dc-drip.com/",
+    "githubUrl": "",
+    "category": "Outsourcing",
+    "featured": true,
+    "completedDate": "2026-05"
+  },
+  {
     "id": "lg-services-website",
     "title": "LG Landscaping Services Website",
     "description": "Professional landscaping services website with quote requests, testimonials, and customer reviews",
