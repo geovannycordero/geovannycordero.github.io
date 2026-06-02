@@ -47,13 +47,13 @@ export default function Education() {
   ];
 
   return (
-    <section id='education' className='py-20 bg-white'>
+    <section id='education' className='py-20 bg-white dark:bg-background'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='text-center mb-16'>
-          <h2 className='text-3xl sm:text-4xl font-bold mb-4 text-sage-900'>
+          <h2 className='text-3xl sm:text-4xl font-bold mb-4 text-sage-900 dark:text-slate-100'>
             Education & Certifications
           </h2>
-          <p className='text-lg text-sage-700 max-w-2xl mx-auto'>
+          <p className='text-lg text-sage-700 dark:text-slate-300 max-w-2xl mx-auto'>
             Continuous learning and professional development through formal
             education and specialized certifications.
           </p>
@@ -62,16 +62,19 @@ export default function Education() {
         <div className='max-w-4xl mx-auto space-y-8'>
           {/* Education */}
           <div>
-            <h3 className='text-2xl font-semibold mb-6 flex items-center gap-2 text-emerald-800'>
-              <GraduationCap className='h-6 w-6 text-emerald-600' />
+            <h3 className='text-2xl font-semibold mb-6 flex items-center gap-2 text-emerald-800 dark:text-emerald-400'>
+              <GraduationCap className='h-6 w-6 text-emerald-600 dark:text-emerald-400' />
               Education
             </h3>
             <div className='space-y-4'>
               {education.map((edu, index) => (
-                <Card key={index} className='card-elegant hover-lift'>
+                <Card
+                  key={index}
+                  className='card-elegant hover-lift glow-emerald'
+                >
                   <CardHeader>
                     <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2'>
-                      <CardTitle className='text-lg text-sage-900'>
+                      <CardTitle className='text-lg text-sage-900 dark:text-slate-100'>
                         {edu.degree}
                       </CardTitle>
                       <div className='flex items-center gap-2'>
@@ -81,15 +84,15 @@ export default function Education() {
                           }
                           className={
                             edu.status === 'current'
-                              ? 'bg-emerald-600 text-white'
-                              : 'bg-emerald-100 text-emerald-700'
+                              ? 'bg-emerald-600 dark:bg-emerald-500 text-white'
+                              : 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400'
                           }
                         >
                           {edu.status === 'current'
                             ? 'In Progress'
                             : 'Completed'}
                         </Badge>
-                        <div className='flex items-center gap-1 text-sm text-sage-600'>
+                        <div className='flex items-center gap-1 text-sm text-sage-600 dark:text-slate-400'>
                           <Calendar className='h-4 w-4' />
                           <span>{edu.period}</span>
                         </div>
@@ -97,7 +100,9 @@ export default function Education() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className='text-sage-700'>{edu.institution}</p>
+                    <p className='text-sage-700 dark:text-slate-300'>
+                      {edu.institution}
+                    </p>
                   </CardContent>
                 </Card>
               ))}
@@ -106,25 +111,28 @@ export default function Education() {
 
           {/* Certifications */}
           <div>
-            <h3 className='text-2xl font-semibold mb-6 flex items-center gap-2 text-emerald-800'>
-              <Award className='h-6 w-6 text-emerald-600' />
+            <h3 className='text-2xl font-semibold mb-6 flex items-center gap-2 text-emerald-800 dark:text-emerald-400'>
+              <Award className='h-6 w-6 text-emerald-600 dark:text-emerald-400' />
               Certifications
             </h3>
             <div className='grid md:grid-cols-2 gap-4'>
               {certifications.map((cert, index) => (
-                <Card key={index} className='card-elegant hover-lift'>
+                <Card
+                  key={index}
+                  className='card-elegant hover-lift glow-emerald'
+                >
                   <CardHeader>
-                    <CardTitle className='text-base text-sage-900'>
+                    <CardTitle className='text-base text-sage-900 dark:text-slate-100'>
                       {cert.title}
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <p className='text-sm text-sage-700 mb-2'>
+                    <p className='text-sm text-sage-700 dark:text-slate-300 mb-2'>
                       {cert.institution}
                     </p>
                     <Badge
                       variant='outline'
-                      className='text-xs border-emerald-300 text-emerald-700'
+                      className='text-xs border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-400'
                     >
                       {cert.year}
                     </Badge>

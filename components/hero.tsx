@@ -11,20 +11,22 @@ export default function Hero() {
         <div className='grid lg:grid-cols-2 gap-12 items-center'>
           <div className='space-y-8'>
             <div className='space-y-4'>
-              <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-sage-900'>
+              <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-sage-900 dark:text-slate-100'>
                 Geovanny
-                <span className='block text-emerald-600'>Cordero</span>
+                <span className='block text-emerald-600 dark:bg-gradient-to-r dark:from-emerald-400 dark:to-cyan-400 dark:bg-clip-text dark:text-transparent'>
+                  Cordero
+                </span>
               </h1>
-              <p className='text-xl sm:text-2xl text-emerald-700 font-medium'>
+              <p className='text-xl sm:text-2xl text-emerald-700 dark:text-emerald-400 font-medium'>
                 Full-Stack Software Engineer
               </p>
-              <div className='flex items-center gap-2 text-sage-600'>
+              <div className='flex items-center gap-2 text-sage-600 dark:text-slate-400'>
                 <MapPin className='h-4 w-4' />
                 <span>San José, Costa Rica</span>
               </div>
             </div>
 
-            <p className='text-lg text-sage-700 leading-relaxed'>
+            <p className='text-lg text-sage-700 dark:text-slate-300 leading-relaxed'>
               Passionate Full-Stack Software Engineer with 5+ years of
               experience, specializing in Golang, Ruby on Rails, and JavaScript
               technologies. Proven expertise in leading teams and delivering
@@ -35,7 +37,7 @@ export default function Hero() {
               <Button
                 asChild
                 size='lg'
-                className='bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg hover:shadow-xl transition-all duration-300'
+                className='bg-emerald-600 hover:bg-emerald-500 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white shadow-lg dark:shadow-emerald-500/20 hover:shadow-xl dark:hover:shadow-emerald-500/40 transition-all duration-300'
               >
                 <Link href='/#contact'>Get In Touch</Link>
               </Button>
@@ -43,7 +45,7 @@ export default function Hero() {
                 variant='outline'
                 size='lg'
                 asChild
-                className='border-emerald-600 text-emerald-600 hover:bg-emerald-50 hover:text-emerald-700 transition-all duration-300'
+                className='border-emerald-600 dark:border-emerald-600 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-300'
               >
                 <Link href='/#about'>Learn More</Link>
               </Button>
@@ -52,7 +54,7 @@ export default function Hero() {
             <div className='flex flex-wrap gap-6 pt-4'>
               <Link
                 href='mailto:geovanny@pm.me'
-                className='flex items-center gap-2 text-sage-600 hover:text-emerald-600 transition-colors duration-200'
+                className='flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200'
               >
                 <Mail className='h-4 w-4' />
                 <span className='hidden sm:inline'>geovanny@pm.me</span>
@@ -61,7 +63,7 @@ export default function Hero() {
                 href='https://linkedin.com/in/geovannycordero'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='flex items-center gap-2 text-sage-600 hover:text-emerald-600 transition-colors duration-200'
+                className='flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200'
               >
                 <Linkedin className='h-4 w-4' />
                 <span className='hidden sm:inline'>LinkedIn</span>
@@ -70,7 +72,7 @@ export default function Hero() {
                 href='https://github.com/geovannycordero'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='flex items-center gap-2 text-sage-600 hover:text-emerald-600 transition-colors duration-200'
+                className='flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200'
                 aria-label='Visit GitHub profile'
               >
                 <Github className='h-4 w-4' />
@@ -80,7 +82,7 @@ export default function Hero() {
                 href='https://x.com/gehovah'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='flex items-center gap-2 text-sage-600 hover:text-emerald-600 transition-colors duration-200'
+                className='flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200'
                 aria-label='Visit X profile'
               >
                 <svg
@@ -97,7 +99,7 @@ export default function Hero() {
 
           <div className='flex justify-center lg:justify-end'>
             <div className='relative'>
-              <div className='w-80 h-80 rounded-2xl bg-gradient-to-br from-emerald-100 to-emerald-200 flex items-center justify-center overflow-hidden shadow-2xl hover-lift'>
+              <div className='w-80 h-80 rounded-2xl bg-gradient-to-br from-emerald-100 to-emerald-200 dark:from-emerald-900/30 dark:to-emerald-800/10 flex items-center justify-center overflow-hidden shadow-2xl dark:shadow-emerald-500/10 hover-lift'>
                 <Image
                   src='/images/me-forest.jpg'
                   alt='Geovanny Cordero Valverde on a forest bridge'
@@ -108,8 +110,8 @@ export default function Hero() {
                 />
               </div>
               {/* Decorative elements */}
-              <div className='absolute -top-4 -right-4 w-24 h-24 bg-emerald-200 rounded-full opacity-60 blur-xl'></div>
-              <div className='absolute -bottom-4 -left-4 w-32 h-32 bg-emerald-300 rounded-full opacity-40 blur-xl'></div>
+              <div className='absolute -top-4 -right-4 w-24 h-24 bg-emerald-200 dark:bg-emerald-500 rounded-full opacity-60 dark:opacity-20 blur-xl'></div>
+              <div className='absolute -bottom-4 -left-4 w-32 h-32 bg-emerald-300 dark:bg-emerald-600 rounded-full opacity-40 dark:opacity-15 blur-xl'></div>
             </div>
           </div>
         </div>

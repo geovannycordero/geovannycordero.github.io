@@ -22,8 +22,8 @@ type ThemeProviderState = {
 };
 
 const initialState: ThemeProviderState = {
-  theme: 'system',
-  resolvedTheme: 'light',
+  theme: 'dark',
+  resolvedTheme: 'dark',
   setTheme: () => null,
   toggleTheme: () => null,
   systemTheme: 'light',
@@ -33,7 +33,7 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'system',
+  defaultTheme = 'dark',
   storageKey = 'geovanny-portfolio-theme',
   disableTransitionOnChange = false,
   ...props

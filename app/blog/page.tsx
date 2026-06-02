@@ -58,23 +58,23 @@ function BlogLoading() {
     <div className='space-y-8'>
       {Array.from({ length: 5 }).map((_, i) => (
         <div key={i} className='animate-pulse'>
-          <div className='bg-card border border-emerald-100 rounded-lg p-6 shadow-sm'>
+          <div className='bg-card border border-emerald-100 dark:border-emerald-900/20 rounded-lg p-6 shadow-sm'>
             <div className='flex gap-2 mb-4'>
-              <div className='h-6 w-16 bg-emerald-100 rounded'></div>
-              <div className='h-6 w-20 bg-emerald-100 rounded'></div>
-              <div className='h-6 w-24 bg-emerald-100 rounded'></div>
+              <div className='h-6 w-16 bg-emerald-100 dark:bg-emerald-900/30 rounded'></div>
+              <div className='h-6 w-20 bg-emerald-100 dark:bg-emerald-900/30 rounded'></div>
+              <div className='h-6 w-24 bg-emerald-100 dark:bg-emerald-900/30 rounded'></div>
             </div>
-            <div className='h-8 bg-emerald-100 rounded mb-4'></div>
+            <div className='h-8 bg-emerald-100 dark:bg-emerald-900/30 rounded mb-4'></div>
             <div className='flex gap-4 mb-4'>
-              <div className='h-4 w-32 bg-emerald-100 rounded'></div>
-              <div className='h-4 w-20 bg-emerald-100 rounded'></div>
+              <div className='h-4 w-32 bg-emerald-100 dark:bg-emerald-900/30 rounded'></div>
+              <div className='h-4 w-20 bg-emerald-100 dark:bg-emerald-900/30 rounded'></div>
             </div>
             <div className='space-y-2 mb-4'>
-              <div className='h-4 bg-emerald-100 rounded'></div>
-              <div className='h-4 bg-emerald-100 rounded'></div>
-              <div className='h-4 bg-emerald-100 rounded w-3/4'></div>
+              <div className='h-4 bg-emerald-100 dark:bg-emerald-900/30 rounded'></div>
+              <div className='h-4 bg-emerald-100 dark:bg-emerald-900/30 rounded'></div>
+              <div className='h-4 bg-emerald-100 dark:bg-emerald-900/30 rounded w-3/4'></div>
             </div>
-            <div className='h-4 w-24 bg-emerald-100 rounded'></div>
+            <div className='h-4 w-24 bg-emerald-100 dark:bg-emerald-900/30 rounded'></div>
           </div>
         </div>
       ))}
@@ -88,15 +88,15 @@ async function BlogContent() {
   return (
     <>
       {/* Blog posts count and summary */}
-      <div className='mb-8 p-4 bg-emerald-50 rounded-lg border border-emerald-100'>
+      <div className='mb-8 p-4 bg-emerald-50 dark:bg-card rounded-lg border border-emerald-100 dark:border-emerald-900/20'>
         <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2'>
-          <p className='text-sage-700'>
-            <span className='font-semibold text-emerald-700'>
+          <p className='text-sage-700 dark:text-slate-300'>
+            <span className='font-semibold text-emerald-700 dark:text-emerald-400'>
               {posts.length}
             </span>{' '}
             articles available
           </p>
-          <p className='text-sm text-sage-600'>
+          <p className='text-sm text-sage-600 dark:text-slate-400'>
             Latest:{' '}
             {posts.length > 0
               ? new Date(posts[0].date).toLocaleDateString('en-US', {
@@ -120,9 +120,9 @@ async function BlogContent() {
       {posts.length === 0 && (
         <div className='text-center py-16'>
           <div className='max-w-md mx-auto'>
-            <div className='w-24 h-24 mx-auto mb-6 bg-emerald-100 rounded-full flex items-center justify-center'>
+            <div className='w-24 h-24 mx-auto mb-6 bg-emerald-100 dark:bg-emerald-900/30 rounded-full flex items-center justify-center'>
               <svg
-                className='w-12 h-12 text-emerald-600'
+                className='w-12 h-12 text-emerald-600 dark:text-emerald-400'
                 fill='none'
                 stroke='currentColor'
                 viewBox='0 0 24 24'
@@ -136,16 +136,16 @@ async function BlogContent() {
                 />
               </svg>
             </div>
-            <h3 className='text-xl font-semibold mb-3 text-sage-900'>
+            <h3 className='text-xl font-semibold mb-3 text-sage-900 dark:text-slate-100'>
               No posts found
             </h3>
-            <p className='text-sage-700 mb-6'>
+            <p className='text-sage-700 dark:text-slate-300 mb-6'>
               There are no blog posts available at the moment. Check back soon
               for new content!
             </p>
             <Link
               href='/'
-              className='inline-flex items-center px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors'
+              className='inline-flex items-center px-4 py-2 bg-emerald-600 dark:bg-emerald-500 text-white rounded-lg hover:bg-emerald-700 dark:hover:bg-emerald-400 transition-colors'
             >
               Return to Home
             </Link>
@@ -168,7 +168,7 @@ export default async function BlogPage() {
             <div className='mb-8'>
               <Link
                 href='/'
-                className='inline-flex items-center gap-2 text-sage-600 hover:text-emerald-600 transition-colors mb-6 group'
+                className='inline-flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors mb-6 group'
               >
                 <ArrowLeft className='h-4 w-4 transition-transform group-hover:-translate-x-1' />
                 Back to Home
@@ -176,17 +176,19 @@ export default async function BlogPage() {
 
               <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4'>
                 <div>
-                  <h1 className='text-4xl font-bold text-sage-900 mb-2'>
+                  <h1 className='text-4xl font-bold text-sage-900 dark:text-slate-100 mb-2'>
                     Blog
                   </h1>
-                  <p className='text-lg text-sage-700'>
+                  <p className='text-lg text-sage-700 dark:text-slate-300'>
                     Insights, articles, and updates on software development,
                     technology, and leadership.
                   </p>
                 </div>
                 <div className='flex flex-col sm:items-end gap-2'>
                   <RSSLink />
-                  <p className='text-sm text-sage-600'>Subscribe for updates</p>
+                  <p className='text-sm text-sage-600 dark:text-slate-400'>
+                    Subscribe for updates
+                  </p>
                 </div>
               </div>
             </div>
@@ -203,35 +205,47 @@ export default async function BlogPage() {
             </div>
 
             {/* Footer section */}
-            <div className='text-center mt-16 pt-8 border-t border-emerald-100'>
+            <div className='text-center mt-16 pt-8 border-t border-emerald-100 dark:border-emerald-900/20'>
               <div className='max-w-2xl mx-auto'>
-                <h3 className='text-lg font-semibold mb-4 text-sage-900'>
+                <h3 className='text-lg font-semibold mb-4 text-sage-900 dark:text-slate-100'>
                   Stay Connected
                 </h3>
-                <p className='text-sage-700 mb-6'>
+                <p className='text-sage-700 dark:text-slate-300 mb-6'>
                   More articles coming soon! Follow me on{' '}
                   <Link
                     href='https://linkedin.com/in/geovannycordero'
                     target='_blank'
                     rel='noopener noreferrer'
-                    className='text-emerald-600 hover:text-emerald-700 underline font-medium'
+                    className='text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 underline font-medium'
                   >
                     LinkedIn
                   </Link>{' '}
                   for updates and insights.
                 </p>
                 <div className='grid sm:grid-cols-3 gap-4 text-sm'>
-                  <div className='flex items-center justify-center gap-2 p-3 bg-emerald-50 rounded-lg'>
-                    <span className='text-emerald-600'>📧</span>
-                    <span className='text-sage-700'>RSS Feed Available</span>
+                  <div className='flex items-center justify-center gap-2 p-3 bg-emerald-50 dark:bg-card rounded-lg'>
+                    <span className='text-emerald-600 dark:text-emerald-400'>
+                      📧
+                    </span>
+                    <span className='text-sage-700 dark:text-slate-300'>
+                      RSS Feed Available
+                    </span>
                   </div>
-                  <div className='flex items-center justify-center gap-2 p-3 bg-emerald-50 rounded-lg'>
-                    <span className='text-emerald-600'>🔄</span>
-                    <span className='text-sage-700'>Updated Regularly</span>
+                  <div className='flex items-center justify-center gap-2 p-3 bg-emerald-50 dark:bg-card rounded-lg'>
+                    <span className='text-emerald-600 dark:text-emerald-400'>
+                      🔄
+                    </span>
+                    <span className='text-sage-700 dark:text-slate-300'>
+                      Updated Regularly
+                    </span>
                   </div>
-                  <div className='flex items-center justify-center gap-2 p-3 bg-emerald-50 rounded-lg'>
-                    <span className='text-emerald-600'>💡</span>
-                    <span className='text-sage-700'>Tech Insights</span>
+                  <div className='flex items-center justify-center gap-2 p-3 bg-emerald-50 dark:bg-card rounded-lg'>
+                    <span className='text-emerald-600 dark:text-emerald-400'>
+                      💡
+                    </span>
+                    <span className='text-sage-700 dark:text-slate-300'>
+                      Tech Insights
+                    </span>
                   </div>
                 </div>
               </div>

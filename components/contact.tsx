@@ -28,13 +28,13 @@ export default function Contact() {
   ];
 
   return (
-    <section id='contact' className='py-20 bg-white'>
+    <section id='contact' className='py-20 bg-white dark:bg-background'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='text-center mb-16'>
-          <h2 className='text-3xl sm:text-4xl font-bold mb-4 text-sage-900'>
+          <h2 className='text-3xl sm:text-4xl font-bold mb-4 text-sage-900 dark:text-slate-100'>
             Get In Touch
           </h2>
-          <p className='text-lg text-sage-700 max-w-2xl mx-auto'>
+          <p className='text-lg text-sage-700 dark:text-slate-300 max-w-2xl mx-auto'>
             Ready to collaborate on your next project? Let&apos;s discuss how we
             can work together to bring your ideas to life.
           </p>
@@ -45,20 +45,20 @@ export default function Contact() {
             {contactInfo.map((item, index) => (
               <Card
                 key={index}
-                className='text-center p-6 card-elegant hover-lift'
+                className='text-center p-6 card-elegant hover-lift glow-emerald'
               >
                 <CardContent className='space-y-4'>
-                  <div className='mx-auto w-16 h-16 bg-emerald-100 rounded-lg flex items-center justify-center'>
-                    <item.icon className='h-8 w-8 text-emerald-600' />
+                  <div className='mx-auto w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center'>
+                    <item.icon className='h-8 w-8 text-emerald-600 dark:text-emerald-400' />
                   </div>
                   <div>
-                    <h3 className='font-semibold text-lg mb-2 text-sage-900'>
+                    <h3 className='font-semibold text-lg mb-2 text-sage-900 dark:text-slate-100'>
                       {item.label}
                     </h3>
                     {item.href ? (
                       <Link
                         href={item.href}
-                        className='text-sage-700 hover:text-emerald-600 transition-colors text-sm'
+                        className='text-sage-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors text-sm'
                         target={
                           item.href.startsWith('http') ? '_blank' : undefined
                         }
@@ -71,7 +71,9 @@ export default function Contact() {
                         {item.value}
                       </Link>
                     ) : (
-                      <p className='text-sage-700 text-sm'>{item.value}</p>
+                      <p className='text-sage-700 dark:text-slate-300 text-sm'>
+                        {item.value}
+                      </p>
                     )}
                   </div>
                 </CardContent>
@@ -80,7 +82,7 @@ export default function Contact() {
           </div>
 
           <div className='text-center mt-12'>
-            <p className='text-sage-700'>
+            <p className='text-sage-700 dark:text-slate-300'>
               Ready to collaborate on your next project? Feel free to reach out
               via email or connect with me on LinkedIn.
             </p>

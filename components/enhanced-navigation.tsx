@@ -52,13 +52,16 @@ export default function EnhancedNavigation() {
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-white/95 backdrop-blur-sm border-b border-emerald-100'
+          ? 'bg-white/95 dark:bg-black/70 backdrop-blur-xl border-b border-emerald-100 dark:border-emerald-900/20'
           : 'bg-transparent'
       }`}
     >
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='flex justify-between items-center py-4'>
-          <Link href='/' className='text-xl font-bold text-emerald-600'>
+          <Link
+            href='/'
+            className='text-xl font-bold text-emerald-600 dark:text-emerald-400'
+          >
             Geovanny Cordero
           </Link>
 
@@ -69,15 +72,16 @@ export default function EnhancedNavigation() {
                 <div key={item.href}>
                   {item.type === 'blog' ? (
                     <button
+                      type='button'
                       onClick={() => handleNavClick(item)}
-                      className='text-sage-600 hover:text-emerald-600 transition-colors font-medium'
+                      className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium'
                     >
                       {item.label}
                     </button>
                   ) : (
                     <Link
                       href={item.href}
-                      className='text-sage-600 hover:text-emerald-600 transition-colors font-medium'
+                      className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium'
                       onClick={() => setIsOpen(false)}
                     >
                       {item.label}
@@ -93,7 +97,7 @@ export default function EnhancedNavigation() {
             <Button
               variant='ghost'
               size='icon'
-              className='text-sage-600 hover:text-emerald-600'
+              className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400'
               onClick={() => setIsOpen(!isOpen)}
             >
               {isOpen ? (
@@ -107,21 +111,22 @@ export default function EnhancedNavigation() {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className='md:hidden pb-4 bg-white/95 backdrop-blur-sm border-t border-emerald-100'>
+          <div className='md:hidden pb-4 bg-white/95 dark:bg-black/80 backdrop-blur-xl border-t border-emerald-100 dark:border-emerald-900/20'>
             <div className='flex flex-col space-y-4 pt-4'>
               {navItems.map(item => (
                 <div key={item.href}>
                   {item.type === 'blog' ? (
                     <button
+                      type='button'
                       onClick={() => handleNavClick(item)}
-                      className='text-sage-600 hover:text-emerald-600 transition-colors font-medium text-left'
+                      className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium text-left'
                     >
                       {item.label}
                     </button>
                   ) : (
                     <Link
                       href={item.href}
-                      className='text-sage-600 hover:text-emerald-600 transition-colors font-medium'
+                      className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium'
                       onClick={() => setIsOpen(false)}
                     >
                       {item.label}

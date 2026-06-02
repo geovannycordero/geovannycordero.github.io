@@ -23,7 +23,31 @@
     --input: 214.3 31.8% 91.4%;
     --ring: 142 76% 36%;
     --radius: 0.75rem;
+  }
 
+  .dark {
+    --background: 150 20% 4%;
+    --foreground: 210 40% 96%;
+    --card: 222 47% 11%;
+    --card-foreground: 210 40% 96%;
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 40% 96%;
+    --primary: 158 64% 52%;
+    --primary-foreground: 150 20% 4%;
+    --secondary: 158 30% 15%;
+    --secondary-foreground: 158 64% 52%;
+    --muted: 222 30% 14%;
+    --muted-foreground: 215 14% 47%;
+    --accent: 158 30% 15%;
+    --accent-foreground: 158 64% 52%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 158 25% 18%;
+    --input: 158 25% 18%;
+    --ring: 158 64% 52%;
+  }
+
+  :root {
     /* Modern Green color palette */
     --emerald-50: 151 81% 96%;
     --emerald-100: 149 80% 90%;
@@ -251,21 +275,38 @@
   }
 }
 
+/* ========== Dark mode design utilities ========== */
+.gradient-text {
+  background: linear-gradient(to right, #34d399, #22d3ee);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.glow-emerald {
+  transition: box-shadow 0.3s ease;
+}
+
+.glow-emerald:hover {
+  box-shadow: 0 0 24px rgba(16, 185, 129, 0.25);
+}
+
 /* Custom styles for blog content */
 .prose {
   @apply text-foreground;
 }
 
 .prose h2 {
-  @apply text-2xl font-bold mt-8 mb-4 text-emerald-800;
+  @apply text-2xl font-bold mt-8 mb-4 text-emerald-800 dark:text-emerald-400;
 }
 
 .prose h3 {
-  @apply text-xl font-semibold mt-6 mb-3 text-emerald-700;
+  @apply text-xl font-semibold mt-6 mb-3 text-emerald-700 dark:text-emerald-400;
 }
 
 .prose p {
-  @apply mb-4 leading-relaxed text-sage-700;
+  @apply mb-4 leading-relaxed text-sage-700 dark:text-slate-300;
 }
 
 .prose ul {
@@ -273,19 +314,19 @@
 }
 
 .prose li {
-  @apply text-sage-700;
+  @apply text-sage-700 dark:text-slate-300;
 }
 
 .prose strong {
-  @apply text-emerald-800 font-semibold;
+  @apply text-emerald-800 dark:text-emerald-400 font-semibold;
 }
 
 .prose code {
-  @apply bg-emerald-50 text-emerald-800 px-1 py-0.5 rounded text-sm;
+  @apply bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-400 px-1 py-0.5 rounded text-sm;
 }
 
 .prose blockquote {
-  @apply border-l-4 border-emerald-300 pl-4 italic text-sage-600;
+  @apply border-l-4 border-emerald-300 dark:border-emerald-700 pl-4 italic text-sage-600 dark:text-slate-400;
 }
 
 /* Smooth scrolling for anchor links */
@@ -351,21 +392,21 @@ a {
   @apply transition-colors duration-200;
 }
 
-/* Custom scrollbar for webkit browsers with green theme */
+/* Custom scrollbar for webkit browsers */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-emerald-50;
+  @apply bg-emerald-50 dark:bg-gray-900;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-emerald-200 rounded-full;
+  @apply bg-emerald-200 dark:bg-emerald-900 rounded-full;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-emerald-300;
+  @apply bg-emerald-300 dark:bg-emerald-700;
 }
 
 /* Ensure smooth scrolling works on all browsers */
@@ -417,6 +458,15 @@ a {
 
 .card-elegant:hover {
   @apply border-emerald-200 shadow-emerald-100/20;
+}
+
+.dark .card-elegant {
+  border-color: rgba(16, 185, 129, 0.12);
+}
+
+.dark .card-elegant:hover {
+  border-color: rgba(16, 185, 129, 0.3);
+  box-shadow: 0 0 20px rgba(16, 185, 129, 0.08);
 }
 
 /* Text selection */
