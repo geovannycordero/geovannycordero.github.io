@@ -5,21 +5,21 @@ import RSSLink from './rss-link';
 
 export default function Footer() {
   return (
-    <footer className='bg-emerald-50/50 border-t border-emerald-100'>
+    <footer className='bg-emerald-50/50 dark:bg-black/80 border-t border-emerald-100 dark:border-emerald-900/20'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12'>
         <div className='grid md:grid-cols-3 gap-8'>
           <div>
-            <h3 className='text-lg font-semibold mb-4 text-sage-900'>
+            <h3 className='text-lg font-semibold mb-4 text-sage-900 dark:text-slate-100'>
               Geovanny Cordero Valverde
             </h3>
-            <p className='text-sage-700 mb-4'>
+            <p className='text-sage-700 dark:text-slate-400 mb-4'>
               Full-Stack Software Engineer passionate about creating innovative
               solutions and leading high-performing development teams.
             </p>
             <div className='flex gap-4'>
               <Link
                 href='mailto:geovanny@pm.me'
-                className='text-sage-600 hover:text-emerald-600 transition-colors'
+                className='text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors'
               >
                 <Mail className='h-5 w-5' />
               </Link>
@@ -27,7 +27,7 @@ export default function Footer() {
                 href='https://linkedin.com/in/geovannycordero'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-sage-600 hover:text-emerald-600 transition-colors'
+                className='text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors'
               >
                 <Linkedin className='h-5 w-5' />
               </Link>
@@ -35,7 +35,7 @@ export default function Footer() {
                 href='https://github.com/geovannycordero'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-sage-600 hover:text-emerald-600 transition-colors'
+                className='text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors'
               >
                 <Github className='h-5 w-5' />
               </Link>
@@ -43,7 +43,7 @@ export default function Footer() {
                 href='https://x.com/gehovah'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-sage-600 hover:text-emerald-600 transition-colors'
+                className='text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors'
                 aria-label='Visit X profile'
               >
                 <svg
@@ -59,41 +59,43 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className='font-semibold mb-4 text-emerald-800'>Quick Links</h4>
+            <h4 className='font-semibold mb-4 text-emerald-800 dark:text-emerald-400'>
+              Quick Links
+            </h4>
             <nav className='space-y-2'>
               <Link
                 href='/#about'
-                className='block text-sage-600 hover:text-emerald-600 transition-colors'
+                className='block text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors'
               >
                 About
               </Link>
               <Link
                 href='/#skills'
-                className='block text-sage-600 hover:text-emerald-600 transition-colors'
+                className='block text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors'
               >
                 Skills
               </Link>
               <Link
                 href='/#experience'
-                className='block text-sage-600 hover:text-emerald-600 transition-colors'
+                className='block text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors'
               >
                 Experience
               </Link>
               <Link
                 href='/#education'
-                className='block text-sage-600 hover:text-emerald-600 transition-colors'
+                className='block text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors'
               >
                 Education
               </Link>
               <Link
                 href='/#contact'
-                className='block text-sage-600 hover:text-emerald-600 transition-colors'
+                className='block text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors'
               >
                 Contact
               </Link>
               <Link
                 href='/projects'
-                className='block text-sage-600 hover:text-emerald-600 transition-colors'
+                className='block text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors'
               >
                 Projects
               </Link>
@@ -104,8 +106,10 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className='font-semibold mb-4 text-emerald-800'>Services</h4>
-            <ul className='space-y-2 text-sage-600'>
+            <h4 className='font-semibold mb-4 text-emerald-800 dark:text-emerald-400'>
+              Services
+            </h4>
+            <ul className='space-y-2 text-sage-600 dark:text-slate-400'>
               <li>Full-Stack Development</li>
               <li>Team Leadership</li>
               <li>Project Management</li>
@@ -115,7 +119,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className='border-t border-emerald-100 mt-8 pt-8 text-center text-sage-600'>
+        <div className='border-t border-emerald-100 dark:border-emerald-900/20 mt-8 pt-8 text-center text-sage-600 dark:text-slate-500'>
           <p>
             &copy; {new Date().getFullYear()} Geovanny Cordero Valverde. All
             rights reserved.

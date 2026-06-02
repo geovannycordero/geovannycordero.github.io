@@ -25,7 +25,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <Card
-      className={`card-elegant hover-lift transition-all duration-300 transform ${
+      className={`card-elegant hover-lift glow-emerald transition-all duration-300 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
@@ -40,7 +40,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent' />
         {project.featured && (
           <div className='absolute top-3 right-3'>
-            <Badge className='bg-emerald-600 text-white text-xs'>
+            <Badge className='bg-emerald-600 dark:bg-emerald-500 text-white text-xs'>
               Featured
             </Badge>
           </div>
@@ -49,10 +49,10 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
       <CardHeader className='pb-3'>
         <div className='flex items-start justify-between gap-2'>
-          <CardTitle className='text-xl text-sage-900 hover:text-emerald-700 transition-colors line-clamp-2'>
+          <CardTitle className='text-xl text-sage-900 dark:text-slate-100 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors line-clamp-2'>
             {project.title}
           </CardTitle>
-          <div className='flex items-center gap-1 text-xs text-sage-600'>
+          <div className='flex items-center gap-1 text-xs text-sage-600 dark:text-slate-400'>
             <Calendar className='h-3 w-3' />
             <span>{project.completedDate}</span>
           </div>
@@ -61,7 +61,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         <div className='flex flex-wrap gap-2'>
           <Badge
             variant='outline'
-            className='text-xs border-emerald-300 text-emerald-700'
+            className='text-xs border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-400'
           >
             {project.category}
           </Badge>
@@ -69,7 +69,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
       </CardHeader>
 
       <CardContent className='space-y-4'>
-        <p className='text-sage-700 text-sm leading-relaxed line-clamp-3'>
+        <p className='text-sage-700 dark:text-slate-300 text-sm leading-relaxed line-clamp-3'>
           {project.description}
         </p>
 
@@ -79,7 +79,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
               <Badge
                 key={techIndex}
                 variant='secondary'
-                className='text-xs bg-emerald-100 text-emerald-700 hover:bg-emerald-200 transition-colors'
+                className='text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors'
               >
                 {tech}
               </Badge>
@@ -92,7 +92,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 href={project.githubUrl}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='inline-flex items-center gap-2 text-sage-600 hover:text-emerald-600 transition-colors text-sm font-medium'
+                className='inline-flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors text-sm font-medium'
                 aria-label={`View ${project.title} on GitHub`}
               >
                 <Github className='h-4 w-4' />
@@ -105,7 +105,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 href={project.projectUrl}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='inline-flex items-center gap-2 text-sage-600 hover:text-emerald-600 transition-colors text-sm font-medium'
+                className='inline-flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors text-sm font-medium'
                 aria-label={`Visit ${project.title} live site`}
               >
                 <ExternalLink className='h-4 w-4' />

@@ -51,13 +51,13 @@ export default function Skills() {
   ];
 
   return (
-    <section id='skills' className='py-20 bg-white'>
+    <section id='skills' className='py-20 bg-white dark:bg-background'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
         <div className='text-center mb-16'>
-          <h2 className='text-3xl sm:text-4xl font-bold mb-4 text-sage-900'>
+          <h2 className='text-3xl sm:text-4xl font-bold mb-4 text-sage-900 dark:text-slate-100'>
             Skills & Expertise
           </h2>
-          <p className='text-lg text-sage-700 max-w-2xl mx-auto'>
+          <p className='text-lg text-sage-700 dark:text-slate-300 max-w-2xl mx-auto'>
             A comprehensive toolkit of technologies and skills developed through
             years of hands-on experience and continuous learning.
           </p>
@@ -65,9 +65,12 @@ export default function Skills() {
 
         <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {skillCategories.map((category, index) => (
-            <Card key={index} className='h-full card-elegant hover-lift'>
+            <Card
+              key={index}
+              className='h-full card-elegant hover-lift glow-emerald'
+            >
               <CardHeader>
-                <CardTitle className='text-lg text-emerald-800'>
+                <CardTitle className='text-lg text-emerald-800 dark:text-emerald-400'>
                   {category.title}
                 </CardTitle>
               </CardHeader>
@@ -77,7 +80,7 @@ export default function Skills() {
                     <Badge
                       key={skillIndex}
                       variant='secondary'
-                      className='text-xs bg-emerald-100 text-emerald-700 hover:bg-emerald-200 transition-colors'
+                      className='text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors'
                     >
                       {skill}
                     </Badge>
