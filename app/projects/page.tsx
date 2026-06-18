@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import Link from 'next/link';
 import { ArrowLeft, Code, Briefcase, Users } from 'lucide-react';
 import type { Metadata } from 'next';
-import EnhancedNavigation from '@/components/enhanced-navigation';
+import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 import ProjectCard from '@/components/project-card';
 import { getAllProjects } from '@/lib/projects';
@@ -144,7 +144,7 @@ async function ProjectsContent() {
 export default async function ProjectsPage() {
   return (
     <div className='min-h-screen bg-background'>
-      <EnhancedNavigation />
+      <Navigation />
 
       <main className='pt-20'>
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12'>

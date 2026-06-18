@@ -44,11 +44,9 @@ jest.mock('@/components/contact', () => {
   };
 });
 
-jest.mock('@/components/enhanced-navigation', () => {
-  return function MockEnhancedNavigation() {
-    return (
-      <div data-testid='enhanced-navigation'>Enhanced Navigation Component</div>
-    );
+jest.mock('@/components/navigation', () => {
+  return function MockNavigation() {
+    return <div data-testid='navigation'>Navigation Component</div>;
   };
 });
 
@@ -63,7 +61,7 @@ describe('Home Page', () => {
     render(<Home />);
 
     // Check that all main sections are rendered
-    expect(screen.getByTestId('enhanced-navigation')).toBeInTheDocument();
+    expect(screen.getByTestId('navigation')).toBeInTheDocument();
     expect(screen.getByTestId('hero')).toBeInTheDocument();
     expect(screen.getByTestId('about')).toBeInTheDocument();
     expect(screen.getByTestId('skills')).toBeInTheDocument();
@@ -90,7 +88,7 @@ describe('Home Page', () => {
     const children = Array.from(mainElement.children);
 
     // Check that components are rendered in the expected order
-    expect(children[0]).toHaveAttribute('data-testid', 'enhanced-navigation');
+    expect(children[0]).toHaveAttribute('data-testid', 'navigation');
     expect(children[1]).toHaveAttribute('data-testid', 'hero');
     expect(children[2]).toHaveAttribute('data-testid', 'about');
     expect(children[3]).toHaveAttribute('data-testid', 'skills');

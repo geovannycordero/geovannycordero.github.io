@@ -7,7 +7,7 @@ import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 import { notFound } from 'next/navigation';
 import { getPostBySlug, getAllPostSlugs } from '@/lib/blog';
-import BackToTopButton from './BackToTopButton';
+import BackToTopButton from '@/components/BackToTopButton';
 
 export async function generateMetadata({
   params,
