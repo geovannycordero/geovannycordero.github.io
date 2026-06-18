@@ -1,11 +1,19 @@
 'use client';
 
-import { useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { useRouter } from 'next/navigation';
 
 export function useBlogNavigation() {
   const router = useRouter();
   const navigationTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (navigationTimeoutRef.current) {
+        clearTimeout(navigationTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const scrollToTarget = (delay = 0) => {
     if (typeof window === 'undefined') return;
@@ -15,6 +23,14 @@ export function useBlogNavigation() {
     }
 
     navigationTimeoutRef.current = setTimeout(() => {
+      const hash = window.location.hash;
+      if (hash) {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
+        }
+      }
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }, delay);
   };

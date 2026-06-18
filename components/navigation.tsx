@@ -18,7 +18,8 @@ export default function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    handleScroll();
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -96,6 +97,8 @@ export default function Navigation() {
               size='icon'
               className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400'
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={isOpen}
             >
               {isOpen ? (
                 <X className='h-6 w-6' />

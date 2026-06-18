@@ -42,7 +42,10 @@ describe('useBlogNavigation', () => {
     const { result } = renderHook(() => useBlogNavigation());
     act(() => result.current.scrollToTarget(0));
     act(() => jest.runAllTimers());
-    expect(window.scrollTo).toHaveBeenCalledWith({ top: 0, behavior: 'smooth' });
+    expect(window.scrollTo).toHaveBeenCalledWith({
+      top: 0,
+      behavior: 'smooth',
+    });
     jest.useRealTimers();
   });
 });
