@@ -27,16 +27,3 @@ export function getAllProjects(): Project[] {
   });
 }
 
-export function getProjectById(id: string): Project | undefined {
-  return projects.find(project => project.id === id);
-}
-
-export function getFeaturedProjects(): Project[] {
-  return projects.filter(project => project.featured);
-}
-
-export function getProjectsByCategory(
-  category: Project['category']
-): Project[] {
-  return projects.filter(project => project.category === category);
-}

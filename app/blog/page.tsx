@@ -1,12 +1,12 @@
 import { Suspense } from 'react';
 import Link from 'next/link';
 import { ArrowLeft } from 'lucide-react';
-import EnhancedNavigation from '@/components/enhanced-navigation';
+import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 import RSSLink from '@/components/rss-link';
 import BlogPostCard from '@/components/blog-post-card';
 import { getAllPosts } from '@/lib/blog';
-import BackToTopButton from './BackToTopButton';
+import BackToTopButton from '@/components/BackToTopButton';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -159,7 +159,7 @@ async function BlogContent() {
 export default async function BlogPage() {
   return (
     <div className='min-h-screen bg-background'>
-      <EnhancedNavigation />
+      <Navigation />
 
       <main className='pt-20'>
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12'>

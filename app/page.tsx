@@ -6,7 +6,7 @@ import Experience from '@/components/experience';
 import Education from '@/components/education';
 import Awards from '@/components/awards';
 import Contact from '@/components/contact';
-import EnhancedNavigation from '@/components/enhanced-navigation';
+import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ export const metadata: Metadata = {
 export default function Home() {
   return (
     <main className='min-h-screen bg-white'>
-      <EnhancedNavigation />
+      <Navigation />
       <Hero />
       <About />
       <Skills />
