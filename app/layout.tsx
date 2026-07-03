@@ -169,6 +169,23 @@ export default function RootLayout({
             }),
           }}
         />
+
+        {/* Plausible Analytics (self-hosted) */}
+        {process.env.NODE_ENV === 'production' && (
+          <>
+            <script
+              defer
+              data-domain='geovannycordero.com'
+              src='https://analytics.geovannycordero.com/js/script.file-downloads.outbound-links.js'
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html:
+                  'window.plausible = window.plausible || function() { (window.plausible.q = window.plausible.q || []).push(arguments) }',
+              }}
+            />
+          </>
+        )}
       </head>
       <body className={inter.className}>
         <ThemeProvider>{children}</ThemeProvider>
