@@ -34,3 +34,7 @@ out
 
 docs
 coverage
+
+.claude/
+
+.playwright*
