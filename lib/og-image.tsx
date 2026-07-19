@@ -25,12 +25,13 @@ export function ogTemplate({
         justifyContent: 'space-between',
         padding: '80px 96px',
         background: BACKGROUND,
-        fontFamily:
-          '-apple-system, "Segoe UI", Roboto, sans-serif',
+        fontFamily: '-apple-system, "Segoe UI", Roboto, sans-serif',
       }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
-        <div style={{ width: 40, height: 6, background: ACCENT, borderRadius: 3 }} />
+        <div
+          style={{ width: 40, height: 6, background: ACCENT, borderRadius: 3 }}
+        />
         <span
           style={{
             fontSize: 24,

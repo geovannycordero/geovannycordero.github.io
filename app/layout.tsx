@@ -92,9 +92,7 @@ export default function RootLayout({
         {/* Set the correct theme class before first paint — avoids a flash of
             the wrong theme now that the default is 'system' rather than a
             hardcoded class. Must run before any stylesheet paints. */}
-        <script
-          dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }}
-        />
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
 
         {/* Favicon and Icons */}
         <link rel='icon' href='/favicon.ico' sizes='any' />

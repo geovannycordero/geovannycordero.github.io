@@ -15,13 +15,11 @@ function run(storedValue: string | null, systemPrefersDark: boolean) {
   };
   const fakeLocalStorage = { getItem: () => storedValue };
 
-  // eslint-disable-next-line @typescript-eslint/no-implied-eval
-  new Function(
-    'document',
-    'window',
-    'localStorage',
-    THEME_INIT_SCRIPT
-  )(fakeDocument, fakeWindow, fakeLocalStorage);
+  new Function('document', 'window', 'localStorage', THEME_INIT_SCRIPT)(
+    fakeDocument,
+    fakeWindow,
+    fakeLocalStorage
+  );
 
   return classList;
 }
@@ -65,13 +63,11 @@ describe('THEME_INIT_SCRIPT', () => {
     };
 
     expect(() => {
-      // eslint-disable-next-line @typescript-eslint/no-implied-eval
-      new Function(
-        'document',
-        'window',
-        'localStorage',
-        THEME_INIT_SCRIPT
-      )(fakeDocument, fakeWindow, throwingLocalStorage);
+      new Function('document', 'window', 'localStorage', THEME_INIT_SCRIPT)(
+        fakeDocument,
+        fakeWindow,
+        throwingLocalStorage
+      );
     }).not.toThrow();
   });
 });

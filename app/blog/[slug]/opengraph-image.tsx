@@ -1,5 +1,9 @@
 import { ImageResponse } from 'next/og';
-import { OG_IMAGE_SIZE, OG_IMAGE_CONTENT_TYPE, ogTemplate } from '@/lib/og-image';
+import {
+  OG_IMAGE_SIZE,
+  OG_IMAGE_CONTENT_TYPE,
+  ogTemplate,
+} from '@/lib/og-image';
 import { getPostBySlug, getAllPostSlugs } from '@/lib/blog';
 
 export const dynamic = 'force-static';

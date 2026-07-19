@@ -12,6 +12,9 @@ on:
 
 jobs:
   claude-review:
+    # Disabled — remove the line below to re-enable this workflow.
+    if: false
+
     # Optional: Filter by PR author
     # if: |
     #   github.event.pull_request.user.login == 'external-contributor' ||
