@@ -89,7 +89,7 @@ export default async function BlogPost({
             datePublished: publishedTime,
             dateModified: publishedTime,
             url: postUrl,
-            image: `https://geovannycordero.com/icons/android-chrome-512x512.png`,
+            image: `${postUrl}/opengraph-image`,
             keywords: post.tags.join(', '),
             author: {
               '@type': 'Person',

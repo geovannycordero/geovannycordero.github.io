@@ -32,6 +32,29 @@ const initialState: ThemeProviderState = {
 
 const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
+// Mirrors THEME_INIT_SCRIPT's resolution order (explicit stored choice >
+// system preference) so React's own state starts correct on the client
+// instead of momentarily reverting the class the init script already set.
+function getInitialTheme(defaultTheme: Theme, storageKey: string): Theme {
+  if (typeof window === 'undefined') return defaultTheme;
+  try {
+    const stored = localStorage.getItem(storageKey);
+    if (stored === 'light' || stored === 'dark' || stored === 'system') {
+      return stored;
+    }
+  } catch {
+    // localStorage unavailable — fall back to the default
+  }
+  return defaultTheme;
+}
+
+function getInitialSystemTheme(): 'dark' | 'light' {
+  if (typeof window === 'undefined') return 'light';
+  return window.matchMedia('(prefers-color-scheme: dark)').matches
+    ? 'dark'
+    : 'light';
+}
+
 export function ThemeProvider({
   children,
   defaultTheme = 'system',
@@ -39,8 +62,12 @@ export function ThemeProvider({
   disableTransitionOnChange = false,
   ...props
 }: Readonly<ThemeProviderProps>) {
-  const [theme, setThemeState] = useState<Theme>(defaultTheme);
-  const [systemTheme, setSystemTheme] = useState<'dark' | 'light'>('light');
+  const [theme, setThemeState] = useState<Theme>(() =>
+    getInitialTheme(defaultTheme, storageKey)
+  );
+  const [systemTheme, setSystemTheme] = useState<'dark' | 'light'>(
+    getInitialSystemTheme
+  );
   const [mounted, setMounted] = useState(false);
 
   // Get the resolved theme (actual theme being applied)
