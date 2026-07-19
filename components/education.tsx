@@ -84,7 +84,7 @@ export default function Education() {
                           }
                           className={
                             edu.status === 'current'
-                              ? 'bg-emerald-600 dark:bg-emerald-500 text-white'
+                              ? 'bg-amber-600 text-white'
                               : 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400'
                           }
                         >

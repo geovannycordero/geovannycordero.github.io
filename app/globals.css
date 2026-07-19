@@ -9,7 +9,7 @@
     --card-foreground: 240 10% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 240 10% 3.9%;
-    --primary: 142 76% 36%;
+    --primary: 142 76% 29%;
     --primary-foreground: 355 20% 99%;
     --secondary: 142 30% 96%;
     --secondary-foreground: 142 76% 20%;
@@ -21,29 +21,29 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 142 76% 36%;
+    --ring: 142 76% 29%;
     --radius: 0.75rem;
   }
 
   .dark {
     --background: 150 20% 4%;
     --foreground: 210 40% 96%;
-    --card: 222 47% 11%;
+    --card: 160 20% 10%;
     --card-foreground: 210 40% 96%;
-    --popover: 222 47% 11%;
+    --popover: 160 20% 10%;
     --popover-foreground: 210 40% 96%;
     --primary: 158 64% 52%;
     --primary-foreground: 150 20% 4%;
     --secondary: 158 30% 15%;
     --secondary-foreground: 158 64% 52%;
     --muted: 222 30% 14%;
-    --muted-foreground: 215 14% 47%;
+    --muted-foreground: 215 16% 54%;
     --accent: 158 30% 15%;
     --accent-foreground: 158 64% 52%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 158 25% 18%;
-    --input: 158 25% 18%;
+    --border: 158 24% 33%;
+    --input: 158 24% 33%;
     --ring: 158 64% 52%;
   }
 
@@ -73,6 +73,19 @@
     --sage-800: 138 12% 27%;
     --sage-900: 138 15% 22%;
     --sage-950: 138 20% 15%;
+
+    /* Warm amber — secondary accent, reserved for highlight/status markers */
+    --amber-50: 42 70% 96%;
+    --amber-100: 41 65% 90%;
+    --amber-200: 40 60% 80%;
+    --amber-300: 38 58% 68%;
+    --amber-400: 36 62% 56%;
+    --amber-500: 35 72% 45%;
+    --amber-600: 33 80% 36%;
+    --amber-700: 31 78% 29%;
+    --amber-800: 30 72% 24%;
+    --amber-900: 28 66% 19%;
+    --amber-950: 26 68% 11%;
   }
 }
 
@@ -85,187 +98,14 @@
   }
 }
 
-/* Modern Green color utilities */
+/*
+ * emerald-*, sage-*, and amber-* utilities (text/bg/border/ring) are generated
+ * automatically by Tailwind from the color scales declared in tailwind.config.js,
+ * which in turn read the CSS custom properties above — this file is the single
+ * source of truth for every value in those scales, but the utility classes
+ * themselves don't need to be hand-authored here.
+ */
 @layer utilities {
-  .text-emerald-50 {
-    color: hsl(var(--emerald-50));
-  }
-  .text-emerald-100 {
-    color: hsl(var(--emerald-100));
-  }
-  .text-emerald-200 {
-    color: hsl(var(--emerald-200));
-  }
-  .text-emerald-300 {
-    color: hsl(var(--emerald-300));
-  }
-  .text-emerald-400 {
-    color: hsl(var(--emerald-400));
-  }
-  .text-emerald-500 {
-    color: hsl(var(--emerald-500));
-  }
-  .text-emerald-600 {
-    color: hsl(var(--emerald-600));
-  }
-  .text-emerald-700 {
-    color: hsl(var(--emerald-700));
-  }
-  .text-emerald-800 {
-    color: hsl(var(--emerald-800));
-  }
-  .text-emerald-900 {
-    color: hsl(var(--emerald-900));
-  }
-  .text-emerald-950 {
-    color: hsl(var(--emerald-950));
-  }
-
-  .bg-emerald-50 {
-    background-color: hsl(var(--emerald-50));
-  }
-  .bg-emerald-100 {
-    background-color: hsl(var(--emerald-100));
-  }
-  .bg-emerald-200 {
-    background-color: hsl(var(--emerald-200));
-  }
-  .bg-emerald-300 {
-    background-color: hsl(var(--emerald-300));
-  }
-  .bg-emerald-400 {
-    background-color: hsl(var(--emerald-400));
-  }
-  .bg-emerald-500 {
-    background-color: hsl(var(--emerald-500));
-  }
-  .bg-emerald-600 {
-    background-color: hsl(var(--emerald-600));
-  }
-  .bg-emerald-700 {
-    background-color: hsl(var(--emerald-700));
-  }
-  .bg-emerald-800 {
-    background-color: hsl(var(--emerald-800));
-  }
-  .bg-emerald-900 {
-    background-color: hsl(var(--emerald-900));
-  }
-  .bg-emerald-950 {
-    background-color: hsl(var(--emerald-950));
-  }
-
-  .border-emerald-50 {
-    border-color: hsl(var(--emerald-50));
-  }
-  .border-emerald-100 {
-    border-color: hsl(var(--emerald-100));
-  }
-  .border-emerald-200 {
-    border-color: hsl(var(--emerald-200));
-  }
-  .border-emerald-300 {
-    border-color: hsl(var(--emerald-300));
-  }
-  .border-emerald-400 {
-    border-color: hsl(var(--emerald-400));
-  }
-  .border-emerald-500 {
-    border-color: hsl(var(--emerald-500));
-  }
-  .border-emerald-600 {
-    border-color: hsl(var(--emerald-600));
-  }
-  .border-emerald-700 {
-    border-color: hsl(var(--emerald-700));
-  }
-  .border-emerald-800 {
-    border-color: hsl(var(--emerald-800));
-  }
-  .border-emerald-900 {
-    border-color: hsl(var(--emerald-900));
-  }
-  .border-emerald-950 {
-    border-color: hsl(var(--emerald-950));
-  }
-
-  /* Sage Green utilities */
-  .text-sage-50 {
-    color: hsl(var(--sage-50));
-  }
-  .text-sage-100 {
-    color: hsl(var(--sage-100));
-  }
-  .text-sage-200 {
-    color: hsl(var(--sage-200));
-  }
-  .text-sage-300 {
-    color: hsl(var(--sage-300));
-  }
-  .text-sage-400 {
-    color: hsl(var(--sage-400));
-  }
-  .text-sage-500 {
-    color: hsl(var(--sage-500));
-  }
-  .text-sage-600 {
-    color: hsl(var(--sage-600));
-  }
-  .text-sage-700 {
-    color: hsl(var(--sage-700));
-  }
-  .text-sage-800 {
-    color: hsl(var(--sage-800));
-  }
-  .text-sage-900 {
-    color: hsl(var(--sage-900));
-  }
-  .text-sage-950 {
-    color: hsl(var(--sage-950));
-  }
-
-  .bg-sage-50 {
-    background-color: hsl(var(--sage-50));
-  }
-  .bg-sage-100 {
-    background-color: hsl(var(--sage-100));
-  }
-  .bg-sage-200 {
-    background-color: hsl(var(--sage-200));
-  }
-  .bg-sage-300 {
-    background-color: hsl(var(--sage-300));
-  }
-  .bg-sage-400 {
-    background-color: hsl(var(--sage-400));
-  }
-  .bg-sage-500 {
-    background-color: hsl(var(--sage-500));
-  }
-  .bg-sage-600 {
-    background-color: hsl(var(--sage-600));
-  }
-  .bg-sage-700 {
-    background-color: hsl(var(--sage-700));
-  }
-  .bg-sage-800 {
-    background-color: hsl(var(--sage-800));
-  }
-  .bg-sage-900 {
-    background-color: hsl(var(--sage-900));
-  }
-  .bg-sage-950 {
-    background-color: hsl(var(--sage-950));
-  }
-
-  /* Ring utilities for focus states */
-  .ring-emerald-500 {
-    --tw-ring-color: hsl(var(--emerald-500));
-  }
-  .ring-emerald-600 {
-    --tw-ring-color: hsl(var(--emerald-600));
-  }
-
   /* Line clamp utility for text truncation */
   .line-clamp-3 {
     overflow: hidden;
@@ -277,7 +117,7 @@
 
 /* ========== Dark mode design utilities ========== */
 .gradient-text {
-  background: linear-gradient(to right, #34d399, #22d3ee);
+  background: linear-gradient(to right, hsl(var(--emerald-400)), #22d3ee);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -289,7 +129,7 @@
 }
 
 .glow-emerald:hover {
-  box-shadow: 0 0 24px rgba(16, 185, 129, 0.25);
+  box-shadow: 0 0 24px hsl(var(--emerald-500) / 0.25);
 }
 
 /* Custom styles for blog content */
@@ -461,12 +301,13 @@ a {
 }
 
 .dark .card-elegant {
-  border-color: rgba(16, 185, 129, 0.12);
+  border-color: hsl(var(--emerald-500) / 0.22);
+  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
 }
 
 .dark .card-elegant:hover {
-  border-color: rgba(16, 185, 129, 0.3);
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.08);
+  border-color: hsl(var(--emerald-500) / 0.3);
+  box-shadow: 0 0 20px hsl(var(--emerald-500) / 0.08);
 }
 
 /* Text selection */
@@ -476,7 +317,7 @@ a {
 
 /* Focus visible styles for better accessibility */
 .focus-visible:focus-visible {
-  @apply outline-none ring-2 ring-emerald-500 ring-offset-2 ring-offset-background;
+  @apply outline-none ring-2 ring-emerald-600 ring-offset-2 ring-offset-background;
 }
 
 /* Performance optimizations for large lists */

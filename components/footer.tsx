@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Mail } from 'lucide-react';
+import { Mail, Briefcase } from 'lucide-react';
 import { Github, Linkedin } from '@/components/icons';
 import RSSLink from './rss-link';
 
@@ -40,20 +40,13 @@ export default function Footer() {
                 <Github className='h-5 w-5' />
               </Link>
               <Link
-                href='https://x.com/gehovah'
+                href='https://www.upwork.com/freelancers/~013cc6068c4bfca093'
                 target='_blank'
                 rel='noopener noreferrer'
                 className='text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors'
-                aria-label='Visit X profile'
+                aria-label='Visit Upwork profile'
               >
-                <svg
-                  className='h-5 w-5'
-                  viewBox='0 0 24 24'
-                  fill='currentColor'
-                  xmlns='http://www.w3.org/2000/svg'
-                >
-                  <path d='M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z' />
-                </svg>
+                <Briefcase className='h-5 w-5' />
               </Link>
             </div>
           </div>

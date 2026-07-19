@@ -10,7 +10,10 @@ import BackToTopButton from '@/components/BackToTopButton';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Blog - Geovanny Cordero Valverde',
+  // Just the segment name — the root layout's title.template appends
+  // "- Geovanny Cordero Valverde" automatically. OpenGraph/Twitter titles
+  // below aren't templated, so they keep the full form intentionally.
+  title: 'Blog',
   description:
     'Insights, articles, and updates on software development, technology, and leadership from Geovanny Cordero Valverde.',
   keywords:
@@ -26,21 +29,12 @@ export const metadata: Metadata = {
     siteName: 'Geovanny Cordero Portfolio',
     locale: 'en_US',
     type: 'website',
-    images: [
-      {
-        url: '/icons/android-chrome-512x512.png',
-        width: 512,
-        height: 512,
-        alt: 'Geovanny Cordero Valverde - Blog',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Blog - Geovanny Cordero Valverde',
     description:
       'Insights, articles, and updates on software development, technology, and leadership from Geovanny Cordero Valverde.',
-    images: ['/icons/android-chrome-512x512.png'],
   },
   alternates: {
     canonical: 'https://geovannycordero.com/blog',

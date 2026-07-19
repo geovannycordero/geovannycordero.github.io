@@ -2,6 +2,7 @@
 
 import type * as React from 'react';
 import { createContext, useContext, useEffect, useState } from 'react';
+import { THEME_STORAGE_KEY } from '@/lib/theme-script';
 
 type Theme = 'dark' | 'light' | 'system';
 
@@ -22,8 +23,8 @@ type ThemeProviderState = {
 };
 
 const initialState: ThemeProviderState = {
-  theme: 'dark',
-  resolvedTheme: 'dark',
+  theme: 'system',
+  resolvedTheme: 'light',
   setTheme: () => null,
   toggleTheme: () => null,
   systemTheme: 'light',
@@ -33,8 +34,8 @@ const ThemeProviderContext = createContext<ThemeProviderState>(initialState);
 
 export function ThemeProvider({
   children,
-  defaultTheme = 'dark',
-  storageKey = 'geovanny-portfolio-theme',
+  defaultTheme = 'system',
+  storageKey = THEME_STORAGE_KEY,
   disableTransitionOnChange = false,
   ...props
 }: Readonly<ThemeProviderProps>) {

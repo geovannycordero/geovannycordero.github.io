@@ -18,8 +18,10 @@ export async function generateMetadata({
   const post = await getPostBySlug(slug);
 
   if (!post) {
+    // Just "Post Not Found" — the root layout's title.template appends
+    // "- Geovanny Cordero Valverde" automatically.
     return {
-      title: 'Post Not Found - Geovanny Cordero Valverde',
+      title: 'Post Not Found',
     };
   }
 
@@ -28,7 +30,9 @@ export async function generateMetadata({
   const modifiedTime = new Date(post.date).toISOString(); // Posts are published once and not modified
 
   return {
-    title: `${post.title} - Geovanny Cordero Valverde`,
+    // Just the post title — the root layout's title.template appends
+    // "- Geovanny Cordero Valverde" automatically.
+    title: post.title,
     description: post.excerpt,
     keywords: post.tags.join(', '),
     authors: [{ name: post.author }],
@@ -45,20 +49,11 @@ export async function generateMetadata({
       modifiedTime,
       authors: [post.author],
       tags: post.tags,
-      images: [
-        {
-          url: '/icons/android-chrome-512x512.png',
-          width: 512,
-          height: 512,
-          alt: post.title,
-        },
-      ],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
-      images: ['/icons/android-chrome-512x512.png'],
     },
     alternates: {
       canonical: postUrl,
@@ -78,8 +73,64 @@ export default async function BlogPost({
     notFound();
   }
 
+  const postUrl = `https://geovannycordero.com/blog/${slug}`;
+  const publishedTime = new Date(post.date).toISOString();
+
   return (
     <div className='min-h-screen bg-background'>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BlogPosting',
+            headline: post.title,
+            description: post.excerpt,
+            datePublished: publishedTime,
+            dateModified: publishedTime,
+            url: postUrl,
+            image: `https://geovannycordero.com/icons/android-chrome-512x512.png`,
+            keywords: post.tags.join(', '),
+            author: {
+              '@type': 'Person',
+              name: post.author,
+            },
+            publisher: {
+              '@type': 'Person',
+              name: 'Geovanny Cordero Valverde',
+            },
+          }),
+        }}
+      />
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Home',
+                item: 'https://geovannycordero.com',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Blog',
+                item: 'https://geovannycordero.com/blog',
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: post.title,
+                item: postUrl,
+              },
+            ],
+          }),
+        }}
+      />
       <Navigation />
 
       <main className='pt-20'>
