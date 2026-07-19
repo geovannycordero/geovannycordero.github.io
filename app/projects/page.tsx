@@ -8,7 +8,10 @@ import ProjectCard from '@/components/project-card';
 import { getAllProjects } from '@/lib/projects';
 
 export const metadata: Metadata = {
-  title: 'Projects - Geovanny Cordero Valverde',
+  // Just the segment name — the root layout's title.template appends
+  // "- Geovanny Cordero Valverde" automatically. OpenGraph/Twitter titles
+  // below aren't templated, so they keep the full form intentionally.
+  title: 'Projects',
   description:
     'Explore my portfolio of software development projects including full-stack applications, APIs, and web solutions built with modern technologies.',
   keywords:
@@ -27,6 +30,9 @@ export const metadata: Metadata = {
     title: 'Projects - Geovanny Cordero Valverde',
     description:
       'Explore my portfolio of software development projects including full-stack applications, APIs, and web solutions.',
+  },
+  alternates: {
+    canonical: 'https://geovannycordero.com/projects',
   },
 };
 

@@ -6,6 +6,7 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useBlogNavigation } from './blog-navigation-handler';
+import { ThemeToggle } from '@/components/theme-toggle';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,6 +23,16 @@ export default function Navigation() {
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    if (!isOpen) return;
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isOpen]);
 
   const navItems = [
     { href: '/#about', label: 'About', type: 'anchor' },
@@ -64,7 +75,7 @@ export default function Navigation() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className='hidden md:flex items-center space-x-6'>
+          <div className='hidden lg:flex items-center space-x-6'>
             <div className='flex space-x-6'>
               {navItems.map(item => (
                 <div key={item.href}>
@@ -88,10 +99,12 @@ export default function Navigation() {
                 </div>
               ))}
             </div>
+            <ThemeToggle />
           </div>
 
           {/* Mobile Navigation */}
-          <div className='md:hidden'>
+          <div className='flex items-center gap-2 lg:hidden'>
+            <ThemeToggle />
             <Button
               variant='ghost'
               size='icon'
@@ -111,7 +124,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className='md:hidden pb-4 bg-white/95 dark:bg-black/80 backdrop-blur-xl border-t border-emerald-100 dark:border-emerald-900/20'>
+          <div className='lg:hidden pb-4 bg-background border-t border-emerald-100 dark:border-emerald-900/20'>
             <div className='flex flex-col space-y-4 pt-4'>
               {navItems.map(item => (
                 <div key={item.href}>

@@ -1,16 +1,25 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Navigation from '@/components/navigation';
+import { ThemeProvider } from '@/components/theme-provider';
+
+function renderNav() {
+  return render(
+    <ThemeProvider>
+      <Navigation />
+    </ThemeProvider>
+  );
+}
 
 describe('Navigation Component', () => {
   it('renders the navigation with correct content', () => {
-    render(<Navigation />);
+    renderNav();
 
     // Check for navigation element
     expect(screen.getByRole('navigation')).toBeInTheDocument();
   });
 
   it('displays navigation links', () => {
-    render(<Navigation />);
+    renderNav();
 
     // Check for navigation links
     expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument();
@@ -25,7 +34,7 @@ describe('Navigation Component', () => {
   });
 
   it('has correct href attributes for navigation links', () => {
-    render(<Navigation />);
+    renderNav();
 
     // Check href attributes
     const aboutLink = screen.getByRole('link', { name: /about/i });
@@ -42,14 +51,14 @@ describe('Navigation Component', () => {
   });
 
   it('displays logo or brand name', () => {
-    render(<Navigation />);
+    renderNav();
 
     // Check for logo or brand
     expect(screen.getByText(/geovanny cordero/i)).toBeInTheDocument();
   });
 
   it('has proper semantic structure', () => {
-    render(<Navigation />);
+    renderNav();
 
     // Check for nav element
     const nav = screen.getByRole('navigation');
@@ -57,12 +66,46 @@ describe('Navigation Component', () => {
   });
 
   it('displays mobile menu button on small screens', () => {
-    render(<Navigation />);
+    renderNav();
 
     // Check for mobile menu button (it has no accessible name, just an icon)
     const menuButton = screen.getAllByRole('button')[1]; // Second button is the menu button
     expect(menuButton).toBeInTheDocument();
-    // The button itself doesn't have md:hidden class, but its container does
-    expect(menuButton.closest('.md\\:hidden')).toBeInTheDocument();
+    // The button itself doesn't have lg:hidden class, but its container does
+    expect(menuButton.closest('.lg\\:hidden')).toBeInTheDocument();
+  });
+
+  it('renders a theme switch', () => {
+    renderNav();
+    expect(screen.getAllByRole('switch').length).toBeGreaterThan(0);
+  });
+
+  it('uses the lg breakpoint (not md) for the desktop/mobile nav split', () => {
+    renderNav();
+    const brand = screen.getByRole('link', { name: /geovanny cordero/i });
+    const desktopLinksContainer =
+      brand.parentElement?.querySelector('.hidden.lg\\:flex');
+    expect(desktopLinksContainer).toBeInTheDocument();
+
+    const menuButton = screen.getByRole('button', { name: 'Open menu' });
+    expect(menuButton.closest('.lg\\:hidden')).toBeInTheDocument();
+  });
+
+  it('locks body scroll while the mobile menu is open, and restores it on close', () => {
+    renderNav();
+    const menuButton = screen.getByRole('button', { name: 'Open menu' });
+
+    fireEvent.click(menuButton);
+    expect(document.body.style.overflow).toBe('hidden');
+
+    fireEvent.click(screen.getByRole('button', { name: 'Close menu' }));
+    expect(document.body.style.overflow).toBe('');
+  });
+
+  it('unmounting with the menu open still restores body scroll', () => {
+    const { unmount } = renderNav();
+    fireEvent.click(screen.getByRole('button', { name: 'Open menu' }));
+    unmount();
+    expect(document.body.style.overflow).toBe('');
   });
 });

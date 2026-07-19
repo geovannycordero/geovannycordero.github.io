@@ -94,7 +94,7 @@ describe('Awards Component', () => {
 
     // Check for the gradient background div
     const gradientBg = document.querySelector(
-      '.bg-gradient-to-br.from-emerald-200\\/40.to-emerald-300\\/40'
+      '.bg-gradient-to-br.from-amber-200\\/40.to-amber-300\\/40'
     );
     expect(gradientBg).toBeInTheDocument();
   });

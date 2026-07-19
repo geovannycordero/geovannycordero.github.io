@@ -17,10 +17,10 @@ export default function Awards() {
 
         <div className='max-w-2xl mx-auto'>
           <Card className='relative overflow-hidden card-elegant hover-lift glow-emerald'>
-            <div className='absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-emerald-200/40 to-emerald-300/40 dark:from-emerald-900/20 dark:to-emerald-800/10 rounded-full -translate-y-16 translate-x-16'></div>
+            <div className='absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-200/40 to-amber-300/40 dark:from-amber-900/20 dark:to-amber-800/10 rounded-full -translate-y-16 translate-x-16'></div>
             <CardHeader className='relative'>
               <div className='flex items-center gap-4'>
-                <div className='w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 dark:from-emerald-600 dark:to-emerald-500 rounded-full flex items-center justify-center shadow-lg dark:shadow-emerald-500/20'>
+                <div className='w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 dark:from-amber-600 dark:to-amber-500 rounded-full flex items-center justify-center shadow-lg dark:shadow-amber-500/20'>
                   <Trophy className='h-8 w-8 text-white' />
                 </div>
                 <div>
@@ -43,7 +43,7 @@ export default function Awards() {
               </p>
 
               <div className='flex items-center gap-2 pt-4'>
-                <Star className='h-4 w-4 text-emerald-500 dark:text-emerald-400 fill-current' />
+                <Star className='h-4 w-4 text-emerald-600 dark:text-emerald-400 fill-current' />
                 <span className='text-sm font-medium text-emerald-700 dark:text-emerald-400'>
                   Sponsored by Fiserv
                 </span>

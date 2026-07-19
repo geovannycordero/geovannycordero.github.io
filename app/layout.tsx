@@ -3,6 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import { THEME_INIT_SCRIPT } from '@/lib/theme-script';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -32,21 +33,15 @@ export const metadata: Metadata = {
     description:
       'Passionate Full-Stack Software Engineer with 5+ years of experience, specializing in Golang, Ruby on Rails, and JavaScript technologies.',
     siteName: 'Geovanny Cordero Portfolio',
-    images: [
-      {
-        url: '/icons/android-chrome-512x512.png',
-        width: 512,
-        height: 512,
-        alt: 'Geovanny Cordero Valverde - Full-Stack Software Engineer',
-      },
-    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Geovanny Cordero Valverde - Full-Stack Software Engineer',
     description:
       'Passionate Full-Stack Software Engineer with 5+ years of experience, specializing in Golang, Ruby on Rails, and JavaScript technologies.',
-    images: ['/icons/android-chrome-512x512.png'],
+  },
+  alternates: {
+    canonical: '/',
   },
   icons: {
     icon: [
@@ -80,10 +75,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  verification: {
-    google:
-      process.env.GOOGLE_SITE_VERIFICATION || 'your-google-verification-code',
-  },
+  ...(process.env.GOOGLE_SITE_VERIFICATION
+    ? { verification: { google: process.env.GOOGLE_SITE_VERIFICATION } }
+    : {}),
   generator: 'v0.dev',
 };
 
@@ -93,8 +87,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang='en' className='scroll-smooth dark'>
+    <html lang='en' className='scroll-smooth' suppressHydrationWarning>
       <head>
+        {/* Set the correct theme class before first paint — avoids a flash of
+            the wrong theme now that the default is 'system' rather than a
+            hardcoded class. Must run before any stylesheet paints. */}
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
+
         {/* Favicon and Icons */}
         <link rel='icon' href='/favicon.ico' sizes='any' />
         <link
@@ -112,8 +111,7 @@ export default function RootLayout({
         <link rel='apple-touch-icon' href='/icons/apple-touch-icon.png' />
         <link rel='manifest' href='/icons/site.webmanifest' />
 
-        {/* Canonical and RSS */}
-        <link rel='canonical' href='https://geovannycordero.com' />
+        {/* RSS */}
         <link
           rel='alternate'
           type='application/rss+xml'
