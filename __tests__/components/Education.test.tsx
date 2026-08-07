@@ -91,7 +91,7 @@ describe('Education Component', () => {
   it('does not show a verify link for certifications without a URL', () => {
     render(<Education />);
 
-    // 8 certifications total, only the 3 Anthropic ones have a url
-    expect(screen.getAllByRole('link', { name: /verify/i })).toHaveLength(3);
+    // 8 certifications total; only "Desarrollo de Habilidades Blandas" has no url
+    expect(screen.getAllByRole('link', { name: /verify/i })).toHaveLength(7);
   });
 });
