@@ -53,4 +53,9 @@ describe('ThemeToggle', () => {
     await user.keyboard('{Enter}');
     expect(screen.getByRole('switch')).toHaveAttribute('aria-checked', 'true');
   });
+
+  it('uses the redesign brand tokens, not the old emerald scale', () => {
+    const { container } = renderToggle('light');
+    expect(container.innerHTML).not.toMatch(/emerald-\d/);
+  });
 });
