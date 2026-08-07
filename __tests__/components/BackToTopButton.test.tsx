@@ -43,4 +43,11 @@ describe('BackToTopButton', () => {
       behavior: 'smooth',
     });
   });
+
+  it('uses theme tokens, not the old emerald scale with no dark: variant', () => {
+    render(<BackToTopButton />);
+    const button = screen.getByRole('button', { name: /back to top/i });
+    expect(button.className).not.toMatch(/\bemerald-\d/);
+    expect(button.className).toMatch(/text-ink-muted/);
+  });
 });
