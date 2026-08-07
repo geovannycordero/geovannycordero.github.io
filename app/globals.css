@@ -148,15 +148,15 @@
 }
 
 .prose h2 {
-  @apply text-2xl font-bold mt-8 mb-4 text-emerald-800 dark:text-emerald-400;
+  @apply text-2xl font-bold mt-8 mb-4 text-accent-brand;
 }
 
 .prose h3 {
-  @apply text-xl font-semibold mt-6 mb-3 text-emerald-700 dark:text-emerald-400;
+  @apply text-xl font-semibold mt-6 mb-3 text-accent-brand;
 }
 
 .prose p {
-  @apply mb-4 leading-relaxed text-sage-700 dark:text-slate-300;
+  @apply mb-4 leading-relaxed text-ink-muted;
 }
 
 .prose ul {
@@ -164,19 +164,19 @@
 }
 
 .prose li {
-  @apply text-sage-700 dark:text-slate-300;
+  @apply text-ink-muted;
 }
 
 .prose strong {
-  @apply text-emerald-800 dark:text-emerald-400 font-semibold;
+  @apply text-accent-brand font-semibold;
 }
 
 .prose code {
-  @apply bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-400 px-1 py-0.5 rounded text-sm;
+  @apply bg-accent-soft text-accent-brand px-1 py-0.5 rounded text-sm;
 }
 
 .prose blockquote {
-  @apply border-l-4 border-emerald-300 dark:border-emerald-700 pl-4 italic text-sage-600 dark:text-slate-400;
+  @apply border-l-4 border-accent-brand pl-4 italic text-ink-muted;
 }
 
 /* Smooth scrolling for anchor links */
