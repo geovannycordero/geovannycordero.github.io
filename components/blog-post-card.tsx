@@ -33,18 +33,18 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
             <Badge
               key={tag}
               variant='secondary'
-              className='text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors'
+              className='text-xs bg-accent-soft text-accent-brand'
             >
               {tag}
             </Badge>
           ))}
         </div>
-        <CardTitle className='text-xl text-sage-900 dark:text-slate-100 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors'>
+        <CardTitle className='text-xl text-ink hover:text-accent-brand transition-colors'>
           <Link href={`/blog/${post.slug}`} className='block group'>
             <span className='group-hover:underline'>{post.title}</span>
           </Link>
         </CardTitle>
-        <div className='flex items-center gap-4 text-sm text-sage-600 dark:text-slate-400'>
+        <div className='flex items-center gap-4 text-sm text-ink-muted'>
           <div className='flex items-center gap-1'>
             <Calendar className='h-4 w-4' />
             <span>
@@ -62,12 +62,12 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
         </div>
       </CardHeader>
       <CardContent>
-        <p className='text-sage-700 dark:text-slate-300 mb-4 leading-relaxed line-clamp-3'>
+        <p className='text-ink-muted mb-4 leading-relaxed line-clamp-3'>
           {post.excerpt}
         </p>
         <Link
           href={`/blog/${post.slug}`}
-          className='inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium transition-colors group'
+          className='inline-flex items-center gap-2 text-accent-brand hover:opacity-80 font-medium transition-colors group'
         >
           <span>Read full article</span>
           <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' />
