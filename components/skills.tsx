@@ -1,51 +1,31 @@
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
+import SectionHead from '@/components/section-head';
 import { getSkillCategories } from '@/lib/skills';
 
 export default function Skills() {
   const skillCategories = getSkillCategories();
 
   return (
-    <section id='skills' className='py-20 bg-white dark:bg-background'>
-      <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='text-center mb-16'>
-          <h2 className='text-3xl sm:text-4xl font-bold mb-4 text-sage-900 dark:text-slate-100'>
-            Skills & Expertise
-          </h2>
-          <p className='text-lg text-sage-700 dark:text-slate-300 max-w-2xl mx-auto'>
-            A comprehensive toolkit of technologies and skills developed through
-            years of hands-on experience and continuous learning.
-          </p>
-        </div>
-
-        <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {skillCategories.map((category, index) => (
-            <Card
-              key={index}
-              className='h-full card-elegant hover-lift glow-accent'
-            >
-              <CardHeader>
-                <CardTitle className='text-lg text-emerald-800 dark:text-emerald-400'>
-                  {category.title}
-                </CardTitle>
-              </CardHeader>
-              <CardContent>
-                <div className='flex flex-wrap gap-2'>
-                  {category.skills.map((skill, skillIndex) => (
-                    <Badge
-                      key={skillIndex}
-                      variant='secondary'
-                      className='text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors'
-                    >
-                      {skill}
-                    </Badge>
-                  ))}
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+    <SectionHead index='03' label='Skills' id='skills'>
+      <div
+        data-testid='skills-columns'
+        className='columns-1 gap-12 font-sans md:columns-2'
+      >
+        {skillCategories.map(category => (
+          <div key={category.title} className='mb-7 break-inside-avoid'>
+            <h4 className='mb-2 text-sm uppercase tracking-wider text-accent-brand'>
+              {category.title}
+            </h4>
+            <p className='text-sm text-ink-muted'>
+              {category.skills.map((skill, index) => (
+                <span key={skill}>
+                  {index > 0 && ', '}
+                  <span>{skill}</span>
+                </span>
+              ))}
+            </p>
+          </div>
+        ))}
       </div>
-    </section>
+    </SectionHead>
   );
 }

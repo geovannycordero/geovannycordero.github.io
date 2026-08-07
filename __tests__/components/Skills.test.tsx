@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import Skills from '@/components/skills';
+import { getSkillCategories } from '@/lib/skills';
 
 describe('Skills Component', () => {
   it('renders the skills section with correct content', () => {
@@ -93,5 +94,21 @@ describe('Skills Component', () => {
     expect(screen.getByText('Version Control')).toBeInTheDocument();
     expect(screen.getByText('Soft Skills')).toBeInTheDocument();
     expect(screen.getByText('Languages')).toBeInTheDocument();
+  });
+
+  it('renders every category as a group with an h4 title', () => {
+    render(<Skills />);
+    getSkillCategories().forEach(category => {
+      expect(
+        screen.getByRole('heading', { level: 4, name: category.title })
+      ).toBeInTheDocument();
+    });
+  });
+
+  it('lays skill groups out in CSS columns', () => {
+    render(<Skills />);
+    const columns = screen.getByTestId('skills-columns');
+    expect(columns.className).toMatch(/columns-1/);
+    expect(columns.className).toMatch(/md:columns-2/);
   });
 });
