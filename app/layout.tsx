@@ -120,7 +120,16 @@ export default function RootLayout({
         />
 
         {/* Theme and Meta */}
-        <meta name='theme-color' content='#059669' />
+        <meta
+          name='theme-color'
+          content='#f6f7f5'
+          media='(prefers-color-scheme: light)'
+        />
+        <meta
+          name='theme-color'
+          content='#0a0a0a'
+          media='(prefers-color-scheme: dark)'
+        />
         <meta name='msapplication-TileColor' content='#059669' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta name='format-detection' content='telephone=no' />

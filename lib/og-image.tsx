@@ -1,10 +1,10 @@
 export const OG_IMAGE_SIZE = { width: 1200, height: 630 };
 export const OG_IMAGE_CONTENT_TYPE = 'image/png';
 
-const BACKGROUND = '#080c0a';
-const FOREGROUND = '#f1f5f9';
-const MUTED = '#8fa199';
-const ACCENT = '#36d399';
+const BACKGROUND = '#0a0a0a';
+const FOREGROUND = '#e5e7eb';
+const MUTED = '#9ca3af';
+const ACCENT = '#00ff41';
 
 export function ogTemplate({
   eyebrow,

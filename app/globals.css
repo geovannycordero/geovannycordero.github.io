@@ -198,22 +198,6 @@ html {
   scroll-margin-top: 6rem;
 }
 
-/* Custom animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
-}
-
 /* Loading animation for blog cards */
 @keyframes pulse {
   0%,
@@ -227,22 +211,6 @@ html {
 
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Staggered animation for blog cards - optimized for performance */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-slide-in-up {
-  animation: slideInUp 0.4s ease-out forwards;
 }
 
 /* Smooth transitions for all interactive elements */
@@ -315,26 +283,9 @@ a {
   @apply bg-emerald-200 text-emerald-900;
 }
 
-/* Focus visible styles for better accessibility */
-.focus-visible:focus-visible {
-  @apply outline-none ring-2 ring-emerald-600 ring-offset-2 ring-offset-background;
-}
-
-/* Performance optimizations for large lists */
-.blog-post-list {
-  contain: layout style paint;
-}
-
-.blog-post-card {
-  contain: layout style;
-  will-change: transform, opacity;
-}
-
 /* Optimize animations for better performance */
 @media (prefers-reduced-motion: reduce) {
-  .animate-pulse,
-  .animate-slide-in-up,
-  .animate-fade-in-up {
+  .animate-pulse {
     animation: none;
   }
 
@@ -349,9 +300,3 @@ a {
   }
 }
 
-/* Improve rendering performance for long lists */
-.blog-content-container {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
