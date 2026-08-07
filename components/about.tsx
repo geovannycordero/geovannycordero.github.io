@@ -1,91 +1,43 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Code, Users, Trophy, GraduationCap } from 'lucide-react';
+import SectionHead from '@/components/section-head';
+
+const PARAGRAPHS = [
+  "I've spent five years at Pernix Solutions moving from Apprentice to Software Engineer III to Supervisor of the Apprentice Program — a path that taught me as much about mentoring as it did about Golang and Rails.",
+  "I've worked with teams across the US, Colombia, Australia, and India, and I currently split my time between that leadership track and freelance builds for small businesses who need a site that actually converts.",
+  "Right now I'm pursuing an MBA focused on project management, mostly to get better at the parts of engineering that happen outside the editor.",
+];
+
+const STATS = [
+  { label: '5+ years', detail: 'Full-stack, Golang & Rails' },
+  { label: '4 client sites', detail: 'Shipped & live in production' },
+  { label: '4 countries', detail: 'Teams collaborated with' },
+  { label: '2020', detail: 'Programathon Competition Champion' },
+];
 
 export default function About() {
-  const highlights = [
-    {
-      icon: Code,
-      title: '5+ Years Experience',
-      description: 'Full-stack development with modern technologies',
-    },
-    {
-      icon: Users,
-      title: 'Team Leadership',
-      description: 'Managing and mentoring development teams',
-    },
-    {
-      icon: Trophy,
-      title: 'Award Winner',
-      description: '2020 Programathon Competition Champion',
-    },
-    {
-      icon: GraduationCap,
-      title: 'Continuous Learning',
-      description: 'Currently pursuing MBA in Project Management',
-    },
-  ];
-
   return (
-    <section id='about' className='py-20 bg-emerald-50/30 dark:bg-[#0f1a16]'>
-      <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='text-center mb-16'>
-          <h2 className='text-3xl sm:text-4xl font-bold mb-4 text-sage-900 dark:text-slate-100'>
-            About Me
-          </h2>
-          <p className='text-lg text-sage-700 dark:text-slate-300 max-w-2xl mx-auto'>
-            A passionate software engineer dedicated to creating innovative
-            solutions and leading high-performing development teams.
-          </p>
-        </div>
-
-        <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16'>
-          {highlights.map((item, index) => (
-            <Card
-              key={index}
-              className='text-center p-6 card-elegant hover-lift glow-accent'
-            >
-              <CardContent className='space-y-4'>
-                <div className='mx-auto w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center'>
-                  <item.icon className='h-6 w-6 text-emerald-600 dark:text-emerald-400' />
-                </div>
-                <h3 className='font-semibold text-sage-900 dark:text-slate-100'>
-                  {item.title}
-                </h3>
-                <p className='text-sm text-sage-600 dark:text-slate-400'>
-                  {item.description}
-                </p>
-              </CardContent>
-            </Card>
+    <SectionHead index='02' label='About' id='about'>
+      <div className='grid gap-12 lg:grid-cols-[1.3fr_1fr]'>
+        <div data-testid='about-prose' className='measure max-w-[640px]'>
+          {PARAGRAPHS.map(paragraph => (
+            <p key={paragraph} className='mb-4 text-ink-muted'>
+              {paragraph}
+            </p>
           ))}
         </div>
 
-        <div className='max-w-4xl mx-auto'>
-          <div className='prose prose-lg max-w-none'>
-            <p className='text-sage-700 dark:text-slate-300 leading-relaxed mb-6'>
-              I am a passionate Full-Stack Software Engineer with over 5 years
-              of experience in developing and maintaining robust applications
-              using cutting-edge technologies. My expertise spans across Golang,
-              Ruby on Rails, and JavaScript ecosystems, with a strong focus on
-              delivering high-quality software solutions.
-            </p>
-            <p className='text-sage-700 dark:text-slate-300 leading-relaxed mb-6'>
-              Throughout my career at Pernix Solutions, I have progressed from
-              an Apprentice to Software Engineer III and Supervisor of the
-              Apprentice Program. This journey has given me unique insights into
-              both technical excellence and team development, allowing me to
-              mentor new talent while leading complex projects from conception
-              to completion.
-            </p>
-            <p className='text-sage-700 dark:text-slate-300 leading-relaxed'>
-              I thrive in collaborative environments, having worked with
-              international teams across the US, Colombia, Australia, and India.
-              Currently pursuing an MBA with a focus on Project Management, I am
-              committed to enhancing my leadership skills and expanding my
-              technical expertise in DevOps and emerging technologies.
-            </p>
-          </div>
+        <div className='grid content-start gap-5'>
+          {STATS.map(stat => (
+            <div
+              key={stat.label}
+              data-testid='about-stat'
+              className='border-l-2 border-accent-brand pl-4'
+            >
+              <b className='block text-base text-ink'>{stat.label}</b>
+              <span className='text-sm text-ink-muted'>{stat.detail}</span>
+            </div>
+          ))}
         </div>
       </div>
-    </section>
+    </SectionHead>
   );
 }
