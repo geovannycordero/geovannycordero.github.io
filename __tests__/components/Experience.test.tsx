@@ -63,6 +63,30 @@ describe('Experience Component', () => {
     expect(screen.getByText('04')).toBeInTheDocument();
   });
 
+  it('uses the flat editorial card motif, not the rounded/shadow card-elegant one', () => {
+    const { container } = render(<Experience />);
+
+    // Regression guard: card-elegant/glow-accent/hover-lift pulled a
+    // rounded, drop-shadowed look off the retired emerald-100/200/500
+    // scale, visually mismatched with the flat Case Studies grid one
+    // scroll away on the same page.
+    expect(container.innerHTML).not.toMatch(
+      /card-elegant|glow-accent|hover-lift/
+    );
+
+    const border = container.querySelector('.border-line');
+    expect(border).toBeInTheDocument();
+  });
+
+  it('renders technology chips as flat mono chips, not rounded-full badge pills', () => {
+    render(<Experience />);
+
+    const [tech] = job.technologies;
+    const chip = screen.getAllByText(tech)[0];
+    expect(chip.className).toMatch(/font-mono/);
+    expect(chip.className).not.toMatch(/rounded-full/);
+  });
+
   describe('client engagements', () => {
     it('shows name, period, impact summary and stack while collapsed', () => {
       render(<Experience />);

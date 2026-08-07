@@ -46,4 +46,24 @@ describe('ProjectCard', () => {
       screen.getByRole('heading', { name: 'Test Project' })
     ).toBeInTheDocument();
   });
+
+  it('uses the flat editorial card motif, not the rounded/shadow card-elegant one', () => {
+    const { container } = render(<ProjectCard project={project} index={0} />);
+
+    // Regression guard: card-elegant/glow-accent/hover-lift pulled a
+    // rounded, drop-shadowed look off the retired emerald-100/200/500
+    // scale, visually mismatched with the flat Case Studies grid.
+    expect(container.innerHTML).not.toMatch(
+      /card-elegant|glow-accent|hover-lift/
+    );
+    expect(container.querySelector('.border-line')).toBeInTheDocument();
+  });
+
+  it('renders technology chips as flat mono chips, not rounded-full badge pills', () => {
+    render(<ProjectCard project={project} index={0} />);
+
+    const chip = screen.getByText('Next.js');
+    expect(chip.className).toMatch(/font-mono/);
+    expect(chip.className).not.toMatch(/rounded-full/);
+  });
 });

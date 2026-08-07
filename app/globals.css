@@ -142,15 +142,6 @@
   }
 }
 
-/* ========== Dark mode design utilities ========== */
-.glow-accent {
-  transition: box-shadow 0.3s ease;
-}
-
-.dark .glow-accent:hover {
-  box-shadow: 0 0 24px hsl(var(--accent-brand) / 0.25);
-}
-
 /* Custom styles for blog content */
 .prose {
   @apply text-foreground;
@@ -250,34 +241,6 @@ a {
   }
 }
 
-/* Elegant hover effects */
-.hover-lift {
-  @apply transition-all duration-300 ease-out;
-}
-
-.hover-lift:hover {
-  @apply transform -translate-y-1 shadow-lg;
-}
-
-/* Card enhancements */
-.card-elegant {
-  @apply bg-card border border-emerald-100 shadow-sm hover:shadow-md transition-all duration-300;
-}
-
-.card-elegant:hover {
-  @apply border-emerald-200 shadow-emerald-100/20;
-}
-
-.dark .card-elegant {
-  border-color: hsl(var(--emerald-500) / 0.22);
-  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
-}
-
-.dark .card-elegant:hover {
-  border-color: hsl(var(--emerald-500) / 0.3);
-  box-shadow: 0 0 20px hsl(var(--emerald-500) / 0.08);
-}
-
 /* Text selection */
 ::selection {
   @apply bg-emerald-200 text-emerald-900;
@@ -287,10 +250,6 @@ a {
 @media (prefers-reduced-motion: reduce) {
   .animate-pulse {
     animation: none;
-  }
-
-  .hover-lift:hover {
-    transform: none;
   }
 
   * {

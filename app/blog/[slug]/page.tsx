@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, ArrowLeft, Clock, User } from 'lucide-react';
 import Navigation from '@/components/navigation';
@@ -186,11 +185,11 @@ export default async function BlogPost({
                 <p className='text-lg text-ink-muted'>{post.excerpt}</p>
               </header>
 
-              <Card>
-                <CardContent className='prose prose-lg max-w-none p-8'>
+              <div className='border border-line bg-surface p-8 dark:border-line/20'>
+                <div className='prose prose-lg max-w-none'>
                   <div dangerouslySetInnerHTML={{ __html: post.content }} />
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             </article>
 
             <div className='mt-12 text-center'>

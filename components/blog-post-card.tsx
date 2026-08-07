@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import type { BlogPostMeta } from '@/lib/blog';
@@ -22,12 +21,12 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
   }, [index]);
 
   return (
-    <Card
-      className={`card-elegant hover-lift glow-accent transition-all duration-300 transform ${
+    <div
+      className={`border border-line bg-surface transition-all duration-300 hover:border-accent-brand dark:border-line/20 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
-      <CardHeader>
+      <div className='flex flex-col space-y-1.5 p-6'>
         <div className='flex flex-wrap gap-2 mb-3'>
           {post.tags.map(tag => (
             <Badge
@@ -60,8 +59,8 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
             <span>{post.readTime}</span>
           </div>
         </div>
-      </CardHeader>
-      <CardContent>
+      </div>
+      <div className='p-6 pt-0'>
         <p className='text-ink-muted mb-4 leading-relaxed line-clamp-3'>
           {post.excerpt}
         </p>
@@ -72,7 +71,7 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
           <span>Read full article</span>
           <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' />
         </Link>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

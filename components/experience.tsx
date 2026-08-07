@@ -1,9 +1,11 @@
 import Link from 'next/link';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, ChevronRight, MapPin } from 'lucide-react';
 import SectionHead from '@/components/section-head';
 import { getExperience } from '@/lib/experience';
+
+const TECH_CHIP_CLASSES =
+  'rounded-sm border border-line px-2 py-1 font-mono text-xs text-ink-muted dark:border-line/30';
 
 export default function Experience() {
   const experiences = getExperience();
@@ -12,9 +14,12 @@ export default function Experience() {
     <SectionHead index='04' label='Experience' id='experience'>
       <div className='mx-auto max-w-4xl space-y-8'>
         {experiences.map(job => (
-          <Card key={job.id} className='relative card-elegant glow-accent'>
+          <div
+            key={job.id}
+            className='relative border border-line bg-surface transition-colors hover:border-accent-brand dark:border-line/20'
+          >
             <div className='absolute bottom-8 left-8 top-8 w-0.5 bg-line dark:bg-line/20'></div>
-            <CardHeader className='relative pl-16'>
+            <div className='relative flex flex-col space-y-1.5 p-6 pl-16'>
               <div className='absolute left-6 top-8 h-4 w-4 rounded-full border-4 border-surface bg-accent-brand shadow-md'></div>
               <div className='flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between'>
                 <h3 className='text-xl font-semibold leading-none tracking-tight text-ink'>
@@ -42,8 +47,8 @@ export default function Experience() {
                   </Badge>
                 ))}
               </div>
-            </CardHeader>
-            <CardContent className='space-y-4 pl-16'>
+            </div>
+            <div className='space-y-4 p-6 pt-0 pl-16'>
               <p className='text-ink-muted'>{job.summary}</p>
 
               <div className='space-y-3'>
@@ -66,13 +71,9 @@ export default function Experience() {
                 </h4>
                 <div className='flex flex-wrap gap-2'>
                   {job.technologies.map(tech => (
-                    <Badge
-                      key={tech}
-                      variant='secondary'
-                      className='bg-accent-soft text-xs text-accent-brand'
-                    >
+                    <span key={tech} className={TECH_CHIP_CLASSES}>
                       {tech}
-                    </Badge>
+                    </span>
                   ))}
                 </div>
               </div>
@@ -111,13 +112,9 @@ export default function Experience() {
                         </p>
                         <div className='mt-2 flex flex-wrap gap-2'>
                           {project.technologies.map(tech => (
-                            <Badge
-                              key={tech}
-                              variant='secondary'
-                              className='bg-accent-soft text-xs text-accent-brand'
-                            >
+                            <span key={tech} className={TECH_CHIP_CLASSES}>
                               {tech}
-                            </Badge>
+                            </span>
                           ))}
                         </div>
                       </summary>
@@ -146,8 +143,8 @@ export default function Experience() {
                   ))}
                 </div>
               )}
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ))}
       </div>
     </SectionHead>

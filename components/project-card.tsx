@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Calendar } from 'lucide-react';
 import { Github } from '@/components/icons';
@@ -13,6 +12,9 @@ interface ProjectCardProps {
   project: Project;
   index: number;
 }
+
+const TECH_CHIP_CLASSES =
+  'rounded-sm border border-line px-2 py-1 font-mono text-xs text-accent-brand dark:border-line/30';
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,13 +26,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   }, [index]);
 
   return (
-    <Card
+    <div
       id={project.id}
-      className={`scroll-mt-24 card-elegant hover-lift glow-accent transition-all duration-300 transform ${
+      className={`scroll-mt-24 border border-line bg-surface transition-all duration-300 hover:border-accent-brand dark:border-line/20 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
-      <div className='relative overflow-hidden rounded-t-lg'>
+      <div className='relative overflow-hidden'>
         <Image
           src={project.image}
           alt={project.title}
@@ -48,7 +50,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         )}
       </div>
 
-      <CardHeader className='pb-3'>
+      <div className='flex flex-col space-y-1.5 p-6 pb-3'>
         <div className='flex items-start justify-between gap-2'>
           <h2 className='text-xl font-semibold leading-none tracking-tight text-ink hover:text-accent-brand transition-colors line-clamp-2'>
             {project.title}
@@ -73,9 +75,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             Delivered while at {project.employer}
           </p>
         )}
-      </CardHeader>
+      </div>
 
-      <CardContent className='space-y-4'>
+      <div className='space-y-4 p-6 pt-0'>
         <p className='text-ink-muted text-sm leading-relaxed line-clamp-3'>
           {project.description}
         </p>
@@ -83,13 +85,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         <div className='space-y-3'>
           <div className='flex flex-wrap gap-2'>
             {project.technologies.map((tech, techIndex) => (
-              <Badge
-                key={techIndex}
-                variant='secondary'
-                className='text-xs bg-accent-soft text-accent-brand'
-              >
+              <span key={techIndex} className={TECH_CHIP_CLASSES}>
                 {tech}
-              </Badge>
+              </span>
             ))}
           </div>
 
@@ -121,7 +119,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             )}
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }
