@@ -39,4 +39,11 @@ describe('ProjectCard', () => {
     const { container } = render(<ProjectCard project={project} index={0} />);
     expect(container.innerHTML).not.toMatch(/emerald-\d|sage-\d|slate-\d/);
   });
+
+  it('renders the title as a real heading, not a styled div', () => {
+    render(<ProjectCard project={project} index={0} />);
+    expect(
+      screen.getByRole('heading', { name: 'Test Project' })
+    ).toBeInTheDocument();
+  });
 });

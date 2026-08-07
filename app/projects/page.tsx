@@ -120,9 +120,9 @@ async function ProjectsContent() {
             <div className='w-24 h-24 mx-auto mb-6 bg-accent-soft rounded-full flex items-center justify-center'>
               <Code className='w-12 h-12 text-accent-brand' />
             </div>
-            <h3 className='text-xl font-semibold mb-3 text-ink'>
+            <h2 className='text-xl font-semibold mb-3 text-ink'>
               No projects found
-            </h3>
+            </h2>
             <p className='text-ink-muted mb-6'>
               There are no projects available at the moment. Check back soon for
               new additions!
@@ -188,9 +188,9 @@ export default async function ProjectsPage() {
             {/* Footer section */}
             <div className='text-center mt-16 pt-8 border-t border-line dark:border-line/20'>
               <div className='max-w-2xl mx-auto'>
-                <h3 className='text-lg font-semibold mb-4 text-ink'>
+                <h2 className='text-lg font-semibold mb-4 text-ink'>
                   Interested in Working Together?
-                </h3>
+                </h2>
                 <p className='text-ink-muted mb-6'>
                   I&apos;m always excited to work on new projects and
                   collaborate with innovative teams. Let&apos;s discuss how we

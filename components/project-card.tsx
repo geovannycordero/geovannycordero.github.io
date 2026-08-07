@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Calendar } from 'lucide-react';
 import { Github } from '@/components/icons';
@@ -50,9 +50,9 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
       <CardHeader className='pb-3'>
         <div className='flex items-start justify-between gap-2'>
-          <CardTitle className='text-xl text-ink hover:text-accent-brand transition-colors line-clamp-2'>
+          <h2 className='text-xl font-semibold leading-none tracking-tight text-ink hover:text-accent-brand transition-colors line-clamp-2'>
             {project.title}
-          </CardTitle>
+          </h2>
           <div className='flex items-center gap-1 text-xs text-ink-muted'>
             <Calendar className='h-3 w-3' />
             <span>{project.completedDate}</span>

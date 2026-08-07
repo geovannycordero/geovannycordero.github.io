@@ -130,9 +130,9 @@ async function BlogContent() {
                 />
               </svg>
             </div>
-            <h3 className='text-xl font-semibold mb-3 text-ink'>
+            <h2 className='text-xl font-semibold mb-3 text-ink'>
               No posts found
-            </h3>
+            </h2>
             <p className='text-ink-muted mb-6'>
               There are no blog posts available at the moment. Check back soon
               for new content!
@@ -201,9 +201,9 @@ export default async function BlogPage() {
             {/* Footer section */}
             <div className='text-center mt-16 pt-8 border-t border-line dark:border-line/20'>
               <div className='max-w-2xl mx-auto'>
-                <h3 className='text-lg font-semibold mb-4 text-ink'>
+                <h2 className='text-lg font-semibold mb-4 text-ink'>
                   Stay Connected
-                </h3>
+                </h2>
                 <p className='text-ink-muted mb-6'>
                   More articles coming soon! Follow me on{' '}
                   <Link

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import type { BlogPostMeta } from '@/lib/blog';
@@ -39,11 +39,11 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
             </Badge>
           ))}
         </div>
-        <CardTitle className='text-xl text-ink hover:text-accent-brand transition-colors'>
+        <h2 className='text-xl font-semibold leading-none tracking-tight text-ink hover:text-accent-brand transition-colors'>
           <Link href={`/blog/${post.slug}`} className='block group'>
             <span className='group-hover:underline'>{post.title}</span>
           </Link>
-        </CardTitle>
+        </h2>
         <div className='flex items-center gap-4 text-sm text-ink-muted'>
           <div className='flex items-center gap-1'>
             <Calendar className='h-4 w-4' />
