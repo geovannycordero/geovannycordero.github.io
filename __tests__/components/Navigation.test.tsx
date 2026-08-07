@@ -117,4 +117,23 @@ describe('Navigation Component', () => {
     unmount();
     expect(document.body.style.overflow).toBe('');
   });
+
+  it('opens the mobile drawer full-height and opaque, so page content behind it never shows through', () => {
+    renderNav();
+    fireEvent.click(screen.getByRole('button', { name: 'Open menu' }));
+
+    // Regression guard: the outer <nav> used to stay content-height (and
+    // transparent, pre-scroll) while the drawer was a normal-flow block —
+    // leaving Hero content visible below the last menu item. Open state
+    // must stretch <nav> to the viewport bottom with an opaque background.
+    const nav = screen.getByRole('navigation');
+    expect(nav).toHaveClass('bottom-0');
+    expect(nav.className).not.toMatch(/bg-transparent/);
+
+    // The drawer itself fills whatever space remains below the header row
+    // via flex-1, and scrolls independently if the link list overflows.
+    const mobileWorkLink = screen.getAllByRole('link', { name: /^work$/i })[1];
+    const drawer = mobileWorkLink.closest('.lg\\:hidden');
+    expect(drawer).toHaveClass('flex-1', 'overflow-y-auto', 'bg-paper');
+  });
 });

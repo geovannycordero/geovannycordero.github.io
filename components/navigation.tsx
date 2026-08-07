@@ -101,12 +101,18 @@ export default function Navigation() {
   return (
     <nav
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        scrolled
-          ? 'border-b border-line bg-paper/90 backdrop-blur-md dark:border-line/20 dark:bg-paper/90'
-          : 'bg-transparent'
+        isOpen ? 'bottom-0 flex flex-col bg-paper dark:bg-paper' : ''
+      } ${
+        isOpen
+          ? ''
+          : scrolled
+            ? 'border-b border-line bg-paper/90 backdrop-blur-md dark:border-line/20 dark:bg-paper/90'
+            : 'bg-transparent'
       }`}
     >
-      <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
+      <div
+        className={`container mx-auto px-4 sm:px-6 lg:px-8 ${isOpen ? 'flex flex-1 flex-col overflow-hidden' : ''}`}
+      >
         <div className='flex items-center justify-between py-4'>
           <Link href='/' className='font-mono text-sm text-ink'>
             Geovanny Cordero
@@ -154,7 +160,7 @@ export default function Navigation() {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className='border-t border-line bg-paper pb-4 dark:border-line/20 dark:bg-paper lg:hidden'>
+          <div className='flex-1 overflow-y-auto border-t border-line bg-paper pb-4 dark:border-line/20 dark:bg-paper lg:hidden'>
             <div className='flex flex-col gap-4 pt-4'>
               {NAV_ITEMS.map(item => (
                 <NavItem
