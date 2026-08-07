@@ -78,7 +78,11 @@ describe('Home Page', () => {
     // Check for main element
     const mainElement = screen.getByRole('main');
     expect(mainElement).toBeInTheDocument();
-    expect(mainElement).toHaveClass('min-h-screen', 'bg-white');
+    // bg-paper (not bg-white) — bg-white has no dark: variant, so every
+    // SectionHead-only section (About/Skills/Credentials) fell through to
+    // a hardcoded white background in dark mode. Regression guard.
+    expect(mainElement).toHaveClass('min-h-screen', 'bg-paper');
+    expect(mainElement.className).not.toMatch(/\bbg-white\b/);
   });
 
   it('renders components in correct order', () => {

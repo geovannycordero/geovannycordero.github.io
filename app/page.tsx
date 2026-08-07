@@ -51,7 +51,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main id='main' className='min-h-screen bg-white'>
+    <main id='main' className='min-h-screen bg-paper'>
       <Navigation />
       <Hero />
       <CaseStudies />
