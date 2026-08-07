@@ -55,6 +55,14 @@ describe('Experience Component', () => {
     expect(section?.tagName).toBe('SECTION');
   });
 
+  it('renders its heading via the shared SectionHead component', () => {
+    render(<Experience />);
+
+    // SectionHead's mono index — proves the section adopted the shared
+    // header rather than keeping its own bespoke heading markup.
+    expect(screen.getByText('04')).toBeInTheDocument();
+  });
+
   describe('client engagements', () => {
     it('shows name, period, impact summary and stack while collapsed', () => {
       render(<Experience />);
