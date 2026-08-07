@@ -26,7 +26,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   return (
     <Card
       id={project.id}
-      className={`scroll-mt-24 card-elegant hover-lift glow-emerald transition-all duration-300 transform ${
+      className={`scroll-mt-24 card-elegant hover-lift glow-accent transition-all duration-300 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >

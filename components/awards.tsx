@@ -16,7 +16,7 @@ export default function Awards() {
         </div>
 
         <div className='max-w-2xl mx-auto'>
-          <Card className='relative overflow-hidden card-elegant hover-lift glow-emerald'>
+          <Card className='relative overflow-hidden card-elegant hover-lift glow-accent'>
             <div className='absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-amber-200/40 to-amber-300/40 dark:from-amber-900/20 dark:to-amber-800/10 rounded-full -translate-y-16 translate-x-16'></div>
             <CardHeader className='relative'>
               <div className='flex items-center gap-4'>

@@ -3,48 +3,75 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    /* Redesign brand tokens — Refined Emerald (light). Single source of
+       truth for the palette; tailwind.config.js and every dark: variant
+       below reads from these. */
+    --paper: 90 11% 96%;
+    --surface: 0 0% 100%;
+    --ink: 0 0% 8%;
+    --ink-muted: 140 5% 38%;
+    --line: 100 10% 88%;
+    --accent-brand: 150 55% 17%;
+    --accent-soft: 120 12% 92%;
+
+    --background: 90 11% 96%;
+    --foreground: 0 0% 8%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 0 0% 8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 142 76% 29%;
-    --primary-foreground: 355 20% 99%;
-    --secondary: 142 30% 96%;
-    --secondary-foreground: 142 76% 20%;
-    --muted: 210 40% 98%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 142 30% 96%;
-    --accent-foreground: 142 76% 20%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 150 55% 17%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 120 12% 92%;
+    --secondary-foreground: 150 55% 17%;
+    --muted: 120 12% 92%;
+    --muted-foreground: 140 5% 38%;
+    --accent: 120 12% 92%;
+    --accent-foreground: 150 55% 17%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 142 76% 29%;
+    --border: 100 10% 88%;
+    --input: 100 10% 88%;
+    --ring: 150 55% 17%;
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: 150 20% 4%;
-    --foreground: 210 40% 96%;
-    --card: 160 20% 10%;
-    --card-foreground: 210 40% 96%;
-    --popover: 160 20% 10%;
-    --popover-foreground: 210 40% 96%;
-    --primary: 158 64% 52%;
-    --primary-foreground: 150 20% 4%;
-    --secondary: 158 30% 15%;
-    --secondary-foreground: 158 64% 52%;
-    --muted: 222 30% 14%;
-    --muted-foreground: 215 16% 54%;
-    --accent: 158 30% 15%;
-    --accent-foreground: 158 64% 52%;
+    /* Redesign brand tokens — Terminal (dark). --line/--accent-brand are
+       full-strength neon; components apply their own opacity modifier
+       (e.g. border-line/20) for glow effects rather than baking alpha in
+       here, so the base value stays reusable at full strength too. */
+    --paper: 0 0% 4%;
+    --surface: 0 0% 0%;
+    --ink: 220 13% 91%;
+    --ink-muted: 218 11% 65%;
+    --line: 135 100% 50%;
+    --accent-brand: 135 100% 50%;
+    --accent-soft: 140 100% 6%;
+
+    --background: 0 0% 4%;
+    --foreground: 220 13% 91%;
+    --card: 0 0% 0%;
+    --card-foreground: 220 13% 91%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 220 13% 91%;
+    --primary: 135 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 140 100% 6%;
+    --secondary-foreground: 135 100% 50%;
+    --muted: 140 100% 6%;
+    --muted-foreground: 218 11% 65%;
+    --accent: 140 100% 6%;
+    --accent-foreground: 135 100% 50%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 158 24% 33%;
-    --input: 158 24% 33%;
-    --ring: 158 64% 52%;
+    /* Generic shadcn border/input stay a tempered, low-saturation green
+       (not full neon) so components that haven't been retokenized yet
+       read as "plainer", not garish. Dedicated glow effects use --line
+       directly with an opacity modifier instead. */
+    --border: 135 30% 18%;
+    --input: 135 30% 18%;
+    --ring: 135 100% 50%;
   }
 
   :root {
@@ -116,20 +143,12 @@
 }
 
 /* ========== Dark mode design utilities ========== */
-.gradient-text {
-  background: linear-gradient(to right, hsl(var(--emerald-400)), #22d3ee);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-
-.glow-emerald {
+.glow-accent {
   transition: box-shadow 0.3s ease;
 }
 
-.glow-emerald:hover {
-  box-shadow: 0 0 24px hsl(var(--emerald-500) / 0.25);
+.dark .glow-accent:hover {
+  box-shadow: 0 0 24px hsl(var(--accent-brand) / 0.25);
 }
 
 /* Custom styles for blog content */
@@ -261,25 +280,6 @@ a {
   html {
     scroll-behavior: auto;
   }
-}
-
-/* Modern green gradient backgrounds */
-.bg-emerald-gradient {
-  background: linear-gradient(
-    135deg,
-    hsl(var(--emerald-500)) 0%,
-    hsl(var(--emerald-700)) 50%,
-    hsl(var(--emerald-900)) 100%
-  );
-}
-
-.bg-sage-gradient {
-  background: linear-gradient(
-    135deg,
-    hsl(var(--sage-50)) 0%,
-    hsl(var(--sage-100)) 50%,
-    hsl(var(--sage-200)) 100%
-  );
 }
 
 /* Elegant hover effects */

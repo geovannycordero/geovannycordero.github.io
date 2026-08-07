@@ -22,7 +22,7 @@ export default function Skills() {
           {skillCategories.map((category, index) => (
             <Card
               key={index}
-              className='h-full card-elegant hover-lift glow-emerald'
+              className='h-full card-elegant hover-lift glow-accent'
             >
               <CardHeader>
                 <CardTitle className='text-lg text-emerald-800 dark:text-emerald-400'>

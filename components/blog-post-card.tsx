@@ -23,7 +23,7 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
 
   return (
     <Card
-      className={`card-elegant hover-lift glow-emerald transition-all duration-300 transform ${
+      className={`card-elegant hover-lift glow-accent transition-all duration-300 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >

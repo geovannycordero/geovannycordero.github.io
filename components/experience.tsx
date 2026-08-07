@@ -25,7 +25,7 @@ export default function Experience() {
 
         <div className='max-w-4xl mx-auto space-y-8'>
           {experiences.map(job => (
-            <Card key={job.id} className='relative card-elegant glow-emerald'>
+            <Card key={job.id} className='relative card-elegant glow-accent'>
               <div className='absolute left-8 top-8 bottom-8 w-0.5 bg-emerald-200 dark:bg-emerald-800'></div>
               <CardHeader className='relative pl-16'>
                 <div className='absolute left-6 top-8 w-4 h-4 bg-emerald-600 dark:bg-emerald-400 rounded-full border-4 border-white dark:border-[#0f1a16] shadow-md'></div>

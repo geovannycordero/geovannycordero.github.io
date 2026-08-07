@@ -93,7 +93,7 @@ export default function Education() {
               {education.map((edu, index) => (
                 <Card
                   key={index}
-                  className='card-elegant hover-lift glow-emerald'
+                  className='card-elegant hover-lift glow-accent'
                 >
                   <CardHeader>
                     <div className='flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2'>
@@ -142,7 +142,7 @@ export default function Education() {
               {certifications.map((cert, index) => (
                 <Card
                   key={index}
-                  className='card-elegant hover-lift glow-emerald'
+                  className='card-elegant hover-lift glow-accent'
                 >
                   <CardHeader>
                     <CardTitle className='text-base text-sage-900 dark:text-slate-100'>

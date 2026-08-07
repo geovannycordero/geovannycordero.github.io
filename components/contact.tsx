@@ -45,7 +45,7 @@ export default function Contact() {
             {contactInfo.map((item, index) => (
               <Card
                 key={index}
-                className='text-center p-6 card-elegant hover-lift glow-emerald'
+                className='text-center p-6 card-elegant hover-lift glow-accent'
               >
                 <CardContent className='space-y-4'>
                   <div className='mx-auto w-16 h-16 bg-emerald-100 dark:bg-emerald-900/30 rounded-lg flex items-center justify-center'>

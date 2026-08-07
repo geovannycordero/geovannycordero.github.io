@@ -51,9 +51,24 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        // Brand scales — every value here is read from the CSS custom properties
-        // declared in app/globals.css, which is the single source of truth.
-        // Changing the palette means editing the variables there, not these lines.
+        // Redesign brand tokens — read from app/globals.css :root/.dark.
+        // These back the Refined Emerald (light) / Terminal (dark) palette;
+        // see ideas/redesign-tdd-plan.md §1.3 for the design rationale.
+        paper: 'hsl(var(--paper))',
+        surface: 'hsl(var(--surface))',
+        ink: {
+          DEFAULT: 'hsl(var(--ink))',
+          muted: 'hsl(var(--ink-muted))',
+        },
+        line: 'hsl(var(--line))',
+        'accent-brand': 'hsl(var(--accent-brand))',
+        'accent-soft': 'hsl(var(--accent-soft))',
+
+        // Legacy brand scales — every value here is read from the CSS custom
+        // properties declared in app/globals.css, which is the single source
+        // of truth. Retained until every component migrates off them (see
+        // ideas/redesign-tdd-plan.md Task 12/14); changing the palette means
+        // editing the variables there, not these lines.
         emerald: {
           50: 'hsl(var(--emerald-50))',
           100: 'hsl(var(--emerald-100))',
