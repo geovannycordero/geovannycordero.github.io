@@ -18,36 +18,45 @@ describe('Navigation Component', () => {
     expect(screen.getByRole('navigation')).toBeInTheDocument();
   });
 
-  it('displays navigation links', () => {
+  it('has exactly this nav item set: Work, About, Skills, Experience, Credentials, Blog, Projects', () => {
     renderNav();
 
-    // Check for navigation links
-    expect(screen.getByRole('link', { name: /about/i })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /skills/i })).toBeInTheDocument();
+    const expected: Record<string, string> = {
+      Work: '/#work',
+      About: '/#about',
+      Skills: '/#skills',
+      Experience: '/#experience',
+      Credentials: '/#credentials',
+      Projects: '/projects',
+    };
+
+    Object.entries(expected).forEach(([label, href]) => {
+      expect(
+        screen.getByRole('link', { name: new RegExp(`^${label}$`, 'i') })
+      ).toHaveAttribute('href', href);
+    });
+
+    // Blog is a button (client-side navigation handler), not a plain link.
     expect(
-      screen.getByRole('link', { name: /experience/i })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('link', { name: /education/i })
-    ).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: /contact/i })).toBeInTheDocument();
+      screen.getAllByRole('button', { name: /^blog$/i }).length
+    ).toBeGreaterThan(0);
   });
 
-  it('has correct href attributes for navigation links', () => {
+  it('does not link to the removed Education or Awards sections (regression guard)', () => {
     renderNav();
+    expect(
+      screen.queryByRole('link', { name: /^education$/i })
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('link', { name: /^awards$/i })
+    ).not.toBeInTheDocument();
+  });
 
-    // Check href attributes
-    const aboutLink = screen.getByRole('link', { name: /about/i });
-    const skillsLink = screen.getByRole('link', { name: /skills/i });
-    const experienceLink = screen.getByRole('link', { name: /experience/i });
-    const educationLink = screen.getByRole('link', { name: /education/i });
-    const contactLink = screen.getByRole('link', { name: /contact/i });
-
-    expect(aboutLink).toHaveAttribute('href', '/#about');
-    expect(skillsLink).toHaveAttribute('href', '/#skills');
-    expect(experienceLink).toHaveAttribute('href', '/#experience');
-    expect(educationLink).toHaveAttribute('href', '/#education');
-    expect(contactLink).toHaveAttribute('href', '/#contact');
+  it('renders a persistent "Get in touch" CTA in the desktop bar, linking to #contact', () => {
+    renderNav();
+    const ctas = screen.getAllByRole('link', { name: /get in touch/i });
+    expect(ctas.length).toBeGreaterThan(0);
+    ctas.forEach(cta => expect(cta).toHaveAttribute('href', '/#contact'));
   });
 
   it('displays logo or brand name', () => {
