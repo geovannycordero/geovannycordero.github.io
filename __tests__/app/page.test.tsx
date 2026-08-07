@@ -8,6 +8,12 @@ jest.mock('@/components/hero', () => {
   };
 });
 
+jest.mock('@/components/case-studies', () => {
+  return function MockCaseStudies() {
+    return <div data-testid='case-studies'>Case Studies Component</div>;
+  };
+});
+
 jest.mock('@/components/about', () => {
   return function MockAbout() {
     return <div data-testid='about'>About Component</div>;
@@ -63,6 +69,7 @@ describe('Home Page', () => {
     // Check that all main sections are rendered
     expect(screen.getByTestId('navigation')).toBeInTheDocument();
     expect(screen.getByTestId('hero')).toBeInTheDocument();
+    expect(screen.getByTestId('case-studies')).toBeInTheDocument();
     expect(screen.getByTestId('about')).toBeInTheDocument();
     expect(screen.getByTestId('skills')).toBeInTheDocument();
     expect(screen.getByTestId('experience')).toBeInTheDocument();
@@ -90,12 +97,13 @@ describe('Home Page', () => {
     // Check that components are rendered in the expected order
     expect(children[0]).toHaveAttribute('data-testid', 'navigation');
     expect(children[1]).toHaveAttribute('data-testid', 'hero');
-    expect(children[2]).toHaveAttribute('data-testid', 'about');
-    expect(children[3]).toHaveAttribute('data-testid', 'skills');
-    expect(children[4]).toHaveAttribute('data-testid', 'experience');
-    expect(children[5]).toHaveAttribute('data-testid', 'education');
-    expect(children[6]).toHaveAttribute('data-testid', 'awards');
-    expect(children[7]).toHaveAttribute('data-testid', 'contact');
-    expect(children[8]).toHaveAttribute('data-testid', 'footer');
+    expect(children[2]).toHaveAttribute('data-testid', 'case-studies');
+    expect(children[3]).toHaveAttribute('data-testid', 'about');
+    expect(children[4]).toHaveAttribute('data-testid', 'skills');
+    expect(children[5]).toHaveAttribute('data-testid', 'experience');
+    expect(children[6]).toHaveAttribute('data-testid', 'education');
+    expect(children[7]).toHaveAttribute('data-testid', 'awards');
+    expect(children[8]).toHaveAttribute('data-testid', 'contact');
+    expect(children[9]).toHaveAttribute('data-testid', 'footer');
   });
 });

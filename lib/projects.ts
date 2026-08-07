@@ -16,6 +16,8 @@ export interface Project {
   employer?: string;
   /** Links back to an Experience.id */
   experienceEntryId?: string;
+  /** Measurable result, shown as a hover-revealed line on case study cards */
+  outcome?: string;
 }
 
 export const projects: Project[] = projectsData as Project[];
@@ -29,4 +31,14 @@ export function getAllProjects(): Project[] {
       new Date(b.completedDate).getTime() - new Date(a.completedDate).getTime()
     );
   });
+}
+
+/** Client/freelance work, framed as outcome-based case studies. */
+export function getCaseStudies(): Project[] {
+  return getAllProjects().filter(p => p.category === 'Outsourcing');
+}
+
+/** Personal projects and work delivered directly through an employer. */
+export function getSideProjects(): Project[] {
+  return getAllProjects().filter(p => p.category !== 'Outsourcing');
 }

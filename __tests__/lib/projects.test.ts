@@ -1,4 +1,8 @@
-import { getAllProjects } from '@/lib/projects';
+import {
+  getAllProjects,
+  getCaseStudies,
+  getSideProjects,
+} from '@/lib/projects';
 
 describe('getAllProjects', () => {
   it('returns an array', () => {
@@ -19,6 +23,37 @@ describe('getAllProjects', () => {
       expect(p.id).toBeTruthy();
       expect(p.title).toBeTruthy();
       expect(Array.isArray(p.technologies)).toBe(true);
+    });
+  });
+});
+
+describe('getCaseStudies / getSideProjects', () => {
+  it('getCaseStudies returns only Outsourcing projects', () => {
+    getCaseStudies().forEach(p => {
+      expect(p.category).toBe('Outsourcing');
+    });
+  });
+
+  it('getSideProjects returns the complement of getCaseStudies', () => {
+    const caseStudyIds = new Set(getCaseStudies().map(p => p.id));
+    getSideProjects().forEach(p => {
+      expect(caseStudyIds.has(p.id)).toBe(false);
+    });
+  });
+
+  it('case studies and side projects together equal all projects', () => {
+    const combined = [...getCaseStudies(), ...getSideProjects()]
+      .map(p => p.id)
+      .sort();
+    const all = getAllProjects()
+      .map(p => p.id)
+      .sort();
+    expect(combined).toEqual(all);
+  });
+
+  it('every case study has a non-empty projectUrl', () => {
+    getCaseStudies().forEach(p => {
+      expect(p.projectUrl).toBeTruthy();
     });
   });
 });

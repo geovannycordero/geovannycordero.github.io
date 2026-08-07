@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/hero';
+import CaseStudies from '@/components/case-studies';
 import About from '@/components/about';
 import Skills from '@/components/skills';
 import Experience from '@/components/experience';
@@ -54,6 +55,7 @@ export default function Home() {
     <main id='main' className='min-h-screen bg-white'>
       <Navigation />
       <Hero />
+      <CaseStudies />
       <About />
       <Skills />
       <Experience />
