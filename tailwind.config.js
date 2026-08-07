@@ -112,6 +112,26 @@ module.exports = {
           950: 'hsl(var(--amber-950))',
         },
       },
+      fontFamily: {
+        // Sans stays Inter via next/font in app/layout.tsx (already loaded,
+        // no new request). Serif is display-only; mono is meta-only
+        // (eyebrows, stack tags, section indices, terminal card).
+        serif: [
+          'Charter',
+          'Iowan Old Style',
+          'Palatino Linotype',
+          'Georgia',
+          'serif',
+        ],
+        mono: [
+          'ui-monospace',
+          'SFMono-Regular',
+          'SF Mono',
+          'Menlo',
+          'Consolas',
+          'monospace',
+        ],
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
