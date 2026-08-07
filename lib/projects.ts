@@ -12,6 +12,10 @@ export interface Project {
   category: 'Personal' | 'Outsourcing' | 'Work';
   featured: boolean;
   completedDate: string;
+  /** Set when delivered through an employer; omitted for direct freelance work */
+  employer?: string;
+  /** Links back to an Experience.id */
+  experienceEntryId?: string;
 }
 
 export const projects: Project[] = projectsData as Project[];

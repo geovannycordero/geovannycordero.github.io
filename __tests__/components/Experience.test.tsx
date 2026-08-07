@@ -1,70 +1,113 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import Experience from '@/components/experience';
+import { getExperience } from '@/lib/experience';
+
+const [job] = getExperience();
 
 describe('Experience Component', () => {
   it('renders the experience section with correct content', () => {
     render(<Experience />);
 
-    // Check for main heading
     expect(
       screen.getByRole('heading', { level: 2, name: /experience/i })
     ).toBeInTheDocument();
   });
 
-  it('displays job positions and companies', () => {
+  it('displays company, period and location', () => {
     render(<Experience />);
 
-    // Check for job positions
-    expect(screen.getAllByText(/software engineer/i)).toHaveLength(2); // Multiple mentions
-    expect(screen.getAllByText(/supervisor/i)).toHaveLength(2); // Multiple mentions
+    expect(screen.getByText(job.company)).toBeInTheDocument();
+    expect(screen.getByText(job.period)).toBeInTheDocument();
+    expect(screen.getByText(job.location)).toBeInTheDocument();
   });
 
-  it('displays company name', () => {
+  it('displays every role held', () => {
     render(<Experience />);
 
-    // Check for company name
-    expect(screen.getByText(/pernix solutions/i)).toBeInTheDocument();
+    job.role.forEach(role => {
+      expect(screen.getByText(role)).toBeInTheDocument();
+    });
   });
 
-  it('displays job responsibilities and achievements', () => {
+  it('displays the summary and every achievement', () => {
     render(<Experience />);
 
-    // Check for responsibilities
-    expect(screen.getByText(/full-stack applications/i)).toBeInTheDocument();
-    expect(screen.getByText(/team lead/i)).toBeInTheDocument();
-    expect(screen.getByText(/mentored new apprentices/i)).toBeInTheDocument();
+    expect(screen.getByText(job.summary)).toBeInTheDocument();
+    job.achievements.forEach(achievement => {
+      expect(screen.getByText(achievement)).toBeInTheDocument();
+    });
   });
 
-  it('displays technologies used in jobs', () => {
+  it('displays technologies used', () => {
     render(<Experience />);
 
-    // Check for technologies
-    expect(screen.getByText('Golang')).toBeInTheDocument();
-    expect(screen.getByText('Ruby on Rails')).toBeInTheDocument();
-    expect(screen.getByText('Vue.js')).toBeInTheDocument();
+    job.technologies.forEach(tech => {
+      expect(screen.getAllByText(tech).length).toBeGreaterThan(0);
+    });
   });
 
   it('has proper semantic structure', () => {
     render(<Experience />);
 
-    // Check for section element with id
     const section = document.getElementById('experience');
     expect(section).toBeInTheDocument();
     expect(section?.tagName).toBe('SECTION');
   });
 
-  it('displays time periods for jobs', () => {
-    render(<Experience />);
+  describe('client engagements', () => {
+    it('shows name, period, impact summary and stack while collapsed', () => {
+      render(<Experience />);
 
-    // Check for time periods
-    expect(screen.getByText(/july 2019 - present/i)).toBeInTheDocument();
-  });
+      job.clientProjects.forEach(project => {
+        const name = screen.getByText(project.name);
+        expect(name).toBeVisible();
+        expect(screen.getByText(project.period)).toBeVisible();
+        expect(screen.getByText(project.impactSummary)).toBeVisible();
 
-  it('displays career progression', () => {
-    render(<Experience />);
+        // Stack has to be scannable without expanding — i.e. inside <summary>
+        const summary = name.closest('summary') as HTMLElement;
+        project.technologies.forEach(tech => {
+          expect(within(summary).getByText(tech)).toBeVisible();
+        });
+      });
+    });
 
-    // Check for career progression
-    expect(screen.getAllByText(/apprentice/i)).toHaveLength(3); // Multiple mentions
-    expect(screen.getByText('Software Engineer III')).toBeInTheDocument();
+    it('hides highlights until the engagement is expanded', async () => {
+      const user = userEvent.setup();
+      render(<Experience />);
+
+      const [project] = job.clientProjects;
+      const [firstHighlight] = project.highlights;
+
+      expect(screen.getByText(firstHighlight)).not.toBeVisible();
+
+      await user.click(screen.getByText(project.name));
+      project.highlights.forEach(highlight => {
+        expect(screen.getByText(highlight)).toBeVisible();
+      });
+
+      await user.click(screen.getByText(project.name));
+      expect(screen.getByText(firstHighlight)).not.toBeVisible();
+    });
+
+    it('links to the matching /projects entry when one exists', async () => {
+      const user = userEvent.setup();
+      render(<Experience />);
+
+      const linked = job.clientProjects.filter(p => p.relatedProjectId);
+      expect(linked.length).toBeGreaterThan(0);
+
+      for (const project of linked) {
+        await user.click(screen.getByText(project.name));
+        const link = screen.getByRole('link', {
+          name: /view full project/i,
+        });
+        expect(link).toHaveAttribute(
+          'href',
+          `/projects#${project.relatedProjectId}`
+        );
+      }
+    });
   });
 });

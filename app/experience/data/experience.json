@@ -1,0 +1,137 @@
+[
+  {
+    "id": "pernix-solutions",
+    "company": "Pernix Solutions",
+    "role": ["Software Engineer III", "Apprentice Program Supervisor"],
+    "period": "July 2019 - Present",
+    "location": "San José, Costa Rica",
+    "summary": "Progressed from Apprentice to Software Engineer III and Supervisor of the Apprentice Program, demonstrating exceptional growth and leadership capabilities.",
+    "achievements": [
+      "Developed and maintained full-stack applications using Golang, Ruby on Rails, and Vue.js",
+      "Led end-to-end software projects including requirement gathering, estimation, development, and delivery",
+      "Collaborated with international teams from the US, Colombia, Australia, and India",
+      "Managed and mentored new apprentices, supporting their personal and professional development",
+      "Spearheaded multiple teams as Developer, Team Lead, and Manager"
+    ],
+    "technologies": [
+      "Golang",
+      "Ruby on Rails",
+      "Vue.js",
+      "JavaScript",
+      "PostgreSQL",
+      "AWS",
+      "Docker",
+      "GraphQL"
+    ],
+    "clientProjects": [
+      {
+        "id": "buildinglink",
+        "name": "BuildingLink",
+        "period": "Jun 2025 - Present",
+        "impactSummary": "Embedded across a 400+ repository micro-frontend and microservice property-management platform — 380+ merged pull requests spanning 57 repositories in 14 months, and still shipping.",
+        "highlights": [
+          "Own the property/unit/occupant domain end to end while its legacy .NET service is being replaced by a new cloud, Postgres-backed implementation, keeping behaviour consistent for callers throughout the live migration.",
+          "Delivered two complete modules — bulletin board and building directory — across backend microservice, Vue front end, and the shared generated API client, including authorization, moderation, and notification workflows.",
+          "Maintain the platform-wide shared UI libraries consumed by dozens of downstream micro-frontends, where every change carries platform-wide blast radius.",
+          "Diagnosed a recurring timeout in a high-traffic bulk-write path, and coordinated cross-cutting fixes that had to land simultaneously across six or more independently deployed repositories."
+        ],
+        "technologies": [
+          "Vue 3",
+          ".NET",
+          "TypeScript",
+          "PostgreSQL",
+          "Kafka",
+          "AWS",
+          "Docker"
+        ]
+      },
+      {
+        "id": "careseekers",
+        "name": "Careseekers",
+        "period": "Aug 2020 - Sep 2025",
+        "impactSummary": "Sustained ownership of a home-care and support-worker scheduling platform for five years and through two full rebrands — 369 merged pull requests across its core Go API and Vue admin dashboard.",
+        "highlights": [
+          "Built and maintained the referral to shift to reminder workflow care coordinators run the business on: referral creation and attachments, multi-caregiver assignment, branch-scoped access control, and an OAuth login migration.",
+          "Decomposed scheduled-job logic out of the monolithic API into dedicated Go microservices for webhook delivery, shift timing, and appointment reminders.",
+          "Carried the codebase through two rebrands with commit history intact, updating CI, environment configuration, and organization references across a dozen-plus repositories each time.",
+          "Kept the React Native support-worker app store-compliant, delivering a Go runtime upgrade, a React Native version upgrade, and an Android 15+ memory page-size compliance fix."
+        ],
+        "technologies": [
+          "Go",
+          "Vue.js",
+          "React Native",
+          "GraphQL",
+          "PostgreSQL",
+          "RabbitMQ",
+          "AWS ECS",
+          "Twilio"
+        ]
+      },
+      {
+        "id": "pernix-direct-clients",
+        "name": "Pernix Direct Clients — Insurance & Legal Tech",
+        "period": "Jul 2024 - Mar 2025",
+        "impactSummary": "Shipped production features for two of Pernix's own clients concurrently, in different domains and stacks: a live insurance-agency website and a legal-tech Word add-in.",
+        "highlights": [
+          "Built and shipped cajadeandeseguros.cr end to end — insurance product catalog, vehicle and civil-liability application flows, policy lookup, CMS-backed content, and a staging to production CI/CD pipeline.",
+          "Built the citation-processing engine behind Benchly's Word add-in: Bluebook-format matching, table-of-authorities extraction, and case-citation grouping — the domain logic the product's legal review depends on.",
+          "Alternated between the two engagements across the period, holding delivery on both a Rails/PostgreSQL site and a React/TypeScript Office add-in."
+        ],
+        "technologies": [
+          "Ruby on Rails",
+          "PostgreSQL",
+          "React",
+          "TypeScript",
+          "Tailwind CSS",
+          "Heroku",
+          "GitHub Actions"
+        ],
+        "relatedProjectId": "caja-ande-seguros-website"
+      },
+      {
+        "id": "sproxxy",
+        "name": "Sproxxy",
+        "period": "Dec 2022 - May 2023",
+        "impactSummary": "Primary engineer on both sides of a sprint-driven B2B PR and speaker-engagement platform — 149 of 150 pull requests merged in five months, including a from-scratch API rewrite after an early stack pivot.",
+        "highlights": [
+          "Rebuilt the backend on Ruby on Rails after the initial Node/TypeScript prototype was abandoned in the first two weeks, delivering domain models, CRUD, authorization policies, and transactional email on the replacement service.",
+          "Delivered the bulk of the Vue 3 and TypeScript front end: engagement, strategy-plan and task workflows, keyword management, and the product's pitch process.",
+          "Built and maintained a third-party import for company and event data, reconciling an external feed that mapped cleanly onto neither side of the stack.",
+          "Set up CI on both repositories plus backend linting and Cypress end-to-end coverage of authenticated flows, giving the team automated build and lint gates early in the engagement."
+        ],
+        "technologies": [
+          "Ruby on Rails",
+          "Vue 3",
+          "TypeScript",
+          "PostgreSQL",
+          "Pinia",
+          "Tailwind CSS",
+          "Cypress",
+          "CircleCI"
+        ]
+      },
+      {
+        "id": "hubclick",
+        "name": "HubClick",
+        "period": "May 2020 - Oct 2020",
+        "impactSummary": "Took a home-services booking and job-management product from empty repositories to a repeatable white-label offering in five months — 92 of 94 pull requests merged across backend, mobile app, and web console.",
+        "highlights": [
+          "Built the backend API covering the full domain — users, companies, teams, quotes, services, jobs, and invoices — with authentication, permissions, and automatic invoicing on job completion.",
+          "Shipped a React Native app serving three distinct roles (client, crew, admin) with booking, scheduling, invoice history, and profile management.",
+          "Delivered a React web console for company onboarding, service configuration, and client invitations.",
+          "Templated the app into branded per-client instances, turning a single product into a repeatable white-label offering for multiple home-services businesses."
+        ],
+        "technologies": [
+          "Node.js",
+          "Express",
+          "MongoDB",
+          "Redis",
+          "React Native",
+          "Expo",
+          "React",
+          "AWS"
+        ]
+      }
+    ]
+  }
+]

@@ -109,6 +109,28 @@
     "completedDate": "2025-03"
   },
   {
+    "id": "caja-ande-seguros-website",
+    "title": "Caja de Ande Seguros",
+    "description": "Production website for a Costa Rican insurance agency, with online application flows and policy lookup",
+    "longDescription": "Public-facing website for Caja de Ande de Seguros, a Costa Rican insurance agency. Built end to end on Ruby on Rails: an insurance product catalog with detail pages, multi-step vehicle and civil-liability application flows, coverage selection, a policy lookup integration, CMS-backed content administration, and an external chatbot. Shipped with a staging-to-production CI/CD pipeline, integration tests, and JS linting.",
+    "image": "/images/projects/caja-ande-seguros.png",
+    "technologies": [
+      "Ruby on Rails",
+      "PostgreSQL",
+      "JavaScript",
+      "Stimulus",
+      "RailsAdmin",
+      "Heroku"
+    ],
+    "projectUrl": "https://www.cajadeandeseguros.cr/",
+    "githubUrl": "",
+    "category": "Work",
+    "featured": false,
+    "completedDate": "2025-03",
+    "employer": "Pernix Solutions",
+    "experienceEntryId": "pernix-solutions"
+  },
+  {
     "id": "charts-example",
     "title": "Charts Example",
     "description": "Charts example built with Vue and Chart.js",
