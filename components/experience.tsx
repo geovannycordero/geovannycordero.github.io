@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, ChevronRight, MapPin } from 'lucide-react';
 import SectionHead from '@/components/section-head';
@@ -17,9 +17,9 @@ export default function Experience() {
             <CardHeader className='relative pl-16'>
               <div className='absolute left-6 top-8 h-4 w-4 rounded-full border-4 border-surface bg-accent-brand shadow-md'></div>
               <div className='flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between'>
-                <CardTitle className='text-xl text-ink'>
+                <h3 className='text-xl font-semibold leading-none tracking-tight text-ink'>
                   {job.company}
-                </CardTitle>
+                </h3>
                 <div className='flex items-center gap-4 text-sm text-ink-muted'>
                   <div className='flex items-center gap-1'>
                     <Calendar className='h-4 w-4' />

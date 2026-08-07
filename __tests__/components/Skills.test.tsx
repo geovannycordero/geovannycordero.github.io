@@ -96,11 +96,11 @@ describe('Skills Component', () => {
     expect(screen.getByText('Languages')).toBeInTheDocument();
   });
 
-  it('renders every category as a group with an h4 title', () => {
+  it('renders every category as a group with an h3 title', () => {
     render(<Skills />);
     getSkillCategories().forEach(category => {
       expect(
-        screen.getByRole('heading', { level: 4, name: category.title })
+        screen.getByRole('heading', { level: 3, name: category.title })
       ).toBeInTheDocument();
     });
   });
