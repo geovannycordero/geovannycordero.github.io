@@ -1,0 +1,76 @@
+[
+  {
+    "title": "Programming Languages",
+    "skills": ["Go", "Ruby", "JavaScript", "TypeScript"]
+  },
+  {
+    "title": "Frontend Frameworks & Libraries",
+    "skills": [
+      "Next.js",
+      "React",
+      "React Native",
+      "Expo",
+      "Vue.js (2 & 3)",
+      "Pinia",
+      "Vuetify",
+      "Stimulus",
+      "TailwindCSS",
+      "Chart.js",
+      "HTML",
+      "CSS"
+    ]
+  },
+  {
+    "title": "Backend Frameworks & APIs",
+    "skills": [
+      "Ruby on Rails",
+      "RailsAdmin",
+      "Node.js",
+      "Express",
+      ".NET",
+      "GraphQL"
+    ]
+  },
+  {
+    "title": "Databases & Caching",
+    "skills": ["PostgreSQL", "MySQL", "MongoDB", "CouchDB", "Redis", "Prisma"]
+  },
+  {
+    "title": "Messaging & Integrations",
+    "skills": ["Kafka", "RabbitMQ", "Twilio"]
+  },
+  {
+    "title": "Cloud & DevOps",
+    "skills": [
+      "AWS (EC2, ECS, ECR, RDS, Lambda)",
+      "Docker",
+      "Heroku",
+      "CI/CD",
+      "GitHub Actions",
+      "CircleCI"
+    ]
+  },
+  {
+    "title": "Testing & Code Quality",
+    "skills": ["Jest", "Cypress", "ESLint", "Prettier"]
+  },
+  {
+    "title": "Version Control",
+    "skills": ["Git", "GitHub", "GitLab"]
+  },
+  {
+    "title": "Soft Skills",
+    "skills": [
+      "Leadership",
+      "Communication",
+      "Problem Solving",
+      "Team Management",
+      "Mentoring",
+      "Project Management"
+    ]
+  },
+  {
+    "title": "Languages",
+    "skills": ["Spanish (Native)", "English (Fluent)"]
+  }
+]
