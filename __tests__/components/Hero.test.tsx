@@ -1,94 +1,92 @@
 import { render, screen } from '@testing-library/react';
 import Hero from '@/components/hero';
 
-describe('Hero Component', () => {
-  it('renders the hero section with correct content', () => {
+describe('Hero', () => {
+  it('renders exactly one h1 containing the promise copy', () => {
     render(<Hero />);
-
-    // Check for main heading (split text)
-    expect(
-      screen.getByRole('heading', {
-        level: 1,
-        name: (accessibleName, element) => {
-          return (
-            /Geovanny/.test(accessibleName) &&
-            (element?.textContent?.includes('Cordero') ?? false)
-          );
-        },
-      })
-    ).toBeInTheDocument();
-
-    // Check for subtitle (multiple matches)
-    expect(
-      screen.getAllByText(/Full-Stack Software Engineer/i).length
-    ).toBeGreaterThan(0);
-
-    // Check for description
-    expect(
-      screen.getByText(/Passionate Full-Stack Software Engineer/i)
-    ).toBeInTheDocument();
-
-    // Check for CTA buttons
-    expect(
-      screen.getByRole('link', { name: /learn more/i })
-    ).toBeInTheDocument();
-    expect(
-      screen.getByRole('link', { name: /get in touch/i })
-    ).toBeInTheDocument();
+    const headings = screen.getAllByRole('heading', { level: 1 });
+    expect(headings).toHaveLength(1);
+    expect(headings[0]).toHaveTextContent(/production systems/i);
   });
 
-  it('has correct navigation links', () => {
+  it('wraps the accent word inside h1 in an underline element', () => {
     render(<Hero />);
-
-    const learnMoreLink = screen.getByRole('link', { name: /learn more/i });
-    const contactLink = screen.getByRole('link', { name: /get in touch/i });
-
-    expect(learnMoreLink).toHaveAttribute('href', '/#about');
-    expect(contactLink).toHaveAttribute('href', '/#contact');
+    const h1 = screen.getByRole('heading', { level: 1 });
+    const accentWord = screen.getByText(/production systems/i);
+    expect(h1).toContainElement(accentWord);
+    expect(accentWord.className).toMatch(/underline/);
   });
 
-  it('displays the profile image', () => {
+  it('shows a mono eyebrow with role and location', () => {
     render(<Hero />);
-
-    const profileImage = screen.getByAltText(/Geovanny Cordero Valverde/i);
-    expect(profileImage).toBeInTheDocument();
-    expect(profileImage).toHaveAttribute('src', '/images/me-forest.jpg');
+    expect(screen.getByTestId('hero-eyebrow')).toHaveTextContent(
+      /full-stack software engineer/i
+    );
+    expect(screen.getByTestId('hero-eyebrow')).toHaveTextContent(
+      /san josé, costa rica/i
+    );
   });
 
-  it('displays social media links with correct icons', () => {
+  it('has exactly one primary CTA linking to #contact', () => {
+    render(<Hero />);
+    const ctas = screen.getAllByRole('link', { name: /get in touch/i });
+    expect(ctas).toHaveLength(1);
+    expect(ctas[0]).toHaveAttribute('href', '/#contact');
+  });
+
+  it('has a résumé download link', () => {
+    render(<Hero />);
+    const resumeLink = screen.getByRole('link', { name: /résumé|resume/i });
+    expect(resumeLink).toHaveAttribute(
+      'href',
+      '/resume/geovanny-cordero-cv.pdf'
+    );
+    expect(resumeLink).toHaveAttribute('download');
+  });
+
+  it('does not render a "Learn More" button', () => {
+    render(<Hero />);
+    expect(
+      screen.queryByRole('link', { name: /learn more/i })
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: /learn more/i })
+    ).not.toBeInTheDocument();
+  });
+
+  it('exposes email, LinkedIn, and GitHub in the meta row with correct attributes', () => {
     render(<Hero />);
 
-    // Check for email link
-    const emailLink = screen.getByRole('link', { name: /geovanny@pm\.me/i });
-    expect(emailLink).toHaveAttribute('href', 'mailto:geovanny@pm.me');
+    const email = screen.getByRole('link', { name: /geovanny@pm\.me/i });
+    expect(email).toHaveAttribute('href', 'mailto:geovanny@pm.me');
 
-    // Check for LinkedIn link
-    const linkedinLink = screen.getByRole('link', { name: /linkedin/i });
-    expect(linkedinLink).toHaveAttribute(
+    const linkedin = screen.getByRole('link', { name: /linkedin/i });
+    expect(linkedin).toHaveAttribute(
       'href',
       'https://linkedin.com/in/geovannycordero'
     );
-    expect(linkedinLink).toHaveAttribute('target', '_blank');
+    expect(linkedin).toHaveAttribute('target', '_blank');
+    expect(linkedin).toHaveAttribute('rel', 'noopener noreferrer');
 
-    // Check for GitHub link
-    const githubLink = screen.getByRole('link', { name: /github/i });
-    expect(githubLink).toHaveAttribute(
+    const github = screen.getByRole('link', { name: /github/i });
+    expect(github).toHaveAttribute(
       'href',
       'https://github.com/geovannycordero'
     );
-    expect(githubLink).toHaveAttribute('target', '_blank');
-    expect(githubLink).toHaveAttribute('rel', 'noopener noreferrer');
+    expect(github).toHaveAttribute('target', '_blank');
+    expect(github).toHaveAttribute('rel', 'noopener noreferrer');
   });
 
-  it('displays location information', () => {
+  it('renders the terminal card decoratively, hidden below lg', () => {
     render(<Hero />);
-
-    expect(screen.getByText('San José, Costa Rica')).toBeInTheDocument();
+    const terminal = screen.getByTestId('terminal-card-wrapper');
+    expect(terminal).toHaveAttribute('aria-hidden', 'true');
+    expect(terminal.className).toMatch(/hidden/);
+    expect(terminal.className).toMatch(/lg:block/);
   });
 
-  // Skipping semantic structure test for now
-  // it('has proper semantic structure', () => {
-  //   render(<Hero />)
-  //   expect(screen.getByRole('banner')).toBeInTheDocument()
-  // })
+  it('does not render a portrait image', () => {
+    render(<Hero />);
+    expect(screen.queryByRole('img')).not.toBeInTheDocument();
+  });
 });

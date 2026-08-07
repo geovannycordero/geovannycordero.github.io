@@ -166,12 +166,17 @@ module.exports = {
             transform: 'translateY(0)',
           },
         },
+        'terminal-blink': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-up': 'fade-in-up 0.6s ease-out',
         'slide-in-up': 'slide-in-up 0.4s ease-out forwards',
+        'terminal-blink': 'terminal-blink 1s step-end infinite',
       },
       typography: {
         DEFAULT: {
