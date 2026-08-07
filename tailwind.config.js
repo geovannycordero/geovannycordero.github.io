@@ -184,20 +184,20 @@ module.exports = {
             maxWidth: 'none',
             color: 'hsl(var(--foreground))',
             h2: {
-              color: 'hsl(163 94% 24%)',
+              color: 'hsl(var(--accent-brand))',
             },
             h3: {
-              color: 'hsl(163 94% 24%)',
+              color: 'hsl(var(--accent-brand))',
             },
             strong: {
-              color: 'hsl(163 94% 24%)',
+              color: 'hsl(var(--accent-brand))',
             },
             code: {
-              color: 'hsl(163 94% 24%)',
-              backgroundColor: 'hsl(151 81% 96%)',
+              color: 'hsl(var(--accent-brand))',
+              backgroundColor: 'hsl(var(--accent-soft))',
             },
             blockquote: {
-              borderLeftColor: 'hsl(156 72% 67%)',
+              borderLeftColor: 'hsl(var(--line))',
             },
           },
         },

@@ -39,3 +39,28 @@ describe('app/globals.css — .prose token usage', () => {
     expect(proseBlock).toMatch(/bg-accent-soft/);
   });
 });
+
+describe('tailwind.config.js — @tailwindcss/typography DEFAULT.css token usage', () => {
+  const tailwindConfig = fs.readFileSync(
+    path.join(process.cwd(), 'tailwind.config.js'),
+    'utf8'
+  );
+
+  // These `typography.DEFAULT.css` overrides target the same prose h2/h3/
+  // strong/code/blockquote elements as app/globals.css's hand-rolled .prose
+  // rules above — a second, redundant, also-stale color source for one set
+  // of headings. The three literals below (old emerald-700/50/300) are the
+  // ones that were hardcoded; ban them so the plugin config can't silently
+  // reintroduce a competing off-token palette.
+  it('does not hardcode the old emerald-700/50/300 hsl literals', () => {
+    expect(tailwindConfig).not.toMatch(/hsl\(163 94% 24%\)/);
+    expect(tailwindConfig).not.toMatch(/hsl\(151 81% 96%\)/);
+    expect(tailwindConfig).not.toMatch(/hsl\(156 72% 67%\)/);
+  });
+
+  it('reads typography colors from the current design tokens instead', () => {
+    expect(tailwindConfig).toMatch(/hsl\(var\(--accent-brand\)\)/);
+    expect(tailwindConfig).toMatch(/hsl\(var\(--accent-soft\)\)/);
+    expect(tailwindConfig).toMatch(/hsl\(var\(--line\)\)/);
+  });
+});
