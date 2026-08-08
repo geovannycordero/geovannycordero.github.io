@@ -87,6 +87,23 @@ describe('Experience Component', () => {
     expect(chip.className).not.toMatch(/rounded-full/);
   });
 
+  it('uses the shared Case Studies hairline-grid container, with no timeline dot/rail', () => {
+    const { container } = render(<Experience />);
+
+    // Regression guard: the employer block used to sit in its own bordered
+    // card with an absolute-positioned dot + connecting line standing in
+    // for a "sequence" this section doesn't have (one employer, one date
+    // range). It now shares Case Studies' own grid gap-px/border-line/
+    // bg-line container instead of a bespoke timeline treatment.
+    const grid = container.querySelector('.grid.gap-px.border-line.bg-line');
+    expect(grid).toBeInTheDocument();
+
+    // The dot marker was a `rounded-full` + `border-4` + `bg-accent-brand`
+    // combination; the rail was `w-0.5`. Neither should remain.
+    expect(container.querySelector('.border-4')).not.toBeInTheDocument();
+    expect(container.querySelector('.w-0\\.5')).not.toBeInTheDocument();
+  });
+
   describe('client engagements', () => {
     it('shows name, period, impact summary and stack while collapsed', () => {
       render(<Experience />);
