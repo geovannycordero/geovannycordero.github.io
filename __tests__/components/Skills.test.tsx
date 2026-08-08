@@ -15,7 +15,7 @@ describe('Skills Component', () => {
     render(<Skills />);
 
     // Each technology belongs to exactly one category
-    expect(screen.getAllByText('Go')).toHaveLength(1);
+    expect(screen.getAllByText('Golang')).toHaveLength(1);
     expect(screen.getAllByText('Ruby on Rails')).toHaveLength(1);
     expect(screen.getByText('Ruby')).toBeInTheDocument();
     expect(screen.getByText('JavaScript')).toBeInTheDocument();

@@ -11,7 +11,6 @@ import { getSkillCategories } from '@/lib/skills';
  * listed here has to exist verbatim in skills.json.
  */
 const ALIASES: Record<string, string> = {
-  Golang: 'Go',
   Vue: 'Vue.js (2 & 3)',
   'Vue 3': 'Vue.js (2 & 3)',
   'Vue.js': 'Vue.js (2 & 3)',
