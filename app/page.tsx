@@ -51,16 +51,29 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main id='main' className='min-h-screen bg-paper'>
-      <Navigation />
-      <Hero />
-      <CaseStudies />
-      <About />
-      <Skills />
-      <Experience />
-      <Credentials />
-      <Contact />
-      <Footer />
-    </main>
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Geovanny Cordero Portfolio',
+            url: 'https://geovannycordero.com',
+          }),
+        }}
+      />
+      <main id='main' className='min-h-screen bg-paper'>
+        <Navigation />
+        <Hero />
+        <CaseStudies />
+        <About />
+        <Skills />
+        <Experience />
+        <Credentials />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 }

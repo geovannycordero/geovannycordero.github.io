@@ -141,8 +141,25 @@ async function ProjectsContent() {
 }
 
 export default async function ProjectsPage() {
+  const projects = getSideProjects();
+
   return (
     <div className='min-h-screen bg-paper'>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'ItemList',
+            itemListElement: projects.map((project, index) => ({
+              '@type': 'ListItem',
+              position: index + 1,
+              url: project.projectUrl,
+              name: project.title,
+            })),
+          }),
+        }}
+      />
       <Navigation />
 
       <main id='main' className='pt-20'>
