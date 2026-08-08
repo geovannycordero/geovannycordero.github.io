@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { Badge } from '@/components/ui/badge';
 import { Calendar, ChevronRight, MapPin } from 'lucide-react';
 import SectionHead from '@/components/section-head';
 import { getExperience } from '@/lib/experience';
@@ -31,15 +30,12 @@ export default function Experience() {
                   </div>
                 </div>
               </div>
-              <div className='mt-2 flex flex-wrap gap-2'>
-                {job.role.map(role => (
-                  <Badge
-                    key={role}
-                    variant='outline'
-                    className='border-line text-accent-brand dark:border-line/30'
-                  >
-                    {role}
-                  </Badge>
+              <div className='mt-2 flex flex-wrap items-center gap-2 font-mono text-xs uppercase tracking-wider text-ink-muted'>
+                {job.role.map((role, index) => (
+                  <span key={role} className='flex items-center gap-2'>
+                    {index > 0 && <span aria-hidden='true'>·</span>}
+                    <span>{role}</span>
+                  </span>
                 ))}
               </div>
 

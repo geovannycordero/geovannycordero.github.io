@@ -87,6 +87,15 @@ describe('Experience Component', () => {
     expect(chip.className).not.toMatch(/rounded-full/);
   });
 
+  it('renders role titles as flat mono text, not rounded-full badge pills', () => {
+    render(<Experience />);
+
+    const [role] = job.role;
+    const roleEl = screen.getByText(role);
+    expect(roleEl.closest('.font-mono')).toBeInTheDocument();
+    expect(roleEl.closest('.rounded-full')).not.toBeInTheDocument();
+  });
+
   it('uses the shared Case Studies hairline-grid container, with no timeline dot/rail', () => {
     const { container } = render(<Experience />);
 
