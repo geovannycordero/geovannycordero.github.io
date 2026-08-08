@@ -185,10 +185,8 @@ export default async function BlogPost({
                 <p className='text-lg text-ink-muted'>{post.excerpt}</p>
               </header>
 
-              <div className='border border-line bg-surface p-8 dark:border-line/20'>
-                <div className='prose prose-lg max-w-none'>
-                  <div dangerouslySetInnerHTML={{ __html: post.content }} />
-                </div>
+              <div className='prose prose-lg max-w-none'>
+                <div dangerouslySetInnerHTML={{ __html: post.content }} />
               </div>
             </article>
 
