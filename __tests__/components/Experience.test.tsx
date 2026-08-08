@@ -114,6 +114,23 @@ describe('Experience Component', () => {
   });
 
   describe('client engagements', () => {
+    it('renders engagements as a divide-y sub-list, not individually boxed cards', () => {
+      render(<Experience />);
+
+      const [project] = job.clientProjects;
+      const details = screen.getByText(project.name).closest('details');
+
+      // Regression guard: each engagement used to be its own bordered
+      // p-4 box (a second, competing container inside the employer's own
+      // flat block). It's now a plain row in a hairline-divided list —
+      // visually subordinate detail, not a peer "card".
+      expect(details?.className).not.toMatch(/\bborder\b/);
+      expect(details?.className).not.toMatch(/\bp-4\b/);
+
+      const list = details?.parentElement;
+      expect(list?.className).toMatch(/divide-y/);
+    });
+
     it('shows name, period, impact summary and stack while collapsed', () => {
       render(<Experience />);
 
