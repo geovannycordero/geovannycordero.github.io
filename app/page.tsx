@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import Hero from '@/components/hero';
+import CaseStudies from '@/components/case-studies';
 import About from '@/components/about';
 import Skills from '@/components/skills';
 import Experience from '@/components/experience';
-import Education from '@/components/education';
-import Awards from '@/components/awards';
+import Credentials from '@/components/credentials';
 import Contact from '@/components/contact';
 import Navigation from '@/components/navigation';
 import Footer from '@/components/footer';
@@ -51,16 +51,29 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <main className='min-h-screen bg-white'>
-      <Navigation />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Education />
-      <Awards />
-      <Contact />
-      <Footer />
-    </main>
+    <>
+      <script
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'WebSite',
+            name: 'Geovanny Cordero Portfolio',
+            url: 'https://geovannycordero.com',
+          }),
+        }}
+      />
+      <main id='main' className='min-h-screen bg-paper'>
+        <Navigation />
+        <Hero />
+        <CaseStudies />
+        <About />
+        <Skills />
+        <Experience />
+        <Credentials />
+        <Contact />
+        <Footer />
+      </main>
+    </>
   );
 }

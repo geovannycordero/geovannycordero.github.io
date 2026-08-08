@@ -7,6 +7,58 @@ import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useBlogNavigation } from './blog-navigation-handler';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { cn } from '@/lib/utils';
+
+interface NavItemData {
+  href: string;
+  label: string;
+  type: 'anchor' | 'blog' | 'projects';
+}
+
+const NAV_ITEMS: NavItemData[] = [
+  { href: '/#work', label: 'Work', type: 'anchor' },
+  { href: '/#about', label: 'About', type: 'anchor' },
+  { href: '/#skills', label: 'Skills', type: 'anchor' },
+  { href: '/#experience', label: 'Experience', type: 'anchor' },
+  { href: '/#credentials', label: 'Credentials', type: 'anchor' },
+  { href: '/blog', label: 'Blog', type: 'blog' },
+  { href: '/projects', label: 'Projects', type: 'projects' },
+];
+
+const LINK_CLASSES =
+  'font-medium text-ink-muted transition-colors hover:text-accent-brand';
+
+function NavItem({
+  item,
+  onNavigate,
+  className,
+}: {
+  item: NavItemData;
+  onNavigate: (item: NavItemData) => void;
+  className?: string;
+}) {
+  if (item.type === 'blog') {
+    return (
+      <button
+        type='button'
+        onClick={() => onNavigate(item)}
+        className={className ?? LINK_CLASSES}
+      >
+        {item.label}
+      </button>
+    );
+  }
+
+  return (
+    <Link
+      href={item.href}
+      className={className ?? LINK_CLASSES}
+      onClick={() => onNavigate(item)}
+    >
+      {item.label}
+    </Link>
+  );
+}
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,17 +86,7 @@ export default function Navigation() {
     };
   }, [isOpen]);
 
-  const navItems = [
-    { href: '/#about', label: 'About', type: 'anchor' },
-    { href: '/#skills', label: 'Skills', type: 'anchor' },
-    { href: '/#experience', label: 'Experience', type: 'anchor' },
-    { href: '/#education', label: 'Education', type: 'anchor' },
-    { href: '/#contact', label: 'Contact', type: 'anchor' },
-    { href: '/blog', label: 'Blog', type: 'blog' },
-    { href: '/projects', label: 'Projects', type: 'projects' },
-  ];
-
-  const handleNavClick = (item: (typeof navItems)[0]) => {
+  const handleNavClick = (item: NavItemData) => {
     setIsOpen(false);
 
     if (item.type === 'blog') {
@@ -59,46 +101,40 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? 'bg-white/95 dark:bg-black/70 backdrop-blur-xl border-b border-emerald-100 dark:border-emerald-900/20'
-          : 'bg-transparent'
-      }`}
+      className={cn(
+        'fixed top-0 z-50 w-full transition-all duration-300',
+        isOpen && 'bottom-0 flex flex-col bg-paper dark:bg-paper',
+        !isOpen &&
+          (scrolled
+            ? 'border-b border-line bg-paper/90 backdrop-blur-md dark:border-line/20 dark:bg-paper/90'
+            : 'bg-transparent')
+      )}
     >
-      <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='flex justify-between items-center py-4'>
-          <Link
-            href='/'
-            className='text-xl font-bold text-emerald-600 dark:text-emerald-400'
-          >
+      <div
+        className={`container mx-auto px-4 sm:px-6 lg:px-8 ${isOpen ? 'flex flex-1 flex-col overflow-hidden' : ''}`}
+      >
+        <div className='flex items-center justify-between py-4'>
+          <Link href='/' className='font-mono text-sm text-ink'>
             Geovanny Cordero
           </Link>
 
           {/* Desktop Navigation */}
-          <div className='hidden lg:flex items-center space-x-6'>
-            <div className='flex space-x-6'>
-              {navItems.map(item => (
-                <div key={item.href}>
-                  {item.type === 'blog' ? (
-                    <button
-                      type='button'
-                      onClick={() => handleNavClick(item)}
-                      className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium'
-                    >
-                      {item.label}
-                    </button>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium'
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </div>
+          <div className='hidden items-center gap-6 lg:flex'>
+            <div className='flex gap-6'>
+              {NAV_ITEMS.map(item => (
+                <NavItem
+                  key={item.href}
+                  item={item}
+                  onNavigate={handleNavClick}
+                />
               ))}
             </div>
+            <Link
+              href='/#contact'
+              className='rounded-sm bg-ink px-4 py-2 text-sm text-paper transition-opacity hover:opacity-80 dark:bg-accent-brand dark:text-paper'
+            >
+              Get in touch
+            </Link>
             <ThemeToggle />
           </div>
 
@@ -108,7 +144,7 @@ export default function Navigation() {
             <Button
               variant='ghost'
               size='icon'
-              className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400'
+              className='text-ink-muted hover:text-accent-brand'
               onClick={() => setIsOpen(!isOpen)}
               aria-label={isOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isOpen}
@@ -124,29 +160,23 @@ export default function Navigation() {
 
         {/* Mobile Navigation Menu */}
         {isOpen && (
-          <div className='lg:hidden pb-4 bg-background border-t border-emerald-100 dark:border-emerald-900/20'>
-            <div className='flex flex-col space-y-4 pt-4'>
-              {navItems.map(item => (
-                <div key={item.href}>
-                  {item.type === 'blog' ? (
-                    <button
-                      type='button'
-                      onClick={() => handleNavClick(item)}
-                      className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium text-left'
-                    >
-                      {item.label}
-                    </button>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      className='text-sage-600 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors font-medium'
-                      onClick={() => setIsOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
-                  )}
-                </div>
+          <div className='flex-1 overflow-y-auto border-t border-line bg-paper pb-4 dark:border-line/20 dark:bg-paper lg:hidden'>
+            <div className='flex flex-col gap-4 pt-4'>
+              {NAV_ITEMS.map(item => (
+                <NavItem
+                  key={item.href}
+                  item={item}
+                  onNavigate={handleNavClick}
+                  className={`${LINK_CLASSES} text-left`}
+                />
               ))}
+              <Link
+                href='/#contact'
+                onClick={() => setIsOpen(false)}
+                className='inline-block w-fit rounded-sm bg-ink px-4 py-2 text-sm text-paper dark:bg-accent-brand'
+              >
+                Get in touch
+              </Link>
             </div>
           </div>
         )}

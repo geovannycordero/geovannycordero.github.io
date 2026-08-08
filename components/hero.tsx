@@ -1,112 +1,96 @@
-import { Button } from '@/components/ui/button';
-import { MapPin, Mail, Briefcase } from 'lucide-react';
-import { Github, Linkedin } from '@/components/icons';
 import Link from 'next/link';
-import Image from 'next/image';
+import { Mail } from 'lucide-react';
+import { Github, Linkedin } from '@/components/icons';
+import TerminalCard from '@/components/terminal-card';
+
+const META_LINKS = [
+  {
+    href: 'mailto:geovanny@pm.me',
+    label: 'geovanny@pm.me',
+    icon: Mail,
+    external: false,
+  },
+  {
+    href: 'https://linkedin.com/in/geovannycordero',
+    label: 'LinkedIn',
+    icon: Linkedin,
+    external: true,
+  },
+  {
+    href: 'https://github.com/geovannycordero',
+    label: 'GitHub',
+    icon: Github,
+    external: true,
+  },
+];
 
 export default function Hero() {
   return (
-    <section className='min-h-screen flex items-center justify-center bg-background pt-20'>
+    <section className='border-b border-line bg-paper pb-20 pt-32 dark:border-line/20 dark:bg-paper'>
       <div className='container mx-auto px-4 sm:px-6 lg:px-8'>
-        <div className='grid lg:grid-cols-2 gap-12 items-center'>
-          <div className='space-y-8'>
-            <div className='space-y-4'>
-              <h1 className='text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-sage-900 dark:text-slate-100'>
-                Geovanny
-                <span className='block text-emerald-600 dark:bg-gradient-to-r dark:from-emerald-400 dark:to-cyan-400 dark:bg-clip-text dark:text-transparent'>
-                  Cordero
-                </span>
-              </h1>
-              <p className='text-xl sm:text-2xl text-emerald-700 dark:text-emerald-400 font-medium'>
-                Full-Stack Software Engineer
-              </p>
-              <div className='flex items-center gap-2 text-sage-600 dark:text-slate-400'>
-                <MapPin className='h-4 w-4' />
-                <span>San José, Costa Rica</span>
-              </div>
-            </div>
-
-            <p className='text-lg text-sage-700 dark:text-slate-300 leading-relaxed'>
-              Passionate Full-Stack Software Engineer with 5+ years of
-              experience, specializing in Golang, Ruby on Rails, and JavaScript
-              technologies. Proven expertise in leading teams and delivering
-              high-quality software solutions.
+        <div className='grid items-center gap-12 lg:grid-cols-2'>
+          <div>
+            <p
+              data-testid='hero-eyebrow'
+              className='mb-5 font-mono text-sm text-accent-brand'
+            >
+              Full-Stack Software Engineer · San José, Costa Rica
             </p>
 
-            <div className='flex flex-wrap gap-4'>
-              <Button
-                asChild
-                size='lg'
-                className='bg-emerald-600 hover:bg-emerald-500 dark:bg-emerald-500 dark:hover:bg-emerald-400 text-white shadow-lg dark:shadow-emerald-500/20 hover:shadow-xl dark:hover:shadow-emerald-500/40 transition-all duration-300'
+            <h1 className='text-balance font-serif text-4xl font-normal leading-[1.05] tracking-tight text-ink sm:text-5xl lg:text-6xl'>
+              I build{' '}
+              <span className='border-b-2 border-accent-brand text-accent-brand underline decoration-accent-brand decoration-2 underline-offset-4'>
+                production systems
+              </span>
+              <br />
+              and the sites that sell them.
+            </h1>
+
+            <p className='mt-8 max-w-[56ch] text-lg text-ink-muted'>
+              Five years shipping Go and Ruby on Rails at Pernix Solutions, plus
+              four freelance builds that turned into booked clients. Currently
+              mentoring the next apprentice cohort.
+            </p>
+
+            <div className='mt-8 flex flex-wrap items-center gap-6'>
+              <Link
+                href='/#contact'
+                className='inline-block rounded-sm bg-ink px-6 py-3 text-sm text-paper transition-opacity hover:opacity-80 dark:bg-accent-brand dark:text-paper'
               >
-                <Link href='/#contact'>Get In Touch</Link>
-              </Button>
-              <Button
-                variant='outline'
-                size='lg'
-                asChild
-                className='border-emerald-600 dark:border-emerald-600 text-emerald-600 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 hover:text-emerald-700 dark:hover:text-emerald-300 transition-all duration-300'
+                Get in touch
+              </Link>
+              <a
+                href='/resume/geovanny-cordero-cv.pdf'
+                download
+                className='text-sm text-ink-muted underline decoration-accent-brand underline-offset-4'
               >
-                <Link href='/#about'>Learn More</Link>
-              </Button>
+                Download résumé
+              </a>
             </div>
 
-            <div className='flex flex-wrap gap-6 pt-4'>
-              <Link
-                href='mailto:geovanny@pm.me'
-                className='flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200'
-              >
-                <Mail className='h-4 w-4' />
-                <span className='hidden sm:inline'>geovanny@pm.me</span>
-              </Link>
-              <Link
-                href='https://linkedin.com/in/geovannycordero'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200'
-              >
-                <Linkedin className='h-4 w-4' />
-                <span className='hidden sm:inline'>LinkedIn</span>
-              </Link>
-              <Link
-                href='https://github.com/geovannycordero'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200'
-                aria-label='Visit GitHub profile'
-              >
-                <Github className='h-4 w-4' />
-                <span className='hidden sm:inline'>GitHub</span>
-              </Link>
-              <Link
-                href='https://www.upwork.com/freelancers/~013cc6068c4bfca093'
-                target='_blank'
-                rel='noopener noreferrer'
-                className='flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors duration-200'
-                aria-label='Visit Upwork profile'
-              >
-                <Briefcase className='h-4 w-4' />
-                <span className='hidden sm:inline'>Upwork</span>
-              </Link>
+            <div className='mt-10 flex flex-wrap gap-6 font-mono text-xs text-ink-muted'>
+              {META_LINKS.map(({ href, label, icon: Icon, external }) => (
+                <Link
+                  key={href}
+                  href={href}
+                  {...(external
+                    ? { target: '_blank', rel: 'noopener noreferrer' }
+                    : {})}
+                  className='flex items-center gap-2 transition-colors hover:text-accent-brand'
+                >
+                  <Icon className='h-4 w-4' aria-hidden='true' />
+                  <span>{label}</span>
+                </Link>
+              ))}
             </div>
           </div>
 
-          <div className='flex justify-center lg:justify-end'>
-            <div className='relative'>
-              <div className='w-80 h-80 rounded-2xl bg-gradient-to-br from-emerald-100 to-emerald-200 dark:from-emerald-900/30 dark:to-emerald-800/10 flex items-center justify-center overflow-hidden shadow-2xl dark:shadow-emerald-500/10 hover-lift'>
-                <Image
-                  src='/images/me-forest.jpg'
-                  alt='Geovanny Cordero Valverde on a forest bridge'
-                  width={320}
-                  height={320}
-                  className='rounded-2xl object-cover w-full h-full'
-                  priority
-                />
-              </div>
-              {/* Decorative elements */}
-              <div className='absolute -top-4 -right-4 w-24 h-24 bg-emerald-200 dark:bg-emerald-500 rounded-full opacity-60 dark:opacity-20 blur-xl'></div>
-              <div className='absolute -bottom-4 -left-4 w-32 h-32 bg-emerald-300 dark:bg-emerald-600 rounded-full opacity-40 dark:opacity-15 blur-xl'></div>
-            </div>
+          <div
+            data-testid='terminal-card-wrapper'
+            aria-hidden='true'
+            className='hidden lg:block'
+          >
+            <TerminalCard />
           </div>
         </div>
       </div>

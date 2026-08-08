@@ -3,89 +3,75 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
+    /* Redesign brand tokens — Refined Emerald (light). Single source of
+       truth for the palette; tailwind.config.js and every dark: variant
+       below reads from these. */
+    --paper: 90 11% 96%;
+    --surface: 0 0% 100%;
+    --ink: 0 0% 8%;
+    --ink-muted: 140 5% 38%;
+    --line: 100 10% 88%;
+    --accent-brand: 150 55% 17%;
+    --accent-soft: 120 12% 92%;
+
+    --background: 90 11% 96%;
+    --foreground: 0 0% 8%;
     --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    --card-foreground: 0 0% 8%;
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 142 76% 29%;
-    --primary-foreground: 355 20% 99%;
-    --secondary: 142 30% 96%;
-    --secondary-foreground: 142 76% 20%;
-    --muted: 210 40% 98%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 142 30% 96%;
-    --accent-foreground: 142 76% 20%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 150 55% 17%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 120 12% 92%;
+    --secondary-foreground: 150 55% 17%;
+    --muted: 120 12% 92%;
+    --muted-foreground: 140 5% 38%;
+    --accent: 120 12% 92%;
+    --accent-foreground: 150 55% 17%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 142 76% 29%;
+    --border: 100 10% 88%;
+    --input: 100 10% 88%;
+    --ring: 150 55% 17%;
     --radius: 0.75rem;
   }
 
   .dark {
-    --background: 150 20% 4%;
-    --foreground: 210 40% 96%;
-    --card: 160 20% 10%;
-    --card-foreground: 210 40% 96%;
-    --popover: 160 20% 10%;
-    --popover-foreground: 210 40% 96%;
-    --primary: 158 64% 52%;
-    --primary-foreground: 150 20% 4%;
-    --secondary: 158 30% 15%;
-    --secondary-foreground: 158 64% 52%;
-    --muted: 222 30% 14%;
-    --muted-foreground: 215 16% 54%;
-    --accent: 158 30% 15%;
-    --accent-foreground: 158 64% 52%;
+    /* Redesign brand tokens — Terminal (dark). --line/--accent-brand are
+       full-strength neon; components apply their own opacity modifier
+       (e.g. border-line/20) for glow effects rather than baking alpha in
+       here, so the base value stays reusable at full strength too. */
+    --paper: 0 0% 4%;
+    --surface: 0 0% 0%;
+    --ink: 220 13% 91%;
+    --ink-muted: 218 11% 65%;
+    --line: 135 100% 50%;
+    --accent-brand: 135 100% 50%;
+    --accent-soft: 140 100% 6%;
+
+    --background: 0 0% 4%;
+    --foreground: 220 13% 91%;
+    --card: 0 0% 0%;
+    --card-foreground: 220 13% 91%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 220 13% 91%;
+    --primary: 135 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 140 100% 6%;
+    --secondary-foreground: 135 100% 50%;
+    --muted: 140 100% 6%;
+    --muted-foreground: 218 11% 65%;
+    --accent: 140 100% 6%;
+    --accent-foreground: 135 100% 50%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 40% 98%;
-    --border: 158 24% 33%;
-    --input: 158 24% 33%;
-    --ring: 158 64% 52%;
-  }
-
-  :root {
-    /* Modern Green color palette */
-    --emerald-50: 151 81% 96%;
-    --emerald-100: 149 80% 90%;
-    --emerald-200: 152 76% 80%;
-    --emerald-300: 156 72% 67%;
-    --emerald-400: 158 64% 52%;
-    --emerald-500: 160 84% 39%;
-    --emerald-600: 161 94% 30%;
-    --emerald-700: 163 94% 24%;
-    --emerald-800: 163 88% 20%;
-    --emerald-900: 164 86% 16%;
-    --emerald-950: 166 91% 9%;
-
-    /* Sage Green accents */
-    --sage-50: 138 20% 97%;
-    --sage-100: 138 15% 94%;
-    --sage-200: 138 12% 88%;
-    --sage-300: 138 10% 76%;
-    --sage-400: 138 8% 64%;
-    --sage-500: 138 6% 52%;
-    --sage-600: 138 8% 42%;
-    --sage-700: 138 10% 34%;
-    --sage-800: 138 12% 27%;
-    --sage-900: 138 15% 22%;
-    --sage-950: 138 20% 15%;
-
-    /* Warm amber — secondary accent, reserved for highlight/status markers */
-    --amber-50: 42 70% 96%;
-    --amber-100: 41 65% 90%;
-    --amber-200: 40 60% 80%;
-    --amber-300: 38 58% 68%;
-    --amber-400: 36 62% 56%;
-    --amber-500: 35 72% 45%;
-    --amber-600: 33 80% 36%;
-    --amber-700: 31 78% 29%;
-    --amber-800: 30 72% 24%;
-    --amber-900: 28 66% 19%;
-    --amber-950: 26 68% 11%;
+    /* Generic shadcn border/input stay a tempered, low-saturation green
+       (not full neon) so components that haven't been retokenized yet
+       read as "plainer", not garish. Dedicated glow effects use --line
+       directly with an opacity modifier instead. */
+    --border: 135 30% 18%;
+    --input: 135 30% 18%;
+    --ring: 135 100% 50%;
   }
 }
 
@@ -98,13 +84,6 @@
   }
 }
 
-/*
- * emerald-*, sage-*, and amber-* utilities (text/bg/border/ring) are generated
- * automatically by Tailwind from the color scales declared in tailwind.config.js,
- * which in turn read the CSS custom properties above — this file is the single
- * source of truth for every value in those scales, but the utility classes
- * themselves don't need to be hand-authored here.
- */
 @layer utilities {
   /* Line clamp utility for text truncation */
   .line-clamp-3 {
@@ -115,38 +94,21 @@
   }
 }
 
-/* ========== Dark mode design utilities ========== */
-.gradient-text {
-  background: linear-gradient(to right, hsl(var(--emerald-400)), #22d3ee);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-}
-
-.glow-emerald {
-  transition: box-shadow 0.3s ease;
-}
-
-.glow-emerald:hover {
-  box-shadow: 0 0 24px hsl(var(--emerald-500) / 0.25);
-}
-
 /* Custom styles for blog content */
 .prose {
   @apply text-foreground;
 }
 
 .prose h2 {
-  @apply text-2xl font-bold mt-8 mb-4 text-emerald-800 dark:text-emerald-400;
+  @apply text-2xl font-bold mt-8 mb-4 text-accent-brand;
 }
 
 .prose h3 {
-  @apply text-xl font-semibold mt-6 mb-3 text-emerald-700 dark:text-emerald-400;
+  @apply text-xl font-semibold mt-6 mb-3 text-accent-brand;
 }
 
 .prose p {
-  @apply mb-4 leading-relaxed text-sage-700 dark:text-slate-300;
+  @apply mb-4 leading-relaxed text-ink-muted;
 }
 
 .prose ul {
@@ -154,19 +116,19 @@
 }
 
 .prose li {
-  @apply text-sage-700 dark:text-slate-300;
+  @apply text-ink-muted;
 }
 
 .prose strong {
-  @apply text-emerald-800 dark:text-emerald-400 font-semibold;
+  @apply text-accent-brand font-semibold;
 }
 
 .prose code {
-  @apply bg-emerald-50 dark:bg-emerald-900/30 text-emerald-800 dark:text-emerald-400 px-1 py-0.5 rounded text-sm;
+  @apply bg-accent-soft text-accent-brand px-1 py-0.5 rounded text-sm;
 }
 
 .prose blockquote {
-  @apply border-l-4 border-emerald-300 dark:border-emerald-700 pl-4 italic text-sage-600 dark:text-slate-400;
+  @apply border-l-4 border-accent-brand pl-4 italic text-ink-muted;
 }
 
 /* Smooth scrolling for anchor links */
@@ -177,22 +139,6 @@ html {
 /* Scroll margin for fixed header */
 .scroll-mt-24 {
   scroll-margin-top: 6rem;
-}
-
-/* Custom animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
 }
 
 /* Loading animation for blog cards */
@@ -208,22 +154,6 @@ html {
 
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-/* Staggered animation for blog cards - optimized for performance */
-@keyframes slideInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-slide-in-up {
-  animation: slideInUp 0.4s ease-out forwards;
 }
 
 /* Smooth transitions for all interactive elements */
@@ -263,83 +193,15 @@ a {
   }
 }
 
-/* Modern green gradient backgrounds */
-.bg-emerald-gradient {
-  background: linear-gradient(
-    135deg,
-    hsl(var(--emerald-500)) 0%,
-    hsl(var(--emerald-700)) 50%,
-    hsl(var(--emerald-900)) 100%
-  );
-}
-
-.bg-sage-gradient {
-  background: linear-gradient(
-    135deg,
-    hsl(var(--sage-50)) 0%,
-    hsl(var(--sage-100)) 50%,
-    hsl(var(--sage-200)) 100%
-  );
-}
-
-/* Elegant hover effects */
-.hover-lift {
-  @apply transition-all duration-300 ease-out;
-}
-
-.hover-lift:hover {
-  @apply transform -translate-y-1 shadow-lg;
-}
-
-/* Card enhancements */
-.card-elegant {
-  @apply bg-card border border-emerald-100 shadow-sm hover:shadow-md transition-all duration-300;
-}
-
-.card-elegant:hover {
-  @apply border-emerald-200 shadow-emerald-100/20;
-}
-
-.dark .card-elegant {
-  border-color: hsl(var(--emerald-500) / 0.22);
-  box-shadow: 0 1px 12px rgba(0, 0, 0, 0.4);
-}
-
-.dark .card-elegant:hover {
-  border-color: hsl(var(--emerald-500) / 0.3);
-  box-shadow: 0 0 20px hsl(var(--emerald-500) / 0.08);
-}
-
 /* Text selection */
 ::selection {
   @apply bg-emerald-200 text-emerald-900;
 }
 
-/* Focus visible styles for better accessibility */
-.focus-visible:focus-visible {
-  @apply outline-none ring-2 ring-emerald-600 ring-offset-2 ring-offset-background;
-}
-
-/* Performance optimizations for large lists */
-.blog-post-list {
-  contain: layout style paint;
-}
-
-.blog-post-card {
-  contain: layout style;
-  will-change: transform, opacity;
-}
-
 /* Optimize animations for better performance */
 @media (prefers-reduced-motion: reduce) {
-  .animate-pulse,
-  .animate-slide-in-up,
-  .animate-fade-in-up {
+  .animate-pulse {
     animation: none;
-  }
-
-  .hover-lift:hover {
-    transform: none;
   }
 
   * {
@@ -347,11 +209,4 @@ a {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
-}
-
-/* Improve rendering performance for long lists */
-.blog-content-container {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
 }

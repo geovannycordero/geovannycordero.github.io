@@ -7,7 +7,7 @@ export default function RSSLink() {
       href='/rss.xml'
       target='_blank'
       rel='noopener noreferrer'
-      className='inline-flex items-center gap-2 text-sage-600 hover:text-emerald-600 transition-colors text-sm'
+      className='inline-flex items-center gap-2 text-ink-muted hover:text-accent-brand transition-colors text-sm'
       title='Subscribe to RSS Feed'
     >
       <Rss className='h-4 w-4' />

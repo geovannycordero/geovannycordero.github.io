@@ -1,82 +1,43 @@
 import { render, screen } from '@testing-library/react';
 import About from '@/components/about';
 
-describe('About Component', () => {
-  it('renders the about section with correct content', () => {
+describe('About', () => {
+  it('renders the section heading via SectionHead', () => {
     render(<About />);
-
-    // Check for main heading
     expect(
-      screen.getByRole('heading', { level: 2, name: /about me/i })
-    ).toBeInTheDocument();
-
-    // Check for description text
-    expect(
-      screen.getByText(
-        /passionate software engineer dedicated to creating innovative solutions/i
-      )
+      screen.getByRole('heading', { level: 2, name: /about/i })
     ).toBeInTheDocument();
   });
 
-  it('displays key skills and technologies', () => {
+  it('has proper semantic structure with id="about"', () => {
     render(<About />);
-
-    // Check for technology mentions in the description
-    expect(screen.getByText(/golang/i)).toBeInTheDocument();
-    expect(screen.getByText(/ruby on rails/i)).toBeInTheDocument();
-    expect(screen.getByText(/javascript/i)).toBeInTheDocument();
-  });
-
-  it('displays professional experience highlights', () => {
-    render(<About />);
-
-    // Check for experience highlights
-    expect(screen.getByText(/team leadership/i)).toBeInTheDocument();
-    expect(
-      screen.getByText(/high-quality software solutions/i)
-    ).toBeInTheDocument();
-    expect(screen.getByText(/pernix solutions/i)).toBeInTheDocument();
-  });
-
-  it('has proper semantic structure', () => {
-    render(<About />);
-
-    // Check for section element with id
     const section = document.getElementById('about');
     expect(section).toBeInTheDocument();
     expect(section?.tagName).toBe('SECTION');
   });
 
-  it('displays personal interests and values', () => {
+  it('renders the compressed narrative in a measure-width prose column', () => {
     render(<About />);
-
-    // Check for personal interests and values
-    expect(screen.getByText(/collaborative environments/i)).toBeInTheDocument();
-    expect(screen.getByText(/international teams/i)).toBeInTheDocument();
-    expect(screen.getAllByText(/mba/i)).toHaveLength(2);
+    const prose = screen.getByTestId('about-prose');
+    expect(prose.className).toMatch(/measure|max-w-\[/);
+    expect(
+      screen.getByText(/pernix solutions/i, { selector: 'p' })
+    ).toBeInTheDocument();
+    expect(screen.getAllByText(/golang/i).length).toBeGreaterThan(0);
+    expect(screen.getAllByText(/rails/i).length).toBeGreaterThan(0);
   });
 
-  it('displays highlight cards with correct information', () => {
+  it('renders exactly 4 stat items with a label and detail each', () => {
     render(<About />);
+    const stats = screen.getAllByTestId('about-stat');
+    expect(stats).toHaveLength(4);
 
-    // Check for highlight cards
-    expect(screen.getByText('5+ Years Experience')).toBeInTheDocument();
-    expect(screen.getByText('Team Leadership')).toBeInTheDocument();
-    expect(screen.getByText('Award Winner')).toBeInTheDocument();
-    expect(screen.getByText('Continuous Learning')).toBeInTheDocument();
-
-    // Check for descriptions
+    expect(screen.getByText('5+ years')).toBeInTheDocument();
+    expect(screen.getByText('4 client sites')).toBeInTheDocument();
+    expect(screen.getByText('4 countries')).toBeInTheDocument();
+    expect(screen.getByText('2020')).toBeInTheDocument();
     expect(
-      screen.getByText('Full-stack development with modern technologies')
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText('Managing and mentoring development teams')
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText('2020 Programathon Competition Champion')
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText('Currently pursuing MBA in Project Management')
+      screen.getByText(/programathon competition champion/i)
     ).toBeInTheDocument();
   });
 });

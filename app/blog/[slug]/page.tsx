@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, ArrowLeft, Clock, User } from 'lucide-react';
 import Navigation from '@/components/navigation';
@@ -77,7 +76,7 @@ export default async function BlogPost({
   const publishedTime = new Date(post.date).toISOString();
 
   return (
-    <div className='min-h-screen bg-background'>
+    <div className='min-h-screen bg-paper'>
       <script
         type='application/ld+json'
         dangerouslySetInnerHTML={{
@@ -133,12 +132,12 @@ export default async function BlogPost({
       />
       <Navigation />
 
-      <main className='pt-20'>
+      <main id='main' className='pt-20'>
         <div className='container mx-auto px-4 sm:px-6 lg:px-8 py-12'>
           <div className='max-w-4xl mx-auto'>
             <Link
               href='/blog'
-              className='inline-flex items-center gap-2 text-sage-600 hover:text-emerald-600 transition-colors mb-8'
+              className='inline-flex items-center gap-2 text-ink-muted hover:text-accent-brand transition-colors mb-8'
             >
               <ArrowLeft className='h-4 w-4' />
               Back to Blog
@@ -148,15 +147,21 @@ export default async function BlogPost({
               <header className='mb-8'>
                 <div className='flex flex-wrap gap-2 mb-4'>
                   {post.tags.map(tag => (
-                    <Badge key={tag} variant='secondary' className='text-xs'>
+                    <Badge
+                      key={tag}
+                      variant='secondary'
+                      className='text-xs bg-accent-soft text-accent-brand'
+                    >
                       {tag}
                     </Badge>
                   ))}
                 </div>
 
-                <h1 className='text-4xl font-bold mb-4'>{post.title}</h1>
+                <h1 className='font-serif text-4xl font-normal text-ink mb-4'>
+                  {post.title}
+                </h1>
 
-                <div className='flex flex-wrap items-center gap-6 text-sm text-sage-600 mb-6'>
+                <div className='flex flex-wrap items-center gap-6 text-sm text-ink-muted mb-6'>
                   <div className='flex items-center gap-2'>
                     <User className='h-4 w-4' />
                     <span>{post.author}</span>
@@ -177,18 +182,16 @@ export default async function BlogPost({
                   </div>
                 </div>
 
-                <p className='text-lg text-sage-700'>{post.excerpt}</p>
+                <p className='text-lg text-ink-muted'>{post.excerpt}</p>
               </header>
 
-              <Card>
-                <CardContent className='prose prose-lg max-w-none p-8'>
-                  <div dangerouslySetInnerHTML={{ __html: post.content }} />
-                </CardContent>
-              </Card>
+              <div className='prose prose-lg max-w-none'>
+                <div dangerouslySetInnerHTML={{ __html: post.content }} />
+              </div>
             </article>
 
             <div className='mt-12 text-center'>
-              <p className='text-sage-700 mb-4'>
+              <p className='text-ink-muted mb-4'>
                 Enjoyed this article? Connect with me on social media for more
                 insights.
               </p>
@@ -196,7 +199,7 @@ export default async function BlogPost({
                 href='https://linkedin.com/in/geovannycordero'
                 target='_blank'
                 rel='noopener noreferrer'
-                className='text-emerald-600 hover:underline font-medium'
+                className='text-accent-brand hover:underline font-medium'
               >
                 Follow me on LinkedIn →
               </Link>

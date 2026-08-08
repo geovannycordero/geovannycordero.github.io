@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Calendar } from 'lucide-react';
 import { Github } from '@/components/icons';
@@ -13,6 +12,9 @@ interface ProjectCardProps {
   project: Project;
   index: number;
 }
+
+const TECH_CHIP_CLASSES =
+  'rounded-sm border border-line px-2 py-1 font-mono text-xs text-accent-brand dark:border-line/30';
 
 export default function ProjectCard({ project, index }: ProjectCardProps) {
   const [isVisible, setIsVisible] = useState(false);
@@ -24,13 +26,13 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
   }, [index]);
 
   return (
-    <Card
+    <div
       id={project.id}
-      className={`scroll-mt-24 card-elegant hover-lift glow-emerald transition-all duration-300 transform ${
+      className={`scroll-mt-24 border border-line bg-surface transition-all duration-300 hover:border-accent-brand dark:border-line/20 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
-      <div className='relative overflow-hidden rounded-t-lg'>
+      <div className='relative overflow-hidden'>
         <Image
           src={project.image}
           alt={project.title}
@@ -41,19 +43,19 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         <div className='absolute inset-0 bg-gradient-to-t from-black/20 to-transparent' />
         {project.featured && (
           <div className='absolute top-3 right-3'>
-            <Badge className='bg-emerald-600 dark:bg-emerald-500 text-white text-xs'>
+            <Badge className='bg-accent-brand text-paper text-xs'>
               Featured
             </Badge>
           </div>
         )}
       </div>
 
-      <CardHeader className='pb-3'>
+      <div className='flex flex-col space-y-1.5 p-6 pb-3'>
         <div className='flex items-start justify-between gap-2'>
-          <CardTitle className='text-xl text-sage-900 dark:text-slate-100 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors line-clamp-2'>
+          <h2 className='text-xl font-semibold leading-none tracking-tight text-ink hover:text-accent-brand transition-colors line-clamp-2'>
             {project.title}
-          </CardTitle>
-          <div className='flex items-center gap-1 text-xs text-sage-600 dark:text-slate-400'>
+          </h2>
+          <div className='flex items-center gap-1 text-xs text-ink-muted'>
             <Calendar className='h-3 w-3' />
             <span>{project.completedDate}</span>
           </div>
@@ -62,34 +64,30 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         <div className='flex flex-wrap gap-2'>
           <Badge
             variant='outline'
-            className='text-xs border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-400'
+            className='text-xs border-line text-accent-brand dark:border-line/30'
           >
             {project.category}
           </Badge>
         </div>
 
         {project.employer && (
-          <p className='text-xs text-sage-600 dark:text-slate-400'>
+          <p className='text-xs text-ink-muted'>
             Delivered while at {project.employer}
           </p>
         )}
-      </CardHeader>
+      </div>
 
-      <CardContent className='space-y-4'>
-        <p className='text-sage-700 dark:text-slate-300 text-sm leading-relaxed line-clamp-3'>
+      <div className='space-y-4 p-6 pt-0'>
+        <p className='text-ink-muted text-sm leading-relaxed line-clamp-3'>
           {project.description}
         </p>
 
         <div className='space-y-3'>
           <div className='flex flex-wrap gap-2'>
             {project.technologies.map((tech, techIndex) => (
-              <Badge
-                key={techIndex}
-                variant='secondary'
-                className='text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors'
-              >
+              <span key={techIndex} className={TECH_CHIP_CLASSES}>
                 {tech}
-              </Badge>
+              </span>
             ))}
           </div>
 
@@ -99,7 +97,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 href={project.githubUrl}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='inline-flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors text-sm font-medium'
+                className='inline-flex items-center gap-2 text-ink-muted hover:text-accent-brand transition-colors text-sm font-medium'
                 aria-label={`View ${project.title} on GitHub`}
               >
                 <Github className='h-4 w-4' />
@@ -112,7 +110,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
                 href={project.projectUrl}
                 target='_blank'
                 rel='noopener noreferrer'
-                className='inline-flex items-center gap-2 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors text-sm font-medium'
+                className='inline-flex items-center gap-2 text-ink-muted hover:text-accent-brand transition-colors text-sm font-medium'
                 aria-label={`Visit ${project.title} live site`}
               >
                 <ExternalLink className='h-4 w-4' />
@@ -121,7 +119,7 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             )}
           </div>
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

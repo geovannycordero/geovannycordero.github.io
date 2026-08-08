@@ -11,7 +11,7 @@ export default function BackToTopButton() {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
       }}
-      className='inline-flex items-center gap-2 px-4 py-2 text-emerald-600 hover:text-emerald-700 hover:bg-emerald-50 rounded-lg transition-colors border border-emerald-200 hover:border-emerald-300'
+      className='inline-flex items-center gap-2 px-4 py-2 text-ink-muted hover:text-accent-brand hover:bg-accent-soft rounded-lg transition-colors border border-line dark:border-line/30 hover:border-accent-brand'
     >
       <svg
         className='w-4 h-4'

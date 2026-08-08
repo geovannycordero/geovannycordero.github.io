@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import type { BlogPostMeta } from '@/lib/blog';
@@ -22,29 +21,29 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
   }, [index]);
 
   return (
-    <Card
-      className={`card-elegant hover-lift glow-emerald transition-all duration-300 transform ${
+    <div
+      className={`border border-line bg-surface transition-all duration-300 hover:border-accent-brand dark:border-line/20 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
-      <CardHeader>
+      <div className='flex flex-col space-y-1.5 p-6'>
         <div className='flex flex-wrap gap-2 mb-3'>
           {post.tags.map(tag => (
             <Badge
               key={tag}
               variant='secondary'
-              className='text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 hover:bg-emerald-200 dark:hover:bg-emerald-900/50 transition-colors'
+              className='text-xs bg-accent-soft text-accent-brand'
             >
               {tag}
             </Badge>
           ))}
         </div>
-        <CardTitle className='text-xl text-sage-900 dark:text-slate-100 hover:text-emerald-700 dark:hover:text-emerald-400 transition-colors'>
+        <h2 className='text-xl font-semibold leading-none tracking-tight text-ink hover:text-accent-brand transition-colors'>
           <Link href={`/blog/${post.slug}`} className='block group'>
             <span className='group-hover:underline'>{post.title}</span>
           </Link>
-        </CardTitle>
-        <div className='flex items-center gap-4 text-sm text-sage-600 dark:text-slate-400'>
+        </h2>
+        <div className='flex items-center gap-4 text-sm text-ink-muted'>
           <div className='flex items-center gap-1'>
             <Calendar className='h-4 w-4' />
             <span>
@@ -60,19 +59,19 @@ export default function BlogPostCard({ post, index }: BlogPostCardProps) {
             <span>{post.readTime}</span>
           </div>
         </div>
-      </CardHeader>
-      <CardContent>
-        <p className='text-sage-700 dark:text-slate-300 mb-4 leading-relaxed line-clamp-3'>
+      </div>
+      <div className='p-6 pt-0'>
+        <p className='text-ink-muted mb-4 leading-relaxed line-clamp-3'>
           {post.excerpt}
         </p>
         <Link
           href={`/blog/${post.slug}`}
-          className='inline-flex items-center gap-2 text-emerald-600 dark:text-emerald-400 hover:text-emerald-700 dark:hover:text-emerald-300 font-medium transition-colors group'
+          className='inline-flex items-center gap-2 text-accent-brand hover:opacity-80 font-medium transition-colors group'
         >
           <span>Read full article</span>
           <ArrowRight className='h-4 w-4 transition-transform group-hover:translate-x-1' />
         </Link>
-      </CardContent>
-    </Card>
+      </div>
+    </div>
   );
 }

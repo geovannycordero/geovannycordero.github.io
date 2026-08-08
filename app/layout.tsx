@@ -120,7 +120,16 @@ export default function RootLayout({
         />
 
         {/* Theme and Meta */}
-        <meta name='theme-color' content='#059669' />
+        <meta
+          name='theme-color'
+          content='#f6f7f5'
+          media='(prefers-color-scheme: light)'
+        />
+        <meta
+          name='theme-color'
+          content='#0a0a0a'
+          media='(prefers-color-scheme: dark)'
+        />
         <meta name='msapplication-TileColor' content='#059669' />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <meta name='format-detection' content='telephone=no' />
@@ -186,6 +195,12 @@ export default function RootLayout({
         )}
       </head>
       <body className={inter.className}>
+        <a
+          href='#main'
+          className='sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-md focus:bg-accent-brand focus:px-4 focus:py-2 focus:text-surface focus:outline-none focus:ring-2 focus:ring-offset-2'
+        >
+          Skip to main content
+        </a>
         <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>

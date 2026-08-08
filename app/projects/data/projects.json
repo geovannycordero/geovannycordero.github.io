@@ -38,9 +38,10 @@
     ],
     "projectUrl": "https://www.barbershop-studio.com/",
     "githubUrl": "",
-    "category": "Personal",
+    "category": "Outsourcing",
     "featured": true,
-    "completedDate": "2025-10"
+    "completedDate": "2025-10",
+    "outcome": "Recovers hours of admin time per week via automated reporting and a custom staff-coordination panel."
   },
   {
     "id": "dc-drip-website",
@@ -62,7 +63,8 @@
     "githubUrl": "",
     "category": "Outsourcing",
     "featured": true,
-    "completedDate": "2026-05"
+    "completedDate": "2026-05",
+    "outcome": "Session booking and membership plans built to convert health-conscious visitors into loyal, recurring clients."
   },
   {
     "id": "lg-services-website",
@@ -84,7 +86,8 @@
     "githubUrl": "",
     "category": "Outsourcing",
     "featured": false,
-    "completedDate": "2025-08"
+    "completedDate": "2025-08",
+    "outcome": "Quote-request flow and a testimonial system that turn past clients into new landscaping leads."
   },
   {
     "id": "4-mk-firearms-llc-website",
@@ -106,7 +109,8 @@
     "githubUrl": "",
     "category": "Outsourcing",
     "featured": false,
-    "completedDate": "2025-03"
+    "completedDate": "2025-03",
+    "outcome": "Custom admin panel gives a licensed firearms dealer direct control over inventory and site content."
   },
   {
     "id": "caja-ande-seguros-website",

@@ -52,4 +52,11 @@ describe('RSSLink Component', () => {
     const link = screen.getByRole('link');
     expect(link).toBeInTheDocument();
   });
+
+  it('uses theme tokens, not the old sage/emerald scale with no dark: variant', () => {
+    render(<RSSLink />);
+    const rssLink = screen.getByRole('link', { name: /rss feed/i });
+    expect(rssLink.className).not.toMatch(/\bsage-\d|\bemerald-\d/);
+    expect(rssLink.className).toMatch(/text-ink-muted/);
+  });
 });

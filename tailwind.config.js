@@ -51,51 +51,38 @@ module.exports = {
           DEFAULT: 'hsl(var(--card))',
           foreground: 'hsl(var(--card-foreground))',
         },
-        // Brand scales — every value here is read from the CSS custom properties
-        // declared in app/globals.css, which is the single source of truth.
-        // Changing the palette means editing the variables there, not these lines.
-        emerald: {
-          50: 'hsl(var(--emerald-50))',
-          100: 'hsl(var(--emerald-100))',
-          200: 'hsl(var(--emerald-200))',
-          300: 'hsl(var(--emerald-300))',
-          400: 'hsl(var(--emerald-400))',
-          500: 'hsl(var(--emerald-500))',
-          600: 'hsl(var(--emerald-600))',
-          700: 'hsl(var(--emerald-700))',
-          800: 'hsl(var(--emerald-800))',
-          900: 'hsl(var(--emerald-900))',
-          950: 'hsl(var(--emerald-950))',
+        // Redesign brand tokens — read from app/globals.css :root/.dark.
+        // These back the Refined Emerald (light) / Terminal (dark) palette;
+        // see ideas/redesign-tdd-plan.md §1.3 for the design rationale.
+        paper: 'hsl(var(--paper))',
+        surface: 'hsl(var(--surface))',
+        ink: {
+          DEFAULT: 'hsl(var(--ink))',
+          muted: 'hsl(var(--ink-muted))',
         },
-        sage: {
-          50: 'hsl(var(--sage-50))',
-          100: 'hsl(var(--sage-100))',
-          200: 'hsl(var(--sage-200))',
-          300: 'hsl(var(--sage-300))',
-          400: 'hsl(var(--sage-400))',
-          500: 'hsl(var(--sage-500))',
-          600: 'hsl(var(--sage-600))',
-          700: 'hsl(var(--sage-700))',
-          800: 'hsl(var(--sage-800))',
-          900: 'hsl(var(--sage-900))',
-          950: 'hsl(var(--sage-950))',
-        },
-        // Warm secondary accent — reserved for highlight/status markers
-        // (e.g. an active-status badge) that need to stand apart from the
-        // emerald brand color rather than compete with it.
-        amber: {
-          50: 'hsl(var(--amber-50))',
-          100: 'hsl(var(--amber-100))',
-          200: 'hsl(var(--amber-200))',
-          300: 'hsl(var(--amber-300))',
-          400: 'hsl(var(--amber-400))',
-          500: 'hsl(var(--amber-500))',
-          600: 'hsl(var(--amber-600))',
-          700: 'hsl(var(--amber-700))',
-          800: 'hsl(var(--amber-800))',
-          900: 'hsl(var(--amber-900))',
-          950: 'hsl(var(--amber-950))',
-        },
+        line: 'hsl(var(--line))',
+        'accent-brand': 'hsl(var(--accent-brand))',
+        'accent-soft': 'hsl(var(--accent-soft))',
+      },
+      fontFamily: {
+        // Sans stays Inter via next/font in app/layout.tsx (already loaded,
+        // no new request). Serif is display-only; mono is meta-only
+        // (eyebrows, stack tags, section indices, terminal card).
+        serif: [
+          'Charter',
+          'Iowan Old Style',
+          'Palatino Linotype',
+          'Georgia',
+          'serif',
+        ],
+        mono: [
+          'ui-monospace',
+          'SFMono-Regular',
+          'SF Mono',
+          'Menlo',
+          'Consolas',
+          'monospace',
+        ],
       },
       borderRadius: {
         lg: 'var(--radius)',
@@ -131,12 +118,17 @@ module.exports = {
             transform: 'translateY(0)',
           },
         },
+        'terminal-blink': {
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in-up': 'fade-in-up 0.6s ease-out',
         'slide-in-up': 'slide-in-up 0.4s ease-out forwards',
+        'terminal-blink': 'terminal-blink 1s step-end infinite',
       },
       typography: {
         DEFAULT: {
@@ -144,20 +136,20 @@ module.exports = {
             maxWidth: 'none',
             color: 'hsl(var(--foreground))',
             h2: {
-              color: 'hsl(163 94% 24%)',
+              color: 'hsl(var(--accent-brand))',
             },
             h3: {
-              color: 'hsl(163 94% 24%)',
+              color: 'hsl(var(--accent-brand))',
             },
             strong: {
-              color: 'hsl(163 94% 24%)',
+              color: 'hsl(var(--accent-brand))',
             },
             code: {
-              color: 'hsl(163 94% 24%)',
-              backgroundColor: 'hsl(151 81% 96%)',
+              color: 'hsl(var(--accent-brand))',
+              backgroundColor: 'hsl(var(--accent-soft))',
             },
             blockquote: {
-              borderLeftColor: 'hsl(156 72% 67%)',
+              borderLeftColor: 'hsl(var(--line))',
             },
           },
         },
