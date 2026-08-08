@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import SectionHead from '@/components/section-head';
 import { getCaseStudies } from '@/lib/projects';
+import { TECH_CHIP_CLASSES } from '@/lib/utils';
 
 export default function CaseStudies() {
   const caseStudies = getCaseStudies();
@@ -18,12 +19,9 @@ export default function CaseStudies() {
                 {project.category}
               </p>
               <h3 className='text-xl font-bold text-ink'>{project.title}</h3>
-              <div className='mt-3 flex flex-wrap gap-2 font-mono text-xs'>
+              <div className='mt-3 flex flex-wrap gap-2'>
                 {project.technologies.map(tech => (
-                  <span
-                    key={tech}
-                    className='rounded-sm border border-line px-2 py-1 text-ink-muted dark:border-line/30'
-                  >
+                  <span key={tech} className={TECH_CHIP_CLASSES}>
                     {tech}
                   </span>
                 ))}

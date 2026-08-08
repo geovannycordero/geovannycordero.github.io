@@ -63,54 +63,6 @@ module.exports = {
         line: 'hsl(var(--line))',
         'accent-brand': 'hsl(var(--accent-brand))',
         'accent-soft': 'hsl(var(--accent-soft))',
-
-        // Legacy brand scales — every value here is read from the CSS custom
-        // properties declared in app/globals.css, which is the single source
-        // of truth. Retained until every component migrates off them (see
-        // ideas/redesign-tdd-plan.md Task 12/14); changing the palette means
-        // editing the variables there, not these lines.
-        emerald: {
-          50: 'hsl(var(--emerald-50))',
-          100: 'hsl(var(--emerald-100))',
-          200: 'hsl(var(--emerald-200))',
-          300: 'hsl(var(--emerald-300))',
-          400: 'hsl(var(--emerald-400))',
-          500: 'hsl(var(--emerald-500))',
-          600: 'hsl(var(--emerald-600))',
-          700: 'hsl(var(--emerald-700))',
-          800: 'hsl(var(--emerald-800))',
-          900: 'hsl(var(--emerald-900))',
-          950: 'hsl(var(--emerald-950))',
-        },
-        sage: {
-          50: 'hsl(var(--sage-50))',
-          100: 'hsl(var(--sage-100))',
-          200: 'hsl(var(--sage-200))',
-          300: 'hsl(var(--sage-300))',
-          400: 'hsl(var(--sage-400))',
-          500: 'hsl(var(--sage-500))',
-          600: 'hsl(var(--sage-600))',
-          700: 'hsl(var(--sage-700))',
-          800: 'hsl(var(--sage-800))',
-          900: 'hsl(var(--sage-900))',
-          950: 'hsl(var(--sage-950))',
-        },
-        // Warm secondary accent — reserved for highlight/status markers
-        // (e.g. an active-status badge) that need to stand apart from the
-        // emerald brand color rather than compete with it.
-        amber: {
-          50: 'hsl(var(--amber-50))',
-          100: 'hsl(var(--amber-100))',
-          200: 'hsl(var(--amber-200))',
-          300: 'hsl(var(--amber-300))',
-          400: 'hsl(var(--amber-400))',
-          500: 'hsl(var(--amber-500))',
-          600: 'hsl(var(--amber-600))',
-          700: 'hsl(var(--amber-700))',
-          800: 'hsl(var(--amber-800))',
-          900: 'hsl(var(--amber-900))',
-          950: 'hsl(var(--amber-950))',
-        },
       },
       fontFamily: {
         // Sans stays Inter via next/font in app/layout.tsx (already loaded,

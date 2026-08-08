@@ -2,9 +2,7 @@ import Link from 'next/link';
 import { Calendar, ChevronRight, MapPin } from 'lucide-react';
 import SectionHead from '@/components/section-head';
 import { getExperience } from '@/lib/experience';
-
-const TECH_CHIP_CLASSES =
-  'rounded-sm border border-line px-2 py-1 font-mono text-xs text-ink-muted dark:border-line/30';
+import { TECH_CHIP_CLASSES } from '@/lib/utils';
 
 export default function Experience() {
   const experiences = getExperience();

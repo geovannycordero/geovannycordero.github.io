@@ -7,6 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
 import { useBlogNavigation } from './blog-navigation-handler';
 import { ThemeToggle } from '@/components/theme-toggle';
+import { cn } from '@/lib/utils';
 
 interface NavItemData {
   href: string;
@@ -100,15 +101,14 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isOpen ? 'bottom-0 flex flex-col bg-paper dark:bg-paper' : ''
-      } ${
-        isOpen
-          ? ''
-          : scrolled
+      className={cn(
+        'fixed top-0 z-50 w-full transition-all duration-300',
+        isOpen && 'bottom-0 flex flex-col bg-paper dark:bg-paper',
+        !isOpen &&
+          (scrolled
             ? 'border-b border-line bg-paper/90 backdrop-blur-md dark:border-line/20 dark:bg-paper/90'
-            : 'bg-transparent'
-      }`}
+            : 'bg-transparent')
+      )}
     >
       <div
         className={`container mx-auto px-4 sm:px-6 lg:px-8 ${isOpen ? 'flex flex-1 flex-col overflow-hidden' : ''}`}

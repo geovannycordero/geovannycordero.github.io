@@ -73,47 +73,6 @@
     --input: 135 30% 18%;
     --ring: 135 100% 50%;
   }
-
-  :root {
-    /* Modern Green color palette */
-    --emerald-50: 151 81% 96%;
-    --emerald-100: 149 80% 90%;
-    --emerald-200: 152 76% 80%;
-    --emerald-300: 156 72% 67%;
-    --emerald-400: 158 64% 52%;
-    --emerald-500: 160 84% 39%;
-    --emerald-600: 161 94% 30%;
-    --emerald-700: 163 94% 24%;
-    --emerald-800: 163 88% 20%;
-    --emerald-900: 164 86% 16%;
-    --emerald-950: 166 91% 9%;
-
-    /* Sage Green accents */
-    --sage-50: 138 20% 97%;
-    --sage-100: 138 15% 94%;
-    --sage-200: 138 12% 88%;
-    --sage-300: 138 10% 76%;
-    --sage-400: 138 8% 64%;
-    --sage-500: 138 6% 52%;
-    --sage-600: 138 8% 42%;
-    --sage-700: 138 10% 34%;
-    --sage-800: 138 12% 27%;
-    --sage-900: 138 15% 22%;
-    --sage-950: 138 20% 15%;
-
-    /* Warm amber — secondary accent, reserved for highlight/status markers */
-    --amber-50: 42 70% 96%;
-    --amber-100: 41 65% 90%;
-    --amber-200: 40 60% 80%;
-    --amber-300: 38 58% 68%;
-    --amber-400: 36 62% 56%;
-    --amber-500: 35 72% 45%;
-    --amber-600: 33 80% 36%;
-    --amber-700: 31 78% 29%;
-    --amber-800: 30 72% 24%;
-    --amber-900: 28 66% 19%;
-    --amber-950: 26 68% 11%;
-  }
 }
 
 @layer base {
@@ -125,13 +84,6 @@
   }
 }
 
-/*
- * emerald-*, sage-*, and amber-* utilities (text/bg/border/ring) are generated
- * automatically by Tailwind from the color scales declared in tailwind.config.js,
- * which in turn read the CSS custom properties above — this file is the single
- * source of truth for every value in those scales, but the utility classes
- * themselves don't need to be hand-authored here.
- */
 @layer utilities {
   /* Line clamp utility for text truncation */
   .line-clamp-3 {
