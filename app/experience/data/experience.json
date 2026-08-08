@@ -49,7 +49,7 @@
         "id": "careseekers",
         "name": "Careseekers",
         "period": "Aug 2020 - Sep 2025",
-        "impactSummary": "Sustained ownership of a home-care and support-worker scheduling platform for five years and through two full rebrands — 369 merged pull requests across its core Go API and Vue admin dashboard.",
+        "impactSummary": "Sustained ownership of a home-care and support-worker scheduling platform for five years and through two full rebrands — 360+ merged pull requests across its core Go API and Vue admin dashboard.",
         "highlights": [
           "Built and maintained the referral to shift to reminder workflow care coordinators run the business on: referral creation and attachments, multi-caregiver assignment, branch-scoped access control, and an OAuth login migration.",
           "Decomposed scheduled-job logic out of the monolithic API into dedicated Go microservices for webhook delivery, shift timing, and appointment reminders.",
