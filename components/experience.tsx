@@ -49,7 +49,7 @@ export default function Experience() {
                   <ul className='space-y-2 text-ink-muted'>
                     {job.achievements.map(achievement => (
                       <li key={achievement} className='flex items-start gap-2'>
-                        <span className='mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-brand'></span>
+                        <span className='mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-line dark:bg-line/40'></span>
                         <span>{achievement}</span>
                       </li>
                     ))}
@@ -117,7 +117,7 @@ export default function Experience() {
                                 key={highlight}
                                 className='flex items-start gap-2'
                               >
-                                <span className='mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-accent-brand'></span>
+                                <span className='mt-2 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-line dark:bg-line/40'></span>
                                 <span>{highlight}</span>
                               </li>
                             ))}

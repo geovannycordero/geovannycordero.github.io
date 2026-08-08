@@ -96,6 +96,23 @@ describe('Experience Component', () => {
     expect(roleEl.closest('.rounded-full')).not.toBeInTheDocument();
   });
 
+  it('uses neutral bullet markers, not full-saturation accent, for achievements and highlights', async () => {
+    const user = userEvent.setup();
+    const { container } = render(<Experience />);
+
+    // Regression guard: with up to 5 achievements + 4 highlights per
+    // engagement visible at once, tinting every bullet marker in the
+    // full-saturation neon accent reads as visually loud over dense text
+    // (research flags repeated small accent elements as fatiguing) —
+    // markers now use the neutral --line token, reserving accent color
+    // for low-frequency emphasis (section labels, links).
+    const [project] = job.clientProjects;
+    await user.click(screen.getByText(project.name));
+
+    const markers = container.querySelectorAll('.rounded-full.bg-accent-brand');
+    expect(markers.length).toBe(0);
+  });
+
   it('uses the shared Case Studies hairline-grid container, with no timeline dot/rail', () => {
     const { container } = render(<Experience />);
 
