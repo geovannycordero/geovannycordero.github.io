@@ -25,7 +25,8 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
 
   return (
     <Card
-      className={`card-elegant hover-lift glow-emerald transition-all duration-300 transform ${
+      id={project.id}
+      className={`scroll-mt-24 card-elegant hover-lift glow-emerald transition-all duration-300 transform ${
         isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
       }`}
     >
@@ -66,6 +67,12 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
             {project.category}
           </Badge>
         </div>
+
+        {project.employer && (
+          <p className='text-xs text-sage-600 dark:text-slate-400'>
+            Delivered while at {project.employer}
+          </p>
+        )}
       </CardHeader>
 
       <CardContent className='space-y-4'>

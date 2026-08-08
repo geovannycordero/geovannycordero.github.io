@@ -1,6 +1,7 @@
+import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Calendar, GraduationCap, Award } from 'lucide-react';
+import { Calendar, GraduationCap, Award, ExternalLink } from 'lucide-react';
 
 export default function Education() {
   const education = [
@@ -23,26 +24,48 @@ export default function Education() {
       title: 'Gerencia con Liderazgo',
       institution: 'INCAE Business School',
       year: '2020',
+      url: 'https://www.credential.net/bacae4cc-2a7c-4cda-9d4f-feac8c5f1500',
     },
     {
       title: 'Introduction to Data Analytics for Business',
       institution: 'University of Colorado Boulder, Coursera',
       year: '2020',
+      url: 'https://coursera.org/share/4af8428f026c178ae5d826b5bc4b4e6c',
     },
     {
       title: 'Crisis Management',
       institution: 'INCAE Business School',
       year: '2022',
+      url: 'https://www.credential.net/c4d5b5b2-3179-45c2-bd8a-b1fe3b2b6918',
     },
     {
       title: 'Introduction to Big Data',
       institution: 'University of California San Diego, Coursera',
       year: '2021',
+      url: 'https://coursera.org/share/e2da619b7d37207e620e9dd1a3aa5552',
     },
     {
       title: 'Desarrollo de Habilidades Blandas',
       institution: 'UNED',
       year: '2023',
+    },
+    {
+      title: 'Claude 101',
+      institution: 'Anthropic Education',
+      year: '2026',
+      url: 'https://verify.skilljar.com/c/swr37jiqyx99',
+    },
+    {
+      title: 'Claude Code 101',
+      institution: 'Anthropic Education',
+      year: '2026',
+      url: 'https://verify.skilljar.com/c/x94svf5rz4h2',
+    },
+    {
+      title: 'Claude Code in Action',
+      institution: 'Anthropic Education',
+      year: '2026',
+      url: 'https://verify.skilljar.com/c/dvyh735ucjte',
     },
   ];
 
@@ -130,12 +153,26 @@ export default function Education() {
                     <p className='text-sm text-sage-700 dark:text-slate-300 mb-2'>
                       {cert.institution}
                     </p>
-                    <Badge
-                      variant='outline'
-                      className='text-xs border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-400'
-                    >
-                      {cert.year}
-                    </Badge>
+                    <div className='flex items-center gap-3'>
+                      <Badge
+                        variant='outline'
+                        className='text-xs border-emerald-300 dark:border-emerald-700 text-emerald-700 dark:text-emerald-400'
+                      >
+                        {cert.year}
+                      </Badge>
+                      {cert.url && (
+                        <Link
+                          href={cert.url}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='inline-flex items-center gap-1 text-sage-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors text-xs font-medium'
+                          aria-label={`Verify ${cert.title} certificate`}
+                        >
+                          <ExternalLink className='h-3.5 w-3.5' />
+                          <span>Verify</span>
+                        </Link>
+                      )}
+                    </div>
                   </CardContent>
                 </Card>
               ))}

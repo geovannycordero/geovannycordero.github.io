@@ -71,4 +71,27 @@ describe('Education Component', () => {
     expect(screen.getByText(/2021/i)).toBeInTheDocument();
     expect(screen.getByText(/2023/i)).toBeInTheDocument();
   });
+
+  it('displays the Anthropic Education certifications as verified links', () => {
+    render(<Education />);
+
+    expect(screen.getAllByText(/anthropic education/i)).toHaveLength(3);
+
+    const verifyLinks = screen.getAllByRole('link', { name: /verify/i });
+    const hrefs = verifyLinks.map(link => link.getAttribute('href'));
+    expect(hrefs).toEqual(
+      expect.arrayContaining([
+        'https://verify.skilljar.com/c/swr37jiqyx99',
+        'https://verify.skilljar.com/c/x94svf5rz4h2',
+        'https://verify.skilljar.com/c/dvyh735ucjte',
+      ])
+    );
+  });
+
+  it('does not show a verify link for certifications without a URL', () => {
+    render(<Education />);
+
+    // 8 certifications total; only "Desarrollo de Habilidades Blandas" has no url
+    expect(screen.getAllByRole('link', { name: /verify/i })).toHaveLength(7);
+  });
 });

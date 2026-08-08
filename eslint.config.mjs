@@ -4,6 +4,7 @@ import prettierPlugin from 'eslint-plugin-prettier';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
 
 const config = [
+  { ignores: ['docs/**', '_site/**', 'coverage/**'] },
   ...coreWebVitals,
   prettierConfig,
   {

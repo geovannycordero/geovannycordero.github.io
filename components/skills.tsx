@@ -1,54 +1,9 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { getSkillCategories } from '@/lib/skills';
 
 export default function Skills() {
-  const skillCategories = [
-    {
-      title: 'Programming Languages',
-      skills: ['Golang', 'Ruby on Rails', 'JavaScript', 'TypeScript'],
-    },
-    {
-      title: 'Frontend Technologies',
-      skills: ['Vue.js', 'React Native', 'TailwindCSS', 'Vuetify'],
-    },
-    {
-      title: 'Backend Technologies',
-      skills: ['Node.js', 'Golang', 'Ruby on Rails', 'GraphQL'],
-    },
-    {
-      title: 'Databases',
-      skills: ['PostgreSQL', 'MySQL', 'MongoDB', 'CouchDB'],
-    },
-    {
-      title: 'Cloud & DevOps',
-      skills: [
-        'AWS (EC2, ECS, ECR, RDS, Lambda)',
-        'Docker',
-        'CI/CD',
-        'GitHub Actions',
-        'CircleCI',
-      ],
-    },
-    {
-      title: 'Version Control',
-      skills: ['Git', 'GitHub', 'GitLab'],
-    },
-    {
-      title: 'Soft Skills',
-      skills: [
-        'Leadership',
-        'Communication',
-        'Problem Solving',
-        'Team Management',
-        'Mentoring',
-        'Project Management',
-      ],
-    },
-    {
-      title: 'Languages',
-      skills: ['Spanish (Native)', 'English (Fluent)'],
-    },
-  ];
+  const skillCategories = getSkillCategories();
 
   return (
     <section id='skills' className='py-20 bg-white dark:bg-background'>

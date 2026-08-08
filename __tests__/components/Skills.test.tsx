@@ -14,9 +14,10 @@ describe('Skills Component', () => {
   it('displays programming languages', () => {
     render(<Skills />);
 
-    // Check for programming languages
-    expect(screen.getAllByText('Golang')).toHaveLength(2); // Appears in both Programming Languages and Backend Technologies
-    expect(screen.getAllByText('Ruby on Rails')).toHaveLength(2); // Appears in both Programming Languages and Backend Technologies
+    // Each technology belongs to exactly one category
+    expect(screen.getAllByText('Golang')).toHaveLength(1);
+    expect(screen.getAllByText('Ruby on Rails')).toHaveLength(1);
+    expect(screen.getByText('Ruby')).toBeInTheDocument();
     expect(screen.getByText('JavaScript')).toBeInTheDocument();
     expect(screen.getByText('TypeScript')).toBeInTheDocument();
   });
@@ -25,9 +26,26 @@ describe('Skills Component', () => {
     render(<Skills />);
 
     // Check for frameworks
-    expect(screen.getByText('Vue.js')).toBeInTheDocument();
+    expect(screen.getByText('Vue.js (2 & 3)')).toBeInTheDocument();
+    expect(screen.getByText('React')).toBeInTheDocument();
     expect(screen.getByText('React Native')).toBeInTheDocument();
     expect(screen.getByText('TailwindCSS')).toBeInTheDocument();
+  });
+
+  it('displays testing and code quality skills', () => {
+    render(<Skills />);
+
+    expect(screen.getByText('Testing & Code Quality')).toBeInTheDocument();
+    expect(screen.getByText('Jest')).toBeInTheDocument();
+    expect(screen.getByText('Cypress')).toBeInTheDocument();
+  });
+
+  it('displays messaging and integration skills', () => {
+    render(<Skills />);
+
+    expect(screen.getByText('Messaging & Integrations')).toBeInTheDocument();
+    expect(screen.getByText('Kafka')).toBeInTheDocument();
+    expect(screen.getByText('Twilio')).toBeInTheDocument();
   });
 
   it('displays databases and tools', () => {
@@ -64,10 +82,14 @@ describe('Skills Component', () => {
 
     // Check for skill category titles
     expect(screen.getByText('Programming Languages')).toBeInTheDocument();
-    expect(screen.getByText('Frontend Technologies')).toBeInTheDocument();
-    expect(screen.getByText('Backend Technologies')).toBeInTheDocument();
-    expect(screen.getByText('Databases')).toBeInTheDocument();
+    expect(
+      screen.getByText('Frontend Frameworks & Libraries')
+    ).toBeInTheDocument();
+    expect(screen.getByText('Backend Frameworks & APIs')).toBeInTheDocument();
+    expect(screen.getByText('Databases & Caching')).toBeInTheDocument();
+    expect(screen.getByText('Messaging & Integrations')).toBeInTheDocument();
     expect(screen.getByText('Cloud & DevOps')).toBeInTheDocument();
+    expect(screen.getByText('Testing & Code Quality')).toBeInTheDocument();
     expect(screen.getByText('Version Control')).toBeInTheDocument();
     expect(screen.getByText('Soft Skills')).toBeInTheDocument();
     expect(screen.getByText('Languages')).toBeInTheDocument();
