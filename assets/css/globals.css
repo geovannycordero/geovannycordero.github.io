@@ -1,0 +1,274 @@
+@import 'tailwindcss';
+@config '../../tailwind.config.js';
+
+@layer base {
+  :root {
+    /* Redesign brand tokens — Refined Emerald (light). Single source of
+       truth for the palette; tailwind.config.js and every dark: variant
+       below reads from these. */
+    --paper: 90 11% 96%;
+    --surface: 0 0% 100%;
+    --ink: 0 0% 8%;
+    --ink-muted: 140 5% 38%;
+    --line: 100 10% 88%;
+    --accent-brand: 150 55% 17%;
+    --accent-soft: 120 12% 92%;
+
+    --background: 90 11% 96%;
+    --foreground: 0 0% 8%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 8%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 8%;
+    --primary: 150 55% 17%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 120 12% 92%;
+    --secondary-foreground: 150 55% 17%;
+    --muted: 120 12% 92%;
+    --muted-foreground: 140 5% 38%;
+    --accent: 120 12% 92%;
+    --accent-foreground: 150 55% 17%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 100 10% 88%;
+    --input: 100 10% 88%;
+    --ring: 150 55% 17%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    /* Redesign brand tokens — Terminal (dark). --line/--accent-brand are
+       full-strength neon; components apply their own opacity modifier
+       (e.g. border-line/20) for glow effects rather than baking alpha in
+       here, so the base value stays reusable at full strength too. */
+    --paper: 0 0% 4%;
+    --surface: 0 0% 0%;
+    --ink: 220 13% 91%;
+    --ink-muted: 218 11% 65%;
+    --line: 135 100% 50%;
+    --accent-brand: 135 100% 50%;
+    --accent-soft: 140 100% 6%;
+
+    --background: 0 0% 4%;
+    --foreground: 220 13% 91%;
+    --card: 0 0% 0%;
+    --card-foreground: 220 13% 91%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 220 13% 91%;
+    --primary: 135 100% 50%;
+    --primary-foreground: 0 0% 0%;
+    --secondary: 140 100% 6%;
+    --secondary-foreground: 135 100% 50%;
+    --muted: 140 100% 6%;
+    --muted-foreground: 218 11% 65%;
+    --accent: 140 100% 6%;
+    --accent-foreground: 135 100% 50%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    /* Generic shadcn border/input stay a tempered, low-saturation green
+       (not full neon) so components that haven't been retokenized yet
+       read as "plainer", not garish. Dedicated glow effects use --line
+       directly with an opacity modifier instead. */
+    --border: 135 30% 18%;
+    --input: 135 30% 18%;
+    --ring: 135 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* Line clamp utility for text truncation */
+  .line-clamp-3 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+}
+
+/* Custom styles for blog content */
+.prose {
+  @apply text-foreground;
+}
+
+.prose h2 {
+  @apply text-2xl font-bold mt-8 mb-4 text-accent-brand;
+}
+
+.prose h3 {
+  @apply text-xl font-semibold mt-6 mb-3 text-accent-brand;
+}
+
+.prose p {
+  @apply mb-4 leading-relaxed text-ink-muted;
+}
+
+.prose ul {
+  @apply mb-4 pl-6 space-y-2;
+}
+
+.prose li {
+  @apply text-ink-muted;
+}
+
+.prose strong {
+  @apply text-accent-brand font-semibold;
+}
+
+.prose code {
+  @apply bg-accent-soft text-accent-brand px-1 py-0.5 rounded text-sm;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-accent-brand pl-4 italic text-ink-muted;
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Scroll margin for fixed header */
+.scroll-mt-24 {
+  scroll-margin-top: 6rem;
+}
+
+/* Loading animation for blog cards */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Blog/project card stagger-in, replacing the vanilla-migration React
+   version's useState+setTimeout stagger (components/blog-post-card.tsx,
+   components/project-card.tsx) with a CSS-only equivalent driven by each
+   card's --stagger-index custom property. Respects prefers-reduced-motion
+   via the existing global rule below. */
+@keyframes stagger-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stagger-fade-in {
+  animation: stagger-fade-in 300ms ease-out both;
+  animation-delay: calc(50ms + var(--stagger-index, 0) * 50ms);
+}
+
+/* Same stagger, project-card.tsx's wider per-card spacing (100ms vs
+   blog-post-card.tsx's 50ms). */
+.stagger-fade-in-slow {
+  animation: stagger-fade-in 300ms ease-out both;
+  animation-delay: calc(50ms + var(--stagger-index, 0) * 100ms);
+}
+
+/* Theme toggle (build/partials/nav.js themeToggleButton + assets/js/main.js):
+   both the sun and moon icon render always; which one is visible follows
+   purely from the .dark class THEME_INIT_SCRIPT already put on <html>
+   before first paint, same for the thumb position. No client-side icon
+   swap needed — main.js only toggles .dark itself and syncs aria-checked. */
+[data-theme-icon='moon'] {
+  display: none;
+}
+.dark [data-theme-icon='sun'] {
+  display: none;
+}
+.dark [data-theme-icon='moon'] {
+  display: inline-flex;
+}
+.theme-toggle-thumb {
+  transform: translateX(0.25rem);
+}
+.dark .theme-toggle-thumb {
+  transform: translateX(2.25rem);
+}
+
+/* Mobile nav hamburger/close icon swap — same static-both-icons, CSS-picks-
+   one pattern as the theme toggle, driven by main.js's nav[data-open]
+   instead of .dark. */
+[data-nav-icon='close'] {
+  display: none;
+}
+nav[data-open='true'] [data-nav-icon='menu'] {
+  display: none;
+}
+nav[data-open='true'] [data-nav-icon='close'] {
+  display: inline-flex;
+}
+
+/* Smooth transitions for all interactive elements */
+button,
+a {
+  @apply transition-colors duration-200;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-emerald-50 dark:bg-gray-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-emerald-200 dark:bg-emerald-900 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-emerald-300 dark:bg-emerald-700;
+}
+
+/* Ensure smooth scrolling works on all browsers */
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Fallback for browsers that don't support scroll-behavior */
+@supports not (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Text selection */
+::selection {
+  @apply bg-emerald-200 text-emerald-900;
+}
+
+/* Optimize animations for better performance */
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse {
+    animation: none;
+  }
+
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: yarn install --frozen-lockfile
 
-      - name: Build with Next.js
+      - name: Build static site
         run: yarn build
 
       - name: Setup Pages
