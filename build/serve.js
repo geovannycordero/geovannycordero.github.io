@@ -33,15 +33,18 @@ http
     // path.join normalizes, so `..` segments are resolved here — anything
     // that lands outside docs/ is a traversal attempt, not a real route.
     let filePath = path.join(ROOT, reqPath);
+
+    // Every real file under docs/ has an extension, so an extensionless
+    // path is a directory route (/blog, /blog/, /blog/some-post).
+    if (!path.extname(filePath)) filePath = path.join(filePath, 'index.html');
+
+    // Re-checked here, right before the path is used, so no reassignment
+    // above can slip an unchecked value past this guard.
     if (filePath !== ROOT && !filePath.startsWith(ROOT + path.sep)) {
       res.writeHead(403, { 'Content-Type': 'text/plain' });
       res.end('Forbidden');
       return;
     }
-
-    // Every real file under docs/ has an extension, so an extensionless
-    // path is a directory route (/blog, /blog/, /blog/some-post).
-    if (!path.extname(filePath)) filePath = path.join(filePath, 'index.html');
 
     fs.readFile(filePath, (err, data) => {
       if (err) {
