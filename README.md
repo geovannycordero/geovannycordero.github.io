@@ -1,238 +1,118 @@
 # Geovanny Cordero Portfolio Website
 
-[![Tests](https://github.com/geovannycordero/geovannycordero.github.io/workflows/Tests/badge.svg)](https://github.com/geovannycordero/geovannycordero.github.io/actions)
-[![Deploy Status](https://github.com/geovannycordero/geovannycordero.github.io/workflows/Deploy/badge.svg)](https://github.com/geovannycordero/geovannycordero.github.io/actions)
+[![CI](https://github.com/geovannycordero/geovannycordero.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/geovannycordero/geovannycordero.github.io/actions/workflows/ci.yml)
+[![Deploy to GitHub Pages](https://github.com/geovannycordero/geovannycordero.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/geovannycordero/geovannycordero.github.io/actions/workflows/deploy.yml)
 
-A modern, responsive portfolio website built with Next.js 15, TypeScript, and Tailwind CSS. This project showcases Geovanny Cordero's professional experience, skills, and blog content in a clean, accessible design.
+A portfolio and blog for Geovanny Cordero Valverde, built as a plain HTML/CSS/JS static site — no framework, no bundler, no client-side hydration — and deployed to GitHub Pages.
 
-## 🚀 Features
+## Why no framework
 
-- **Modern Tech Stack**: Built with Next.js 15, React 19, and TypeScript
-- **Responsive Design**: Mobile-first approach with Tailwind CSS
-- **Blog System**: Markdown-based blog with RSS feed support
-- **Performance Optimized**: Static site generation with Next.js export
-- **Accessibility**: WCAG compliant with proper semantic HTML
-- **Testing**: Comprehensive test coverage with Jest and React Testing Library
-- **SEO Optimized**: Meta tags, Open Graph, and structured data
-- **Dark/Light Theme**: Theme switching capability
-- **Contact Form**: Interactive contact section with form validation
+A build-vs-buy audit found the previous Next.js/React version shipped ~190KB of JS and a client router to power five small interactive behaviors (theme toggle, mobile nav, scroll-triggered nav backdrop, smooth-scroll-to-hash, back-to-top) on a site with zero `fetch()` calls — everything is knowable at build time from Markdown or JSON. See `ideas/redesign-tdd-plan.md` for the audit and migration plan.
 
-## 🛠️ Tech Stack
+## Tech stack
 
-### Frontend
+- **Build**: a small Node script (`build/`) that renders HTML strings and writes static files to `docs/` — no templating engine, no bundler
+- **Styling**: Tailwind CSS, compiled via `postcss-cli`
+- **Client JS**: one hand-written vanilla file (`assets/js/main.js`), loaded via `<script defer>`
+- **Content**: Markdown blog posts (gray-matter + remark), JSON data for projects/experience/skills
+- **OG images**: `satori` + `@resvg/resvg-js`
+- **Testing**: Jest + `@testing-library/dom` (HTML strings mounted into jsdom) + `jest-axe` for accessibility
 
-- **Next.js 15** - React framework with App Router
-- **React 19** - UI library
-- **TypeScript** - Type-safe JavaScript
-- **Tailwind CSS** - Utility-first CSS framework
-- **Radix UI** - Accessible component primitives
-- **Lucide React** - Icon library
-
-### Development Tools
-
-- **ESLint** - Code linting
-- **Prettier** - Code formatting
-- **Jest** - Testing framework
-- **React Testing Library** - Component testing
-- **PostCSS** - CSS processing
-
-### Content Management
-
-- **Markdown** - Blog post content
-- **Gray Matter** - Front matter parsing
-- **Remark** - Markdown processing
-
-## 📁 Project Structure
+## Project structure
 
 ```
-├── app/                    # Next.js App Router
-│   ├── blog/             # Blog pages and components
-│   ├── globals.css       # Global styles
-│   ├── layout.tsx        # Root layout
-│   └── page.tsx          # Home page
-├── components/            # Reusable components
-│   ├── ui/               # UI components (buttons, cards, etc.)
-│   ├── about.tsx         # About section
-│   ├── contact.tsx       # Contact form
-│   ├── hero.tsx          # Hero section
-│   └── ...               # Other sections
-├── content/               # Blog content (Markdown files)
-├── lib/                   # Utility functions
-├── public/                # Static assets
-└── __tests__/            # Test files
+├── build/                 # The static-site generator
+│   ├── index.js          # Orchestrator — run via `yarn build`
+│   ├── layout.js          # Shared document shell (<head>, nav/footer chrome)
+│   ├── partials/          # One render function per UI fragment
+│   ├── pages/              # One render function per route
+│   ├── content/            # Blog/projects/experience/skills/RSS/sitemap loaders
+│   ├── data/                # JSON data (nav items, etc.)
+│   └── og-image.js        # Open Graph image generation
+├── assets/
+│   ├── js/main.js         # All client-side interactivity
+│   └── css/globals.css    # Tailwind + design tokens
+├── content/blog/           # Blog posts (Markdown + front matter)
+├── public/                 # Static assets copied as-is (favicons, resume, images)
+├── __tests__/               # Jest tests, mirroring build/'s structure
+└── docs/                    # Build output (gitignored, never committed)
 ```
 
-## 🚀 Getting Started
+## Getting started
 
 ### Prerequisites
 
-- Node.js 18+
-- Yarn or npm
+- Node 24 (via nvm: `nvm use 24`)
+- Yarn
 
 ### Installation
-
-1. Clone the repository:
 
 ```bash
 git clone https://github.com/geovannycordero/geovannycordero.github.io.git
 cd geovannycordero.github.io
-```
-
-2. Install dependencies:
-
-```bash
 yarn install
-# or
-npm install
 ```
 
-3. Run the development server:
+### Build and preview
 
 ```bash
-yarn dev
-# or
-npm run dev
+yarn build      # Generate the static site → docs/
+yarn preview    # Serve docs/ locally at http://localhost:3000
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+## Available scripts
 
-## 📝 Available Scripts
+- `yarn build` — Generate the static site into `docs/`
+- `yarn preview` — Serve `docs/` locally
+- `yarn lint` / `yarn lint:fix` — ESLint
+- `yarn format` / `yarn format:check` — Prettier
+- `yarn test` / `yarn test:watch` / `yarn test:coverage` / `yarn test:ci` — Jest
 
-- `yarn dev` - Start development server
-- `yarn build` - Build for production
-- `yarn start` - Start production server
-- `yarn lint` - Run ESLint
-- `yarn lint:fix` - Fix ESLint errors
-- `yarn format` - Format code with Prettier
-- `yarn test` - Run tests
-- `yarn test:watch` - Run tests in watch mode
-- `yarn test:coverage` - Generate test coverage report
+## Testing
 
-## 🧪 Testing
-
-The project includes comprehensive testing setup:
-
-- **Jest** as the test runner
-- **React Testing Library** for component testing
-- **Coverage thresholds** set to 70% for all metrics
-- **Test files** located in `__tests__/` directories
-
-Run tests:
+- **Jest** as the test runner, tests mounted into jsdom via `document.body.innerHTML = renderX()` and queried with `@testing-library/dom`
+- **jest-axe** runs accessibility checks against real rendered pages (`__tests__/a11y/`)
+- **Coverage thresholds**: 70% on branches/functions/lines/statements (collected from `build/` and `assets/js/`)
 
 ```bash
-yarn test              # Run all tests
-yarn test:watch        # Run tests in watch mode
-yarn test:coverage     # Generate coverage report
+yarn test
+yarn test:watch
+yarn test:coverage
 ```
 
-## 🎨 Styling
+## Accessibility
 
-- **Tailwind CSS** for utility-first styling
-- **Custom color palette** with emerald and sage themes
-- **Responsive design** with mobile-first approach
-- **CSS animations** and transitions
-- **Typography** optimized for readability
+- WCAG 2.1 AA target, verified with `jest-axe` in CI
+- Semantic HTML, ARIA labels/roles, keyboard navigation, visible focus states
+- Design-token contrast ratios checked in `__tests__/build/design-tokens.test.js`
 
-## 📱 Responsive Design
+## Deployment
 
-The website is fully responsive with:
+Pushing to `main` triggers `.github/workflows/ci.yml` (lint, test, build, Lighthouse CI). `.github/workflows/deploy.yml` runs `yarn build` and deploys `docs/` via GitHub's native Pages deployment action. `docs/` is gitignored — it only ever exists as a local or CI build artifact, never committed.
 
-- Mobile-first design approach
-- Breakpoint-based layouts
-- Touch-friendly interactions
-- Optimized for all device sizes
+## Blog system
 
-## ♿ Accessibility
+- Markdown posts with gray-matter front matter, in `content/blog/`
+- Markdown → HTML via remark + remark-gfm
+- RSS feed (`/rss.xml`), sitemap (`/sitemap.xml`), and a generated Open Graph image per post
 
-- **WCAG 2.1 AA** compliance
-- **Semantic HTML** structure
-- **ARIA labels** and roles
-- **Keyboard navigation** support
-- **Screen reader** compatibility
-- **Color contrast** compliance
-
-## 🔧 Configuration
-
-### Next.js Config
-
-- Static export enabled for GitHub Pages deployment
-- Image optimization disabled for static hosting
-- ESLint and TypeScript errors ignored during build
-
-### Tailwind Config
-
-- Custom color palette
-- Typography plugin integration
-- Animation keyframes
-- Responsive breakpoints
-
-### TypeScript Config
-
-- Strict mode enabled
-- Path aliases configured
-- ES5 target for broad compatibility
-
-## 📊 Performance
-
-- **Static Site Generation** for optimal performance
-- **Image optimization** with WebP and AVIF support
-- **Code splitting** and lazy loading
-- **Minified output** in production
-- **Compression** enabled
-
-## 🚀 Deployment
-
-The project is configured for static hosting (GitHub Pages):
-
-1. Build the project:
-
-```bash
-yarn build
-```
-
-2. The static files will be generated in the `docs/` directory
-3. Deploy the contents of `docs/` to your hosting provider
-
-### GitHub Pages
-
-- Configured for root domain deployment
-- Static export enabled
-- Trailing slash support
-
-## 📝 Blog System
-
-The blog system supports:
-
-- **Markdown** content with front matter
-- **RSS feed** generation
-- **SEO optimization** for each post
-- **Category organization**
-- **Date-based routing**
-
-## 🤝 Contributing
+## Contributing
 
 1. Fork the repository
 2. Create a feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+4. Push to the branch and open a Pull Request
 
-This project is licensed under the [MIT License](LICENSE).
+Licensed under the [MIT License](LICENSE).
 
-## 👨‍💻 Author
+## Author
 
 **Geovanny Cordero Valverde**
 
-- Full-Stack Software Engineer
-- Based in San José, Costa Rica
-- 5+ years of experience in software development
-- Specializing in Golang, Ruby on Rails, and JavaScript technologies
+- Full-Stack Software Engineer, based in San José, Costa Rica
+- 5+ years of experience — Golang, Ruby on Rails, JavaScript
 
-## 🔗 Links
+## Links
 
 - **Portfolio**: [geovannycordero.com](https://geovannycordero.com)
 - **GitHub**: [@geovannycordero](https://github.com/geovannycordero)
-
----
-
-Built with ❤️ using Next.js, React, and Tailwind CSS

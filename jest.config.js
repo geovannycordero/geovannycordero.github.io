@@ -1,29 +1,21 @@
-const nextJest = require('next/jest');
-
-const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files
-  dir: './',
-});
-
-// Add any custom config to be passed to Jest
-const customJestConfig = {
+/** @type {import('jest').Config} */
+module.exports = {
   setupFilesAfterEnv: ['<rootDir>/jest.setup.js'],
   testEnvironment: 'jsdom',
   testPathIgnorePatterns: [
-    '<rootDir>/.next/',
     '<rootDir>/node_modules/',
     '<rootDir>/.claude/',
+    '<rootDir>/docs/',
   ],
-  moduleNameMapper: {
-    '^@/(.*)$': '<rootDir>/$1',
-  },
   collectCoverageFrom: [
-    'components/**/*.{js,jsx,ts,tsx}',
-    'lib/**/*.{js,jsx,ts,tsx}',
-    'app/**/*.{js,jsx,ts,tsx}',
-    '!**/*.d.ts',
+    'build/**/*.js',
+    'assets/js/**/*.js',
     '!**/node_modules/**',
-    '!**/.next/**',
+    // Pure CLI entry points — nothing exported to unit test. Their
+    // correctness is proven by `yarn build` actually succeeding (a
+    // separate CI step), not by Jest coverage.
+    '!build/index.js',
+    '!build/serve.js',
   ],
   coverageThreshold: {
     global: {
@@ -34,10 +26,7 @@ const customJestConfig = {
     },
   },
   testMatch: [
-    '<rootDir>/**/__tests__/**/*.{js,jsx,ts,tsx}',
-    '<rootDir>/**/*.(test|spec).{js,jsx,ts,tsx}',
+    '<rootDir>/**/__tests__/**/*.js',
+    '<rootDir>/**/*.(test|spec).js',
   ],
 };
-
-// createJestConfig is exported this way to ensure that next/jest can load the Next.js config which is async
-module.exports = createJestConfig(customJestConfig);
