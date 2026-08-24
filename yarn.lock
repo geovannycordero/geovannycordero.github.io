@@ -1078,9 +1078,9 @@
     pretty-format "^27.0.2"
 
 "@testing-library/jest-dom@^7.0.0":
-  version "7.0.0"
-  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-7.0.0.tgz#1d0d606265c297a3a8f5e31680044fed12b7eec3"
-  integrity sha512-HKAH9C6mBo5yBG6yRO5i43L2iisencAo5z+o5P/saHUoY+miC5ivXRxHBJcFyB5ypPNxHJdK3BoF/3O4DIptMg==
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/@testing-library/jest-dom/-/jest-dom-7.0.1.tgz#649a9a8b2039f28d29f9f7a46eba9a8b727f811e"
+  integrity sha512-oMDTC3oA+6CXSO2JZnvOI7CA6oVub6kij5ggk9ohwye5slmkwxYDXcPOVxgMw/RQlticjtO0C1RZkR97HgrWMw==
   dependencies:
     "@adobe/css-tools" "^4.4.0"
     aria-query "^5.0.0"
@@ -2098,6 +2098,11 @@ fdir@^6.5.0:
   resolved "https://registry.yarnpkg.com/fdir/-/fdir-6.5.0.tgz#ed2ab967a331ade62f18d077dae192684d50d350"
   integrity sha512-tIbYtZbucOs0BRGqPJkshJUYdL+SDH7dVM8gjy+ERp3WAUjLEFJE+02kanyHtwjWOnwrKYBiwAmM0p4kLJAnXg==
 
+fflate@0.7.3:
+  version "0.7.3"
+  resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.7.3.tgz#288b034ff0e9c380eaa2feff48c787b8371b7fa5"
+  integrity sha512-0Zz1jOzJWERhyhsimS54VTqOteCNwRtIlh8isdL0AXLo0g7xNTfTL7oWrkmCnPhZGocKIkWHBistBrrpoNH3aw==
+
 fflate@^0.7.3:
   version "0.7.5"
   resolved "https://registry.yarnpkg.com/fflate/-/fflate-0.7.5.tgz#1dfcb7189bc104d599da0436eace14ed26de879f"
@@ -2255,6 +2260,11 @@ gray-matter@latest:
     kind-of "^6.0.2"
     section-matter "^1.0.0"
     strip-bom-string "^1.0.0"
+
+harfbuzzjs@0.10.0:
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/harfbuzzjs/-/harfbuzzjs-0.10.0.tgz#7d447d8a122fdc58bcb8b5156799bb8a19e9a20d"
+  integrity sha512-SN8LVwCOzvTq3OPNd0+EAghgXugItz56wst567D1vs7LnnKGWprhi3EG58aVOBwhN8HEbQxL4I9NDWkcXUutRw==
 
 has-flag@^4.0.0:
   version "4.0.0"
@@ -4049,10 +4059,10 @@ rrweb-cssom@^0.8.0:
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
   integrity sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==
 
-satori@^0.29.0:
-  version "0.29.0"
-  resolved "https://registry.yarnpkg.com/satori/-/satori-0.29.0.tgz#dd74990b7cc13d68058b6eb5f0a84298cf8047fe"
-  integrity sha512-fPAfrwNaIQ7EsJLhY382STEqpczN6ZEH9NsKXDQgRcxUXNNPB73iAjSshzFwTaaScT68pxV0pmG6TBzDQ4sEGw==
+satori@^0.33.2:
+  version "0.33.2"
+  resolved "https://registry.yarnpkg.com/satori/-/satori-0.33.2.tgz#213b103cf8666e8a83d348e9e43cd28bca0fc7e5"
+  integrity sha512-OXs7myhwHJq68lzJcQ6ETZiW5ZhcCRSJWS/PhJBWVDRhd7vCKD8OfOHHhD2/e+14pgPhwX/Gj3EVsRlWe21UaQ==
   dependencies:
     "@shuding/opentype.js" "1.4.0-beta.0"
     css-background-parser "^0.1.0"
@@ -4061,6 +4071,8 @@ satori@^0.29.0:
     css-to-react-native "^3.0.0"
     emoji-regex-xs "^2.0.1"
     escape-html "^1.0.3"
+    fflate "0.7.3"
+    harfbuzzjs "0.10.0"
     linebreak "^1.1.0"
     parse-css-color "^0.2.1"
     postcss-value-parser "^4.2.0"
