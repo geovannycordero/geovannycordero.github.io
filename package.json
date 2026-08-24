@@ -24,7 +24,7 @@
     "eslint": "^9.39.4",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
-    "globals": "^16.4.0",
+    "globals": "^17.11.0",
     "gray-matter": "latest",
     "jest": "^30.0.4",
     "jest-axe": "^11.0.0",
