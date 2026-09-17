@@ -42,4 +42,19 @@ describe('getCaseStudies / getSideProjects', () => {
   it('every case study has a non-empty projectUrl', () => {
     getCaseStudies().forEach(p => expect(p.projectUrl).toBeTruthy());
   });
+
+  it('includes the tfg-maturity-assessment project as a featured personal project', () => {
+    const project = getAllProjects().find(p => p.id === 'tfg-maturity-assessment');
+    expect(project).toMatchObject({
+      title: 'Madurez Digital — Autodiagnóstico para PYMEs',
+      category: 'Personal',
+      featured: true,
+      projectUrl: 'https://madurez-digital-pymes-cr.com/',
+    });
+  });
+
+  it('barbershop-studio-website reflects the multi-tenant SaaS billing launch', () => {
+    const project = getAllProjects().find(p => p.id === 'barbershop-studio-website');
+    expect(project.longDescription).toMatch(/multi-tenant|self-serve/i);
+  });
 });

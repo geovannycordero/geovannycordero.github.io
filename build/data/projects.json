@@ -22,9 +22,9 @@
   },
   {
     "id": "barbershop-studio-website",
-    "title": "Barbershop Studio Landing Page",
-    "description": "Professional barbershop management system with real-time service coordination and automated reporting",
-    "longDescription": "A comprehensive barbershop management system designed to streamline operations and enhance customer service. The platform enables real-time team coordination, service assignment, automated reporting, and complete business control from a single interface. Built with modern technologies including Next.js, PostgreSQL, and Prisma, it helps barbershops recover administrative hours and focus on what matters most: their clients. Features include custom admin panels, service management, and integrated business analytics.",
+    "title": "Barbershop Studio",
+    "description": "Self-serve multi-tenant SaaS for barbershops, with plan-gated signup and manual SINPE billing",
+    "longDescription": "A multi-tenant barbershop management SaaS that grew from a single-client admin tool into a self-serve product. New shops sign up directly, upload a SINPE payment receipt for manual billing verification, and pass through an admin review queue before getting plan-gated access — no manual onboarding required. On top of that, it keeps the original real-time team coordination, service assignment, automated reporting, and custom admin panels. Built with Next.js, PostgreSQL, and Prisma, with receipts stored via Cloudflare R2.",
     "image": "/images/projects/barbershop-studio.png",
     "technologies": [
       "PostgreSQL",
@@ -40,8 +40,8 @@
     "githubUrl": "",
     "category": "Outsourcing",
     "featured": true,
-    "completedDate": "2025-10",
-    "outcome": "Recovers hours of admin time per week via automated reporting and a custom staff-coordination panel."
+    "completedDate": "2026-08",
+    "outcome": "Turned a single-tenant admin tool into a self-serve SaaS product — new shops sign up, upload a SINPE receipt, and get plan-gated access without manual onboarding."
   },
   {
     "id": "dc-drip-website",
@@ -133,6 +133,28 @@
     "completedDate": "2025-03",
     "employer": "Pernix Solutions",
     "experienceEntryId": "pernix-solutions"
+  },
+  {
+    "id": "tfg-maturity-assessment",
+    "title": "Madurez Digital — Autodiagnóstico para PYMEs",
+    "description": "AI-guided digital maturity self-assessment for Costa Rican SMEs, built as a Master's thesis project",
+    "longDescription": "A digital maturity assessment platform for Costa Rican tech SMEs, built for a Master's in Business Administration thesis (UNED Costa Rica). Users sign up, then have a guided conversation with Claude (Anthropic) that scores them across 4 categories, 10 dimensions, and ~40 domains on a 5-level maturity scale, then get a dashboard with charts and prioritized recommendations. Passwordless email-OTP auth, streaming SSE chat, and a scoring engine built on Next.js, PostgreSQL, and Prisma.",
+    "image": "/images/projects/tfg-maturity-assessment.png",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "PostgreSQL",
+      "Prisma",
+      "Auth.js",
+      "Jest",
+      "Playwright"
+    ],
+    "projectUrl": "https://madurez-digital-pymes-cr.com/",
+    "githubUrl": "https://github.com/geovannycordero/tfg-maturity-assessment",
+    "category": "Personal",
+    "featured": true,
+    "completedDate": "2026-09"
   },
   {
     "id": "charts-example",
