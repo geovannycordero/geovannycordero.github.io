@@ -28,7 +28,8 @@
       "Node.js",
       "Express",
       ".NET",
-      "GraphQL"
+      "GraphQL",
+      "Auth.js"
     ]
   },
   {
@@ -52,7 +53,7 @@
   },
   {
     "title": "Testing & Code Quality",
-    "skills": ["Jest", "Cypress", "ESLint", "Prettier"]
+    "skills": ["Jest", "Playwright", "Cypress", "ESLint", "Prettier"]
   },
   {
     "title": "Version Control",
