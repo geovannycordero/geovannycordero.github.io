@@ -41,7 +41,8 @@
     "category": "Outsourcing",
     "featured": true,
     "completedDate": "2026-08",
-    "outcome": "Turned a single-tenant admin tool into a self-serve SaaS product — new shops sign up, upload a SINPE receipt, and get plan-gated access without manual onboarding."
+    "outcome": "Turned a single-tenant admin tool into a self-serve SaaS product — new shops sign up, upload a SINPE receipt, and get plan-gated access without manual onboarding.",
+    "caseStudy": true
   },
   {
     "id": "dc-drip-website",
@@ -138,7 +139,7 @@
     "id": "tfg-maturity-assessment",
     "title": "Madurez Digital — Autodiagnóstico para PYMEs",
     "description": "AI-guided digital maturity self-assessment for Costa Rican SMEs, built as a Master's thesis project",
-    "longDescription": "A digital maturity assessment platform for Costa Rican tech SMEs, built for a Master's in Business Administration thesis (UNED Costa Rica). Users sign up, then have a guided conversation with Claude (Anthropic) that scores them across 4 categories, 10 dimensions, and ~40 domains on a 5-level maturity scale, then get a dashboard with charts and prioritized recommendations. Passwordless email-OTP auth, streaming SSE chat, and a scoring engine built on Next.js, PostgreSQL, and Prisma.",
+    "longDescription": "A digital maturity assessment platform for Costa Rican tech SMEs, built for a Master's in Business Administration thesis (UNED Costa Rica). Users sign up, pass an admin approval gate, then have a guided conversation with Claude (Anthropic) that scores them across 4 categories, 10 dimensions, and ~40 domains on a 5-level maturity scale, then get a dashboard with charts and prioritized recommendations. Passwordless email-OTP auth, streaming SSE chat, and a scoring engine built on Next.js, PostgreSQL, and Prisma.",
     "image": "/images/projects/tfg-maturity-assessment.png",
     "technologies": [
       "Next.js",
@@ -151,10 +152,36 @@
       "Playwright"
     ],
     "projectUrl": "https://madurez-digital-pymes-cr.com/",
-    "githubUrl": "https://github.com/geovannycordero/tfg-maturity-assessment",
+    "githubUrl": "",
     "category": "Personal",
     "featured": true,
-    "completedDate": "2026-09"
+    "completedDate": "2026-09",
+    "caseStudy": true,
+    "outcome": "Turned a Master's thesis framework into a live product — SMEs get a scored maturity profile and prioritized roadmap from a guided AI conversation instead of a static questionnaire."
+  },
+  {
+    "id": "dia-balance",
+    "title": "Dia Balance",
+    "description": "Mobile-first diabetes management app for logging glucose, insulin, meals, exercise and sleep, with trend analytics",
+    "longDescription": "A mobile-first diabetes management web app. Users log blood glucose (with fasting/pre-meal/post-meal context), insulin, medication, food, exercise, sleep, symptoms, weight and hydration from a quick-add action logger, with an offline queue that syncs when the connection returns. An analytics view charts glucose trends, insulin-vs-glucose correlations, exercise impact and sleep quality over custom date ranges, and exports filtered data as PDF reports. Invite-only access via passwordless email OTP (NextAuth + Resend), built on Next.js App Router, PostgreSQL and Prisma, with S3-backed file storage.",
+    "image": "/images/projects/dia-balance.png",
+    "technologies": [
+      "Next.js",
+      "TypeScript",
+      "TailwindCSS",
+      "PostgreSQL",
+      "Prisma",
+      "Auth.js",
+      "Jest",
+      "Playwright"
+    ],
+    "projectUrl": "https://dia-balance-production.up.railway.app/",
+    "githubUrl": "https://github.com/geovannycordero/dia-balance",
+    "category": "Personal",
+    "featured": false,
+    "completedDate": "2026-09",
+    "caseStudy": true,
+    "outcome": "Replaced scattered notes and spreadsheets with one daily logger and clinical-style glucose analytics (time in range, GMI, variability, AGP) that export straight to a PDF for doctor visits."
   },
   {
     "id": "charts-example",
@@ -162,7 +189,14 @@
     "description": "Charts example built with Vue and Chart.js",
     "longDescription": "A charts example built with Vue and Chart.js. It features a modern design, responsive layout, SEO optimization, and dynamic content management.",
     "image": "/images/projects/chart-example.png",
-    "technologies": ["Vue", "Chart.js", "HTML", "CSS", "TypeScript", "Jest"],
+    "technologies": [
+      "Vue",
+      "Chart.js",
+      "HTML",
+      "CSS",
+      "TypeScript",
+      "Jest"
+    ],
     "projectUrl": "",
     "githubUrl": "https://github.com/geovannycordero/vue-project-nist-charts-example",
     "category": "Work",

@@ -7,6 +7,7 @@ const { getSideProjects } = require('../content/projects');
 
 function renderProjectsPage() {
   const projects = getSideProjects();
+  const clientCount = projects.filter(p => p.category === 'Outsourcing').length;
   const workCount = projects.filter(p => p.category === 'Work').length;
   const personalCount = projects.filter(p => p.category === 'Personal').length;
 
@@ -42,10 +43,10 @@ function renderProjectsPage() {
 
             <div class="text-left mb-6">
               <h1 class="font-serif text-4xl font-normal text-ink mb-4">Side Projects</h1>
-              <p class="text-lg text-ink-muted">Personal builds and work delivered directly through an employer — smaller in scope than the client engagements below, but shipped and live.</p>
+              <p class="text-lg text-ink-muted">Client websites, personal builds, and work delivered directly through an employer — smaller in scope than the case studies, but shipped and live.</p>
             </div>
 
-            <a href="/#work" class="inline-flex items-center gap-2 text-sm font-medium text-accent-brand hover:underline">Looking for client work? See case studies ${icon('arrow-right', 'h-4 w-4')}</a>
+            <a href="/#work" class="inline-flex items-center gap-2 text-sm font-medium text-accent-brand hover:underline">Looking for in-depth work? See case studies ${icon('arrow-right', 'h-4 w-4')}</a>
           </div>
 
           <div id="projects-content" class="scroll-mt-24 mt-8">
@@ -53,6 +54,7 @@ function renderProjectsPage() {
               <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                 <p class="text-ink-muted"><span class="font-semibold text-accent-brand">${projects.length}</span> side projects showcased</p>
                 <div class="flex items-center gap-4 text-sm text-ink-muted">
+                  <div class="flex items-center gap-1">${icon('user', 'h-4 w-4')}<span>${clientCount} Client</span></div>
                   <div class="flex items-center gap-1">${icon('briefcase', 'h-4 w-4')}<span>${workCount} Work</span></div>
                   <div class="flex items-center gap-1">${icon('code', 'h-4 w-4')}<span>${personalCount} Personal</span></div>
                 </div>

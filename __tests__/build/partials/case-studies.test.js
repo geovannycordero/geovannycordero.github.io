@@ -37,10 +37,11 @@ describe('renderCaseStudies', () => {
     });
   });
 
-  it('does not render personal or work projects', () => {
+  it('does not render projects that are not flagged as case studies', () => {
     const body = mount();
     expect(queryByText(body, 'My Portfolio Website')).toBeNull();
     expect(queryByText(body, 'Caja de Ande Seguros')).toBeNull();
+    expect(queryByText(body, 'DC Drip Website')).toBeNull();
   });
 
   it('carries id="work" so the nav anchor resolves', () => {

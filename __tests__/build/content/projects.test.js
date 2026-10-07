@@ -24,8 +24,28 @@ describe('getAllProjects', () => {
 });
 
 describe('getCaseStudies / getSideProjects', () => {
-  it('getCaseStudies returns only Outsourcing projects', () => {
-    getCaseStudies().forEach(p => expect(p.category).toBe('Outsourcing'));
+  it('getCaseStudies returns only projects flagged caseStudy', () => {
+    getCaseStudies().forEach(p => expect(p.caseStudy).toBe(true));
+  });
+
+  it('features Barbershop Studio, Madurez Digital and Dia Balance as case studies', () => {
+    expect(getCaseStudies().map(p => p.id).sort()).toEqual([
+      'barbershop-studio-website',
+      'dia-balance',
+      'tfg-maturity-assessment',
+    ]);
+  });
+
+  it('keeps the other client sites on the projects page with their Outsourcing label', () => {
+    const sideIds = getSideProjects().map(p => p.id);
+    ['dc-drip-website', 'lg-services-website', '4-mk-firearms-llc-website'].forEach(id => {
+      expect(sideIds).toContain(id);
+      expect(getSideProjects().find(p => p.id === id).category).toBe('Outsourcing');
+    });
+  });
+
+  it('every case study has an outcome', () => {
+    getCaseStudies().forEach(p => expect(p.outcome).toBeTruthy());
   });
 
   it('getSideProjects returns the complement of getCaseStudies', () => {
@@ -50,6 +70,17 @@ describe('getCaseStudies / getSideProjects', () => {
       category: 'Personal',
       featured: true,
       projectUrl: 'https://madurez-digital-pymes-cr.com/',
+      githubUrl: '', // repo is private; a link would 404 for visitors
+    });
+  });
+
+  it('includes dia-balance as a non-featured personal project', () => {
+    const project = getAllProjects().find(p => p.id === 'dia-balance');
+    expect(project).toMatchObject({
+      category: 'Personal',
+      featured: false,
+      projectUrl: 'https://dia-balance-production.up.railway.app/',
+      githubUrl: 'https://github.com/geovannycordero/dia-balance',
     });
   });
 

@@ -8,14 +8,14 @@ function getAllProjects() {
   });
 }
 
-// Client/freelance work, framed as outcome-based case studies.
+// Hand-picked projects (`caseStudy: true`), framed as outcome-based case studies.
 function getCaseStudies() {
-  return getAllProjects().filter(p => p.category === 'Outsourcing');
+  return getAllProjects().filter(p => p.caseStudy);
 }
 
-// Personal projects and work delivered directly through an employer.
+// Everything else: client sites, personal builds, and employer work.
 function getSideProjects() {
-  return getAllProjects().filter(p => p.category !== 'Outsourcing');
+  return getAllProjects().filter(p => !p.caseStudy);
 }
 
 module.exports = { getAllProjects, getCaseStudies, getSideProjects };
