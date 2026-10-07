@@ -1,0 +1,6 @@
+Contact: https://github.com/geovannycordero/geovannycordero.github.io/security/advisories/new
+Contact: mailto:geovanny@pm.me
+Expires: 2027-10-01T00:00:00.000Z
+Preferred-Languages: en, es
+Canonical: https://geovannycordero.com/.well-known/security.txt
+Policy: https://github.com/geovannycordero/geovannycordero.github.io/security/policy

@@ -40,6 +40,8 @@ jobs:
         uses: actions/upload-pages-artifact@v5
         with:
           path: ./docs
+          # Hidden files are excluded by default; needed so public/.well-known/security.txt ships
+          include-hidden-files: true
 
   deploy:
     environment:
