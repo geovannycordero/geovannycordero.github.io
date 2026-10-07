@@ -41,7 +41,8 @@
     "category": "Outsourcing",
     "featured": true,
     "completedDate": "2026-08",
-    "outcome": "Turned a single-tenant admin tool into a self-serve SaaS product — new shops sign up, upload a SINPE receipt, and get plan-gated access without manual onboarding."
+    "outcome": "Turned a single-tenant admin tool into a self-serve SaaS product — new shops sign up, upload a SINPE receipt, and get plan-gated access without manual onboarding.",
+    "caseStudy": true
   },
   {
     "id": "dc-drip-website",
@@ -154,7 +155,9 @@
     "githubUrl": "",
     "category": "Personal",
     "featured": true,
-    "completedDate": "2026-09"
+    "completedDate": "2026-09",
+    "caseStudy": true,
+    "outcome": "Turned a Master's thesis framework into a live product — SMEs get a scored maturity profile and prioritized roadmap from a guided AI conversation instead of a static questionnaire."
   },
   {
     "id": "dia-balance",
@@ -176,7 +179,9 @@
     "githubUrl": "https://github.com/geovannycordero/dia-balance",
     "category": "Personal",
     "featured": false,
-    "completedDate": "2026-09"
+    "completedDate": "2026-09",
+    "caseStudy": true,
+    "outcome": "Replaced scattered notes and spreadsheets with one daily logger and clinical-style glucose analytics (time in range, GMI, variability, AGP) that export straight to a PDF for doctor visits."
   },
   {
     "id": "charts-example",

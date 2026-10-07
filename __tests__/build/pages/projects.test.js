@@ -34,6 +34,14 @@ describe('renderProjectsPage', () => {
     expect(list.itemListElement[0]).toMatchObject({ '@type': 'ListItem', position: 1 });
   });
 
+  it('counts client, work and personal projects in the summary bar', () => {
+    const text = parse().body.textContent;
+    const count = category => getSideProjects().filter(p => p.category === category).length;
+    expect(text).toContain(`${count('Outsourcing')} Client`);
+    expect(text).toContain(`${count('Work')} Work`);
+    expect(text).toContain(`${count('Personal')} Personal`);
+  });
+
   it('links back to case studies on the homepage', () => {
     const doc = parse();
     expect(doc.querySelector('a[href="/#work"]')).toBeTruthy();
