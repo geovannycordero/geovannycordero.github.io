@@ -50,6 +50,17 @@ describe('getCaseStudies / getSideProjects', () => {
       category: 'Personal',
       featured: true,
       projectUrl: 'https://madurez-digital-pymes-cr.com/',
+      githubUrl: '', // repo is private; a link would 404 for visitors
+    });
+  });
+
+  it('includes dia-balance as a non-featured personal project', () => {
+    const project = getAllProjects().find(p => p.id === 'dia-balance');
+    expect(project).toMatchObject({
+      category: 'Personal',
+      featured: false,
+      projectUrl: 'https://dia-balance-production.up.railway.app/',
+      githubUrl: 'https://github.com/geovannycordero/dia-balance',
     });
   });
 
