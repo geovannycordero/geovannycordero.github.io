@@ -24,9 +24,7 @@ function hslToRgb(h, s, l) {
   const c = (1 - Math.abs(2 * l - 1)) * s;
   const hPrime = (((h % 360) + 360) % 360) / 60;
   const x = c * (1 - Math.abs((hPrime % 2) - 1));
-  let r1 = 0;
-  let g1 = 0;
-  let b1 = 0;
+  let r1, g1, b1;
 
   if (hPrime >= 0 && hPrime < 1) [r1, g1, b1] = [c, x, 0];
   else if (hPrime < 2) [r1, g1, b1] = [x, c, 0];
