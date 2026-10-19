@@ -35,7 +35,7 @@
     "remark": "latest",
     "remark-gfm": "^4.0.1",
     "remark-html": "latest",
-    "satori": "^0.47.1",
+    "satori": "^0.62.0",
     "tailwindcss": "^4"
   },
   "resolutions": {
